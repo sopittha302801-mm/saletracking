@@ -1,14 +1,242 @@
 [
-  { "category": "POSTPAY", "shopCode": "80100805", "shopName": "True Shop Lotus's Phatthanakan", "typeShop": "Non Matching", "targetDay": 1395, "targetWeek": 11157, "days": [599, 399, 399, 499], "sumWk1": 1896, "pctAch": 17.0, "gapWeek": -9261, "rrWeek": 3792, "lWeek": 1633, "wow": 132.21 },
-  { "category": "POSTPAY", "shopCode": "80101296", "shopName": "True Shop Paradise Park Srinakarin", "typeShop": "Non Matching", "targetDay": 3426, "targetWeek": 27411, "days": [4492, 2694, 3347, 3595], "sumWk1": 14128, "pctAch": 51.5, "gapWeek": -13283, "rrWeek": 28256, "lWeek": 15584, "wow": 81.31 },
-  { "category": "POSTPAY", "shopCode": "80101632", "shopName": "True Shop Lotus's Bangna-trad", "typeShop": "Non Matching", "targetDay": 1671, "targetWeek": 13369, "days": [2347, 1198, 2675, 1598], "sumWk1": 7818, "pctAch": 58.5, "gapWeek": -5551, "rrWeek": 15636, "lWeek": 6927, "wow": 125.73 },
-  { "category": "POSTPAY", "shopCode": "10055255", "shopName": "True Shop Lotus's Bang Plee", "typeShop": "Lotus's", "targetDay": 521, "targetWeek": 4168, "days": [399, 399, 399, 399], "sumWk1": 1596, "pctAch": 38.3, "gapWeek": -2572, "rrWeek": 3192, "lWeek": 0, "wow": null },
-  { "category": "POSTPAY", "shopCode": "10055257", "shopName": "True Shop Lotus's Onnut 80", "typeShop": "Lotus's", "targetDay": 283, "targetWeek": 2264, "days": [0, 0, 699, 0], "sumWk1": 699, "pctAch": 30.9, "gapWeek": -1565, "rrWeek": 1398, "lWeek": 0, "wow": null },
-  { "category": "POSTPAY", "shopCode": "10055285", "shopName": "True Shop Lotus's Sriwaree", "typeShop": "Lotus's", "targetDay": 283, "targetWeek": 2264, "days": [0, 0, 0, 998], "sumWk1": 998, "pctAch": 44.1, "gapWeek": -1266, "rrWeek": 1996, "lWeek": 464, "wow": 330.17 },
-  { "category": "TOL", "shopCode": "80100805", "shopName": "True Shop Lotus's Phatthanakan", "typeShop": "Non Matching", "targetDay": 0, "targetWeek": 1, "days": [0, 0, 0, 0], "sumWk1": 0, "pctAch": 0.0, "gapWeek": -1, "rrWeek": 0, "lWeek": 3, "wow": -100.00 },
-  { "category": "TOL", "shopCode": "80101296", "shopName": "True Shop Paradise Park Srinakarin", "typeShop": "Non Matching", "targetDay": 1, "targetWeek": 8, "days": [1, 1, 1, 0], "sumWk1": 3, "pctAch": 37.5, "gapWeek": -5, "rrWeek": 6, "lWeek": 6, "wow": 0.00 },
-  { "category": "TOL", "shopCode": "80101632", "shopName": "True Shop Lotus's Bangna-trad", "typeShop": "Non Matching", "targetDay": 0, "targetWeek": 1, "days": [0, 0, 1, 1], "sumWk1": 2, "pctAch": 200.0, "gapWeek": 1, "rrWeek": 4, "lWeek": 2, "wow": 100.00 },
-  { "category": "DEVICE", "shopCode": "80100805", "shopName": "True Shop Lotus's Phatthanakan", "typeShop": "Non Matching", "targetDay": 15000, "targetWeek": 120000, "days": [1498, 897, 897, 10748], "sumWk1": 14040, "pctAch": 11.7, "gapWeek": -105960, "rrWeek": 28080, "lWeek": 199790, "wow": -85.95 },
-  { "category": "DEVICE", "shopCode": "80101296", "shopName": "True Shop Paradise Park Srinakarin", "typeShop": "Non Matching", "targetDay": 73333, "targetWeek": 586664, "days": [32049, 57597, 36280, 37499], "sumWk1": 163425, "pctAch": 27.9, "gapWeek": -423239, "rrWeek": 326850, "lWeek": 815049, "wow": -59.90 },
-  { "category": "DEVICE", "shopCode": "80101632", "shopName": "True Shop Lotus's Bangna-trad", "typeShop": "Non Matching", "targetDay": 91667, "targetWeek": 733336, "days": [32397, 5597, 20248, 32299], "sumWk1": 90541, "pctAch": 12.3, "gapWeek": -642795, "rrWeek": 181082, "lWeek": 419280, "wow": -56.81 }
+  {
+    "category": "POSTPAY",
+    "shopCode": "80100805",
+    "shopName": "True Shop Lotus's Phatthanakan",
+    "typeShop": "Non Matching",
+    "targetDay": 1395,
+    "targetWeek": 11157,
+    "days": [
+      599,
+      399,
+      399,
+      499
+    ],
+    "sumWk1": 1896,
+    "pctAch": 17.0,
+    "gapWeek": -9261,
+    "rrWeek": 3792,
+    "lWeek": 1633,
+    "wow": 132.21
+  },
+  {
+    "category": "POSTPAY",
+    "shopCode": "80101296",
+    "shopName": "True Shop Paradise Park Srinakarin",
+    "typeShop": "Non Matching",
+    "targetDay": 3426,
+    "targetWeek": 27411,
+    "days": [
+      4492,
+      2694,
+      3347,
+      3595
+    ],
+    "sumWk1": 14128,
+    "pctAch": 51.5,
+    "gapWeek": -13283,
+    "rrWeek": 28256,
+    "lWeek": 15584,
+    "wow": 81.31
+  },
+  {
+    "category": "POSTPAY",
+    "shopCode": "80101632",
+    "shopName": "True Shop Lotus's Bangna-trad",
+    "typeShop": "Non Matching",
+    "targetDay": 1671,
+    "targetWeek": 13369,
+    "days": [
+      2347,
+      1198,
+      2675,
+      1598
+    ],
+    "sumWk1": 7818,
+    "pctAch": 58.5,
+    "gapWeek": -5551,
+    "rrWeek": 15636,
+    "lWeek": 6927,
+    "wow": 125.73
+  },
+  {
+    "category": "POSTPAY",
+    "shopCode": "10055255",
+    "shopName": "True Shop Lotus's Bang Plee",
+    "typeShop": "Lotus's",
+    "targetDay": 521,
+    "targetWeek": 4168,
+    "days": [
+      399,
+      399,
+      399,
+      399
+    ],
+    "sumWk1": 1596,
+    "pctAch": 38.3,
+    "gapWeek": -2572,
+    "rrWeek": 3192,
+    "lWeek": 0,
+    "wow": null
+  },
+  {
+    "category": "POSTPAY",
+    "shopCode": "10055257",
+    "shopName": "True Shop Lotus's Onnut 80",
+    "typeShop": "Lotus's",
+    "targetDay": 283,
+    "targetWeek": 2264,
+    "days": [
+      0,
+      0,
+      699,
+      0
+    ],
+    "sumWk1": 699,
+    "pctAch": 30.9,
+    "gapWeek": -1565,
+    "rrWeek": 1398,
+    "lWeek": 0,
+    "wow": null
+  },
+  {
+    "category": "POSTPAY",
+    "shopCode": "10055285",
+    "shopName": "True Shop Lotus's Sriwaree",
+    "typeShop": "Lotus's",
+    "targetDay": 283,
+    "targetWeek": 2264,
+    "days": [
+      0,
+      0,
+      0,
+      998
+    ],
+    "sumWk1": 998,
+    "pctAch": 44.1,
+    "gapWeek": -1266,
+    "rrWeek": 1996,
+    "lWeek": 464,
+    "wow": 330.17
+  },
+  {
+    "category": "TOL",
+    "shopCode": "80100805",
+    "shopName": "True Shop Lotus's Phatthanakan",
+    "typeShop": "Non Matching",
+    "targetDay": 0,
+    "targetWeek": 1,
+    "days": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sumWk1": 0,
+    "pctAch": 0.0,
+    "gapWeek": -1,
+    "rrWeek": 0,
+    "lWeek": 3,
+    "wow": -100.0
+  },
+  {
+    "category": "TOL",
+    "shopCode": "80101296",
+    "shopName": "True Shop Paradise Park Srinakarin",
+    "typeShop": "Non Matching",
+    "targetDay": 1,
+    "targetWeek": 8,
+    "days": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "sumWk1": 3,
+    "pctAch": 37.5,
+    "gapWeek": -5,
+    "rrWeek": 6,
+    "lWeek": 6,
+    "wow": 0.0
+  },
+  {
+    "category": "TOL",
+    "shopCode": "80101632",
+    "shopName": "True Shop Lotus's Bangna-trad",
+    "typeShop": "Non Matching",
+    "targetDay": 0,
+    "targetWeek": 1,
+    "days": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "sumWk1": 2,
+    "pctAch": 200.0,
+    "gapWeek": 1,
+    "rrWeek": 4,
+    "lWeek": 2,
+    "wow": 100.0
+  },
+  {
+    "category": "DEVICE",
+    "shopCode": "80100805",
+    "shopName": "True Shop Lotus's Phatthanakan",
+    "typeShop": "Non Matching",
+    "targetDay": 15000,
+    "targetWeek": 120000,
+    "days": [
+      1498,
+      897,
+      897,
+      10748
+    ],
+    "sumWk1": 14040,
+    "pctAch": 11.7,
+    "gapWeek": -105960,
+    "rrWeek": 28080,
+    "lWeek": 199790,
+    "wow": -85.95
+  },
+  {
+    "category": "DEVICE",
+    "shopCode": "80101296",
+    "shopName": "True Shop Paradise Park Srinakarin",
+    "typeShop": "Non Matching",
+    "targetDay": 73333,
+    "targetWeek": 586664,
+    "days": [
+      32049,
+      57597,
+      36280,
+      37499
+    ],
+    "sumWk1": 163425,
+    "pctAch": 27.9,
+    "gapWeek": -423239,
+    "rrWeek": 326850,
+    "lWeek": 815049,
+    "wow": -59.9
+  },
+  {
+    "category": "DEVICE",
+    "shopCode": "80101632",
+    "shopName": "True Shop Lotus's Bangna-trad",
+    "typeShop": "Non Matching",
+    "targetDay": 91667,
+    "targetWeek": 733336,
+    "days": [
+      32397,
+      5597,
+      20248,
+      32299
+    ],
+    "sumWk1": 90541,
+    "pctAch": 12.3,
+    "gapWeek": -642795,
+    "rrWeek": 181082,
+    "lWeek": 419280,
+    "wow": -56.81
+  }
 ]
