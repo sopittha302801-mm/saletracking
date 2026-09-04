@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sale Tracking Dashboard — BMAIV</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg-page:#f4f6f8;
+    --bg-card:#ffffff;
+    --bg-header:#ffffff;
+    --border:#e5e9ee;
+    --text-primary:#1a2433;
+    --text-secondary:#6b7684;
+    --accent:#2f6fed;
+    --accent-soft:#eaf1fe;
+    --positive:#1a9c6b;
+    --negative:#e0473f;
+    --radius:12px;
+    --gap:18px;
+    --postpay:#2f6fed;
+    --tol:#f2994a;
+    --device:#9b51e0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg-page);
+    color:var(--text-primary);
+  }
+  .dashboard-container{max-width:1360px;margin:0 auto;padding:24px;}
+
+  .dashboard-header{
+    background:var(--bg-header);
+    border:1px solid var(--border);
+    padding:22px 26px;
+    border-radius:var(--radius);
+    margin-bottom:var(--gap);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    box-shadow:0 1px 3px rgba(20,30,45,0.04);
+  }
+  .dashboard-header h1{font-size:21px;font-weight:700;margin:0 0 4px;}
+  .dashboard-header .subtitle{font-size:13px;color:var(--text-secondary);}
+  .filters{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+  .filter-group{display:flex;flex-direction:column;gap:4px;}
+  .filter-group label{font-size:11px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.4px;font-weight:600;}
+  .filter-group select{
+    padding:8px 12px;border:1px solid var(--border);border-radius:8px;
+    background:#fbfcfd;color:var(--text-primary);font-size:13px;min-width:170px;
+  }
+
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--gap);margin-bottom:var(--gap);}
+  .kpi-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 3px rgba(20,30,45,0.04);}
+  .kpi-label{font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;font-weight:600;}
+  .kpi-value{font-size:26px;font-weight:700;margin-bottom:6px;}
+  .kpi-change{font-size:12.5px;font-weight:600;}
+  .kpi-change.positive{color:var(--positive);}
+  .kpi-change.negative{color:var(--negative);}
+  .kpi-sub{font-size:12px;color:var(--text-secondary);}
+
+  .chart-row{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--gap);margin-bottom:var(--gap);}
+  .chart-row.secondary{grid-template-columns:1fr 1fr;}
+  .chart-container{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 3px rgba(20,30,45,0.04);}
+  .chart-container h3{font-size:14px;font-weight:700;margin:0 0 4px;}
+  .chart-container .chart-sub{font-size:12px;color:var(--text-secondary);margin-bottom:14px;}
+  .chart-container canvas{max-height:300px;}
+
+  .legend-pills{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .pill{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+
+  .table-section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 3px rgba(20,30,45,0.04);overflow-x:auto;}
+  .table-section h3{font-size:14px;font-weight:700;margin:0 0 14px;}
+  .data-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:920px;}
+  .data-table thead th{
+    text-align:left;padding:9px 10px;border-bottom:2px solid var(--border);
+    color:var(--text-secondary);font-weight:700;font-size:11px;text-transform:uppercase;
+    letter-spacing:.4px;white-space:nowrap;cursor:pointer;user-select:none;
+  }
+  .data-table thead th:hover{color:var(--text-primary);background:#f8fafc;}
+  .data-table thead th.sorted::after{content:" \25BE";}
+  .data-table tbody td{padding:9px 10px;border-bottom:1px solid #f0f2f5;white-space:nowrap;}
+  .data-table tbody tr:hover{background:#f8fafc;}
+  .data-table tbody tr:last-child td{border-bottom:none;}
+  .cat-badge{
+    display:inline-block;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700;
+  }
+  .cat-badge.POSTPAY{background:var(--accent-soft);color:var(--postpay);}
+  .cat-badge.TOL{background:#fdf1e6;color:var(--tol);}
+  .cat-badge.DEVICE{background:#f4ebfc;color:var(--device);}
+  .ach-bar-wrap{display:flex;align-items:center;gap:8px;}
+  .ach-bar-bg{width:70px;height:6px;background:#eef1f4;border-radius:4px;overflow:hidden;}
+  .ach-bar-fill{height:100%;border-radius:4px;background:var(--accent);}
+  .num-pos{color:var(--positive);font-weight:600;}
+  .num-neg{color:var(--negative);font-weight:600;}
+
+  .dashboard-footer{text-align:center;font-size:12px;color:var(--text-secondary);padding:18px 0 4px;}
+
+  @media (max-width:900px){
+    .chart-row, .chart-row.secondary{grid-template-columns:1fr;}
+  }
+  @media (max-width:768px){
+    .dashboard-header{flex-direction:column;align-items:flex-start;}
+    .kpi-row{grid-template-columns:repeat(2,1fr);}
+  }
+  @media print{
+    body{background:#fff;}
+    .filters{display:none;}
+    .chart-container{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="dashboard-container">
+
+  <header class="dashboard-header">
+    <div>
+      <h1>Sale Tracking — BMAIV</h1>
+      <div class="subtitle">Week 1 performance across POSTPAY · TOL · DEVICE</div>
+      <div class="subtitle" id="last-updated" style="margin-top:2px;">Loading data…</div>
+    </div>
+    <div class="filters">
+      <div class="filter-group">
+        <label>Category</label>
+        <select id="filter-category">
+          <option value="ALL">All Categories</option>
+          <option value="POSTPAY">POSTPAY</option>
+          <option value="TOL">TOL</option>
+          <option value="DEVICE">DEVICE</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Shop</label>
+        <select id="filter-shop">
+          <option value="ALL">All Shops</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <section class="kpi-row" id="kpi-row"></section>
+
+  <section class="chart-row">
+    <div class="chart-container">
+      <h3>Week 1 Sales vs Target by Shop</h3>
+      <div class="chart-sub">Sum of Week 1 sales against Week 1 target, per shop</div>
+      <canvas id="chart-sales-target"></canvas>
+    </div>
+    <div class="chart-container">
+      <h3>Category Mix</h3>
+      <div class="chart-sub">Share of total Week 1 sales</div>
+      <canvas id="chart-category-mix"></canvas>
+    </div>
+  </section>
+
+  <section class="chart-row secondary">
+    <div class="chart-container">
+      <h3>Daily Sales Trend</h3>
+      <div class="chart-sub">Date 1 – Date 4 (Dates 5–8 not yet recorded)</div>
+      <canvas id="chart-daily-trend"></canvas>
+    </div>
+    <div class="chart-container">
+      <h3>Achievement % by Shop</h3>
+      <div class="chart-sub">Week 1 sales as % of Week 1 target</div>
+      <canvas id="chart-achievement"></canvas>
+    </div>
+  </section>
+
+  <section class="table-section">
+    <h3>Shop Detail</h3>
+    <table class="data-table" id="data-table">
+      <thead>
+        <tr>
+          <th data-key="category">Category</th>
+          <th data-key="shopCode">Shop Code</th>
+          <th data-key="shopName">Shop Name</th>
+          <th data-key="typeShop">Type</th>
+          <th data-key="targetDay">Target/Day</th>
+          <th data-key="targetWeek">Target Wk1</th>
+          <th data-key="sumWk1">Sum Wk1</th>
+          <th data-key="pctAch">% Ach Wk1</th>
+          <th data-key="gapWeek">Gap Week</th>
+          <th data-key="rrWeek">RR Week</th>
+          <th data-key="lWeek">L Week</th>
+          <th data-key="wow">WoW</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </section>
+
+  <footer class="dashboard-footer">
+    Data as of Week 1 (Date 1–4 recorded) · Source: SALE TRACKING FRM BMAIV
+  </footer>
+</div>
+
+<script>
+const CAT_COLORS = { POSTPAY: '#2f6fed', TOL: '#f2994a', DEVICE: '#9b51e0' };
+const DATA_URL = 'data/data.json';
+// Cache-bust so browsers/CDNs don't serve a stale copy between hourly updates
+const CACHE_BUSTED_URL = DATA_URL + '?t=' + Date.now();
+
+function fmt(n){
+  if(n===null||n===undefined) return '—';
+  return Number(n).toLocaleString(undefined,{maximumFractionDigits:0});
+}
+function fmtPct(n){ return (n===null||n===undefined) ? '—' : n.toFixed(1)+'%'; }
+
+class Dashboard{
+  constructor(data){
+    this.rawData = data;
+    this.filtered = data;
+    this.sortKey = null;
+    this.sortAsc = true;
+    this.charts = {};
+    this.init();
+  }
+  init(){
+    this.populateShopFilter();
+    this.bindFilters();
+    this.render();
+  }
+  populateShopFilter(){
+    const sel = document.getElementById('filter-shop');
+    const seen = new Set();
+    this.rawData.forEach(r=>{
+      const key = r.shopCode+'|'+r.shopName;
+      if(!seen.has(key)){
+        seen.add(key);
+        const opt = document.createElement('option');
+        opt.value = r.shopCode;
+        opt.textContent = r.shopName;
+        sel.appendChild(opt);
+      }
+    });
+  }
+  bindFilters(){
+    document.getElementById('filter-category').addEventListener('change', ()=>this.applyFilters());
+    document.getElementById('filter-shop').addEventListener('change', ()=>this.applyFilters());
+    document.querySelectorAll('.data-table thead th').forEach(th=>{
+      th.addEventListener('click', ()=>{
+        const key = th.dataset.key;
+        if(this.sortKey===key){ this.sortAsc = !this.sortAsc; } else { this.sortKey = key; this.sortAsc = true; }
+        this.renderTable();
+      });
+    });
+  }
+  applyFilters(){
+    const cat = document.getElementById('filter-category').value;
+    const shop = document.getElementById('filter-shop').value;
+    this.filtered = this.rawData.filter(r=>{
+      if(cat!=='ALL' && r.category!==cat) return false;
+      if(shop!=='ALL' && r.shopCode!==shop) return false;
+      return true;
+    });
+    this.render();
+  }
+  render(){
+    this.renderKPIs();
+    this.renderSalesTargetChart();
+    this.renderCategoryMixChart();
+    this.renderDailyTrendChart();
+    this.renderAchievementChart();
+    this.renderTable();
+  }
+  renderKPIs(){
+    const d = this.filtered;
+    const totalSales = d.reduce((a,r)=>a+r.sumWk1,0);
+    const totalTarget = d.reduce((a,r)=>a+r.targetWeek,0);
+    const overallAch = totalTarget ? (totalSales/totalTarget*100) : 0;
+    const totalGap = d.reduce((a,r)=>a+r.gapWeek,0);
+    const kpis = [
+      { label:'Total Week 1 Sales', value: fmt(totalSales), sub: d.length+' shop record(s)' },
+      { label:'Total Week 1 Target', value: fmt(totalTarget), sub: 'across selected scope' },
+      { label:'Overall Achievement', value: overallAch.toFixed(1)+'%', changeClass: overallAch>=100?'positive':'negative', change: overallAch>=100 ? 'On/above target' : 'Below target' },
+      { label:'Total Gap to Target', value: fmt(totalGap), changeClass: totalGap>=0?'positive':'negative', change: totalGap>=0 ? 'Surplus' : 'Shortfall' },
+    ];
+    const row = document.getElementById('kpi-row');
+    row.innerHTML = kpis.map(k=>`
+      <div class="kpi-card">
+        <div class="kpi-label">${k.label}</div>
+        <div class="kpi-value">${k.value}</div>
+        ${k.change ? `<div class="kpi-change ${k.changeClass}">${k.change}</div>` : `<div class="kpi-sub">${k.sub||''}</div>`}
+      </div>
+    `).join('');
+  }
+  renderSalesTargetChart(){
+    const ctx = document.getElementById('chart-sales-target').getContext('2d');
+    const labels = this.filtered.map(r=> r.shopName.replace('True Shop ','') + ' (' + r.category + ')');
+    const sales = this.filtered.map(r=>r.sumWk1);
+    const target = this.filtered.map(r=>r.targetWeek);
+    if(this.charts.st) this.charts.st.destroy();
+    this.charts.st = new Chart(ctx, {
+      type:'bar',
+      data:{
+        labels,
+        datasets:[
+          { label:'Sum Wk1', data:sales, backgroundColor:'#2f6fed', borderRadius:4 },
+          { label:'Target Wk1', data:target, backgroundColor:'#d7e3fb', borderRadius:4 },
+        ]
+      },
+      options:{
+        responsive:true,
+        plugins:{ legend:{ position:'top', labels:{ boxWidth:10, font:{size:11} } } },
+        scales:{
+          x:{ ticks:{ font:{size:10}, maxRotation:40, minRotation:20 }, grid:{ display:false } },
+          y:{ ticks:{ font:{size:10} }, grid:{ color:'#eef1f4' } }
+        }
+      }
+    });
+  }
+  renderCategoryMixChart(){
+    const ctx = document.getElementById('chart-category-mix').getContext('2d');
+    const byCat = {};
+    this.filtered.forEach(r=>{ byCat[r.category] = (byCat[r.category]||0) + r.sumWk1; });
+    const labels = Object.keys(byCat);
+    const values = labels.map(l=>byCat[l]);
+    if(this.charts.mix) this.charts.mix.destroy();
+    this.charts.mix = new Chart(ctx, {
+      type:'doughnut',
+      data:{
+        labels,
+        datasets:[{ data:values, backgroundColor: labels.map(l=>CAT_COLORS[l]), borderWidth:2, borderColor:'#ffffff' }]
+      },
+      options:{
+        responsive:true,
+        plugins:{ legend:{ position:'bottom', labels:{ boxWidth:10, font:{size:11} } } }
+      }
+    });
+  }
+  renderDailyTrendChart(){
+    const ctx = document.getElementById('chart-daily-trend').getContext('2d');
+    const cats = ['POSTPAY','TOL','DEVICE'].filter(c => this.filtered.some(r=>r.category===c));
+    const datasets = cats.map(cat=>{
+      const rows = this.filtered.filter(r=>r.category===cat);
+      const dayTotals = [0,1,2,3].map(i => rows.reduce((a,r)=>a + (r.days[i]||0), 0));
+      return {
+        label: cat,
+        data: dayTotals,
+        borderColor: CAT_COLORS[cat],
+        backgroundColor: CAT_COLORS[cat]+'20',
+        borderWidth:2,
+        tension:0.3,
+        pointRadius:3,
+        pointHoverRadius:6,
+        fill:false,
+      };
+    });
+    if(this.charts.trend) this.charts.trend.destroy();
+    this.charts.trend = new Chart(ctx, {
+      type:'line',
+      data:{ labels:['Date 1','Date 2','Date 3','Date 4'], datasets },
+      options:{
+        responsive:true,
+        plugins:{ legend:{ position:'top', labels:{ boxWidth:10, font:{size:11} } } },
+        scales:{
+          x:{ grid:{ display:false }, ticks:{ font:{size:11} } },
+          y:{ grid:{ color:'#eef1f4' }, ticks:{ font:{size:10} } }
+        }
+      }
+    });
+  }
+  renderAchievementChart(){
+    const ctx = document.getElementById('chart-achievement').getContext('2d');
+    const rows = [...this.filtered].sort((a,b)=>b.pctAch-a.pctAch);
+    const labels = rows.map(r=> r.shopName.replace('True Shop ','') + ' · ' + r.category);
+    const values = rows.map(r=>r.pctAch);
+    const colors = rows.map(r=> r.pctAch>=100 ? '#1a9c6b' : '#e0473f');
+    if(this.charts.ach) this.charts.ach.destroy();
+    this.charts.ach = new Chart(ctx, {
+      type:'bar',
+      data:{ labels, datasets:[{ label:'% Achievement', data: values, backgroundColor: colors, borderRadius:4 }] },
+      options:{
+        indexAxis:'y',
+        responsive:true,
+        plugins:{ legend:{ display:false } },
+        scales:{
+          x:{ grid:{ color:'#eef1f4' }, ticks:{ font:{size:10}, callback:v=>v+'%' } },
+          y:{ grid:{ display:false }, ticks:{ font:{size:10} } }
+        }
+      }
+    });
+  }
+  renderTable(){
+    let rows = [...this.filtered];
+    if(this.sortKey){
+      rows.sort((a,b)=>{
+        let av = a[this.sortKey], bv = b[this.sortKey];
+        if(typeof av === 'string'){ av = av.toLowerCase(); bv = (bv||'').toLowerCase(); }
+        if(av===null||av===undefined) av = -Infinity;
+        if(bv===null||bv===undefined) bv = -Infinity;
+        if(av<bv) return this.sortAsc?-1:1;
+        if(av>bv) return this.sortAsc?1:-1;
+        return 0;
+      });
+    }
+    document.querySelectorAll('.data-table thead th').forEach(th=>{
+      th.classList.toggle('sorted', th.dataset.key===this.sortKey);
+    });
+    const tbody = document.getElementById('table-body');
+    tbody.innerHTML = rows.map(r=>`
+      <tr>
+        <td><span class="cat-badge ${r.category}">${r.category}</span></td>
+        <td>${r.shopCode}</td>
+        <td>${r.shopName}</td>
+        <td>${r.typeShop}</td>
+        <td>${fmt(r.targetDay)}</td>
+        <td>${fmt(r.targetWeek)}</td>
+        <td>${fmt(r.sumWk1)}</td>
+        <td>
+          <div class="ach-bar-wrap">
+            <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:${Math.min(r.pctAch,100)}%; background:${r.pctAch>=100?'#1a9c6b':'#2f6fed'}"></div></div>
+            <span>${fmtPct(r.pctAch)}</span>
+          </div>
+        </td>
+        <td class="${r.gapWeek>=0?'num-pos':'num-neg'}">${fmt(r.gapWeek)}</td>
+        <td>${fmt(r.rrWeek)}</td>
+        <td>${fmt(r.lWeek)}</td>
+        <td class="${r.wow===null?'':(r.wow>=0?'num-pos':'num-neg')}">${r.wow===null?'—':fmtPct(r.wow)}</td>
+      </tr>
+    `).join('');
+  }
+}
+
+async function loadDataAndStart() {
+  const lastUpdatedEl = document.getElementById('last-updated');
+  try {
+    const res = await fetch(CACHE_BUSTED_URL, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    window.dashboard = new Dashboard(data);
+
+    // Show last-modified time if the server provides it, else "just loaded"
+    let updatedLabel = 'Data loaded';
+    const lastMod = res.headers.get('last-modified');
+    if (lastMod) {
+      const d = new Date(lastMod);
+      updatedLabel = 'Data last updated: ' + d.toLocaleString();
+    }
+    lastUpdatedEl.textContent = updatedLabel;
+  } catch (err) {
+    lastUpdatedEl.textContent = 'Failed to load data/data.json — ' + err.message;
+    console.error('Dashboard data load failed:', err);
+  }
+}
+
+loadDataAndStart();
+
+// Auto-refresh the page data every hour so it always reflects the latest
+// commit from the scheduled GitHub Actions workflow.
+setInterval(() => {
+  location.reload();
+}, 60 * 60 * 1000);
+</script>
+</body>
+</html>
