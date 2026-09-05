@@ -17,7 +17,8 @@ import json
 import os
 import re
 import sys
-import urllib.request
+
+import requests
 
 RAW_CSV_URL = os.environ.get(
     "RAW_CSV_URL",
@@ -62,10 +63,19 @@ def normalize_code(code):
 
 
 def fetch_csv(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        raw = resp.read()
-    return raw.decode("utf-8-sig")
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept": "text/csv,*/*",
+    }
+    resp = requests.get(url, headers=headers, timeout=30, allow_redirects=True)
+    print(f"DEBUG: GET {url} -> HTTP {resp.status_code}, content-type={resp.headers.get('content-type')}", file=sys.stderr)
+    resp.raise_for_status()
+    text = resp.content.decode("utf-8-sig")
+    if "<html" in text[:200].lower():
+        print("DEBUG: response looks like HTML, not CSV. First 500 chars:", file=sys.stderr)
+        print(text[:500], file=sys.stderr)
+        raise ValueError("Sheet did not return CSV (got HTML) — check the sheet is published to web")
+    return text
 
 
 def count_entry_model(csv_text):

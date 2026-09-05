@@ -28,6 +28,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install Python dependencies
+        run: pip install requests
+
       - name: Rebuild data/data.json from the published sheet
         env:
           SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
