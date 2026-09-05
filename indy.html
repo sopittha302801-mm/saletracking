@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INDY Scorecard — Entry Model</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg-page:#f4f6f8;
+    --bg-card:#ffffff;
+    --bg-header:#ffffff;
+    --border:#e5e9ee;
+    --text-primary:#1a2433;
+    --text-secondary:#6b7684;
+    --accent:#2f6fed;
+    --accent-soft:#eaf1fe;
+    --positive:#1a9c6b;
+    --negative:#e0473f;
+    --radius:12px;
+    --gap:18px;
+    --multi:#2f6fed;
+    --retention:#f2994a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg-page);
+    color:var(--text-primary);
+  }
+  .dashboard-container{max-width:1200px;margin:0 auto;padding:24px;}
+
+  .dashboard-header{
+    background:var(--bg-header);
+    border:1px solid var(--border);
+    padding:22px 26px;
+    border-radius:var(--radius);
+    margin-bottom:var(--gap);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    box-shadow:0 1px 3px rgba(20,30,45,0.04);
+  }
+  .dashboard-header h1{font-size:21px;font-weight:700;margin:0 0 4px;}
+  .dashboard-header .subtitle{font-size:13px;color:var(--text-secondary);}
+  .nav-link{
+    font-size:13px;color:var(--accent);text-decoration:none;font-weight:600;
+    border:1px solid var(--accent-soft);background:var(--accent-soft);
+    padding:8px 14px;border-radius:8px;
+  }
+  .nav-link:hover{background:#dfe9fd;}
+
+  .filters{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:var(--gap);}
+  .filter-group{display:flex;flex-direction:column;gap:4px;}
+  .filter-group label{font-size:11px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.4px;font-weight:600;}
+  .filter-group select{
+    padding:8px 12px;border:1px solid var(--border);border-radius:8px;
+    background:#fbfcfd;color:var(--text-primary);font-size:13px;min-width:170px;
+  }
+
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--gap);margin-bottom:var(--gap);}
+  .kpi-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 3px rgba(20,30,45,0.04);}
+  .kpi-label{font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;font-weight:600;}
+  .kpi-value{font-size:26px;font-weight:700;margin-bottom:6px;}
+  .kpi-sub{font-size:12px;color:var(--text-secondary);}
+
+  .chart-container{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 3px rgba(20,30,45,0.04);margin-bottom:var(--gap);}
+  .chart-container h3{font-size:14px;font-weight:700;margin:0 0 4px;}
+  .chart-container .chart-sub{font-size:12px;color:var(--text-secondary);margin-bottom:14px;}
+
+  .team-section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 3px rgba(20,30,45,0.04);margin-bottom:var(--gap);overflow-x:auto;}
+  .team-title-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;}
+  .team-title{display:flex;align-items:center;gap:10px;}
+  .team-dot{width:11px;height:11px;border-radius:50%;display:inline-block;}
+  .team-title h3{font-size:15px;font-weight:700;margin:0;}
+  .team-target{font-size:12px;color:var(--text-secondary);}
+  .team-achieve{font-size:13px;font-weight:700;}
+
+  .data-table{width:100%;border-collapse:collapse;font-size:13px;min-width:520px;}
+  .data-table thead th{
+    text-align:left;padding:9px 10px;border-bottom:2px solid var(--border);
+    color:var(--text-secondary);font-weight:700;font-size:11px;text-transform:uppercase;
+    letter-spacing:.4px;white-space:nowrap;
+  }
+  .data-table tbody td{padding:9px 10px;border-bottom:1px solid #f0f2f5;white-space:nowrap;}
+  .data-table tbody tr:hover{background:#f8fafc;}
+  .data-table tbody tr:last-child td{border-bottom:none;}
+  .ach-bar-wrap{display:flex;align-items:center;gap:8px;}
+  .ach-bar-bg{width:90px;height:6px;background:#eef1f4;border-radius:4px;overflow:hidden;}
+  .ach-bar-fill{height:100%;border-radius:4px;}
+  .count-badge{
+    display:inline-block;min-width:26px;text-align:center;padding:2px 8px;border-radius:6px;
+    font-weight:700;font-size:12.5px;
+  }
+  .count-badge.hit{background:#e7f7ef;color:var(--positive);}
+  .count-badge.miss{background:#fdecec;color:var(--negative);}
+
+  .dashboard-footer{text-align:center;font-size:12px;color:var(--text-secondary);padding:18px 0 4px;}
+
+  @media (max-width:768px){
+    .dashboard-header{flex-direction:column;align-items:flex-start;}
+    .kpi-row{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+<div class="dashboard-container">
+
+  <header class="dashboard-header">
+    <div>
+      <h1>INDY Scorecard — Entry Model</h1>
+      <div class="subtitle">Individual Entry Model performance by salesperson</div>
+      <div class="subtitle" id="last-updated" style="margin-top:2px;">Loading data…</div>
+    </div>
+    <a class="nav-link" href="index.html">&larr; Back to main dashboard</a>
+  </header>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label>Team</label>
+      <select id="filter-team">
+        <option value="ALL">All Teams</option>
+        <option value="RR Multi">RR Multi</option>
+        <option value="RR Retention">RR Retention</option>
+      </select>
+    </div>
+  </div>
+
+  <section class="kpi-row" id="kpi-row"></section>
+
+  <div class="chart-container">
+    <h3>Entry Model Count by Salesperson</h3>
+    <div class="chart-sub">Matched by SALE_CODE against raw transactions (DESCRIPTION contains A06, Y05, A7 PRO, or X5C)</div>
+    <canvas id="chart-entry-model" style="max-height:340px;"></canvas>
+  </div>
+
+  <div id="teams-container"></div>
+
+  <footer class="dashboard-footer">
+    Entry Model match rule: DESCRIPTION contains A06 / Y05 / A7 PRO / X5C · Lucky Number and TOL counters omitted (no data source)
+  </footer>
+</div>
+
+<script>
+const TEAM_COLORS = { 'RR Multi': '#2f6fed', 'RR Retention': '#f2994a' };
+const DATA_URL = 'data/indy_data.json';
+const CACHE_BUSTED_URL = DATA_URL + '?t=' + Date.now();
+
+class IndyDashboard {
+  constructor(data) {
+    this.rawData = data;
+    this.filtered = data;
+    this.chart = null;
+    this.init();
+  }
+  init() {
+    document.getElementById('filter-team').addEventListener('change', () => this.applyFilter());
+    this.render();
+  }
+  applyFilter() {
+    const team = document.getElementById('filter-team').value;
+    this.filtered = team === 'ALL' ? this.rawData : this.rawData.filter(r => r.team === team);
+    this.render();
+  }
+  render() {
+    this.renderKPIs();
+    this.renderChart();
+    this.renderTeams();
+  }
+  renderKPIs() {
+    const d = this.filtered;
+    const totalEntry = d.reduce((a, r) => a + r.entryModel, 0);
+    const totalTarget = d.reduce((a, r) => a + r.target, 0);
+    const overallAch = totalTarget ? (totalEntry / totalTarget * 100) : 0;
+    const hitTarget = d.filter(r => r.entryModel >= r.target).length;
+    const kpis = [
+      { label: 'Total Entry Model Sales', value: totalEntry, sub: d.length + ' staff in scope' },
+      { label: 'Total Target', value: totalTarget, sub: 'sum of individual targets' },
+      { label: 'Overall Achievement', value: overallAch.toFixed(0) + '%', sub: overallAch >= 100 ? 'On/above target' : 'Below target' },
+      { label: 'Staff at/above target', value: hitTarget + ' / ' + d.length, sub: 'individuals hitting target' },
+    ];
+    document.getElementById('kpi-row').innerHTML = kpis.map(k => `
+      <div class="kpi-card">
+        <div class="kpi-label">${k.label}</div>
+        <div class="kpi-value">${k.value}</div>
+        <div class="kpi-sub">${k.sub}</div>
+      </div>
+    `).join('');
+  }
+  renderChart() {
+    const ctx = document.getElementById('chart-entry-model').getContext('2d');
+    const rows = [...this.filtered].sort((a, b) => b.entryModel - a.entryModel);
+    const labels = rows.map(r => r.name + ' (' + r.saleCode + ')');
+    const values = rows.map(r => r.entryModel);
+    const targets = rows.map(r => r.target);
+    const colors = rows.map(r => TEAM_COLORS[r.team] || '#999');
+    if (this.chart) this.chart.destroy();
+    this.chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          { label: 'Entry Model', data: values, backgroundColor: colors, borderRadius: 4 },
+          { label: 'Target', data: targets, type: 'line', borderColor: '#9aa5b1', borderDash: [5, 4], pointRadius: 0, borderWidth: 2, fill: false },
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'top', labels: { boxWidth: 10, font: { size: 11 } } } },
+        scales: {
+          x: { ticks: { font: { size: 10 }, maxRotation: 55, minRotation: 35 }, grid: { display: false } },
+          y: { ticks: { font: { size: 10 }, stepSize: 1 }, grid: { color: '#eef1f4' }, beginAtZero: true }
+        }
+      }
+    });
+  }
+  renderTeams() {
+    const teams = ['RR Multi', 'RR Retention'].filter(t => this.filtered.some(r => r.team === t));
+    const container = document.getElementById('teams-container');
+    container.innerHTML = teams.map(team => {
+      const rows = this.filtered.filter(r => r.team === team).sort((a, b) => b.entryModel - a.entryModel);
+      const target = rows[0]?.target ?? 0;
+      const totalEntry = rows.reduce((a, r) => a + r.entryModel, 0);
+      const totalTarget = rows.reduce((a, r) => a + r.target, 0);
+      const teamAch = totalTarget ? (totalEntry / totalTarget * 100) : 0;
+      const color = TEAM_COLORS[team];
+      return `
+        <div class="team-section">
+          <div class="team-title-row">
+            <div class="team-title">
+              <span class="team-dot" style="background:${color}"></span>
+              <h3>${team}</h3>
+              <span class="team-target">Target/person: ${target}</span>
+            </div>
+            <span class="team-achieve" style="color:${teamAch >= 100 ? 'var(--positive)' : 'var(--text-secondary)'}">
+              Team total: ${totalEntry} / ${totalTarget} (${teamAch.toFixed(0)}%)
+            </span>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Sale Code</th>
+                <th>Name</th>
+                <th>Entry Model</th>
+                <th>Target</th>
+                <th>Achievement</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map(r => {
+                const pct = r.target ? (r.entryModel / r.target * 100) : 0;
+                const hit = r.entryModel >= r.target;
+                return `
+                  <tr>
+                    <td>${r.saleCode}</td>
+                    <td>${r.name}</td>
+                    <td><span class="count-badge ${hit ? 'hit' : 'miss'}">${r.entryModel}</span></td>
+                    <td>${r.target}</td>
+                    <td>
+                      <div class="ach-bar-wrap">
+                        <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:${Math.min(pct,100)}%; background:${hit ? 'var(--positive)' : color}"></div></div>
+                        <span>${pct.toFixed(0)}%</span>
+                      </div>
+                    </td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }).join('');
+  }
+}
+
+async function loadDataAndStart() {
+  const lastUpdatedEl = document.getElementById('last-updated');
+  try {
+    const res = await fetch(CACHE_BUSTED_URL, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    window.indyDashboard = new IndyDashboard(data);
+    let updatedLabel = 'Data loaded';
+    const lastMod = res.headers.get('last-modified');
+    if (lastMod) updatedLabel = 'Data last updated: ' + new Date(lastMod).toLocaleString();
+    lastUpdatedEl.textContent = updatedLabel;
+  } catch (err) {
+    lastUpdatedEl.textContent = 'Failed to load data/indy_data.json — ' + err.message;
+    console.error('INDY data load failed:', err);
+  }
+}
+
+loadDataAndStart();
+setInterval(() => location.reload(), 60 * 60 * 1000);
+</script>
+</body>
+</html>

@@ -33,14 +33,19 @@ jobs:
           SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
         run: python3 scripts/build_data.py
 
+      - name: Rebuild data/indy_data.json (Entry Model scorecard)
+        env:
+          RAW_CSV_URL: ${{ secrets.RAW_CSV_URL }}
+        run: python3 scripts/build_indy.py
+
       - name: Commit updated data (if changed)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- data/data.json; then
+          if git diff --quiet -- data/data.json data/indy_data.json; then
             echo "No data changes."
           else
-            git add data/data.json
+            git add data/data.json data/indy_data.json
             git commit -m "Auto-refresh sale tracking data [skip ci]"
             git push
           fi
