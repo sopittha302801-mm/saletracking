@@ -132,12 +132,12 @@
       0,
       0
     ],
-    "sumWk1": 0,
-    "pctAch": 0.0,
-    "gapWeek": -1,
-    "rrWeek": 0,
+    "sumWk1": 1,
+    "pctAch": 100.0,
+    "gapWeek": 0,
+    "rrWeek": 2,
     "lWeek": 3,
-    "wow": -100.0
+    "wow": -33.33
   },
   {
     "category": "TOL",
