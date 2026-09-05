@@ -29,25 +29,27 @@ MATCH_KEYWORDS = ["A06", "Y05", "A7 PRO", "X5C"]
 
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "indy_data.json")
 
-# Roster + team structure, mirroring the 'INDY' sheet layout.
-# target = Entry Model target for the team (from the sheet's team header row).
+# Team roster. Entry Model target is a TEAM-level target (not per person),
+# taken from the sheet's team header row (RR Multi: 15, RR Retention: 10).
+TEAM_TARGETS = {"RR Multi": 15, "RR Retention": 10}
+
 ROSTER = [
-    {"team": "RR Multi", "target": 5, "saleCode": "010J4920", "name": "จรรยาภรณ์"},
-    {"team": "RR Multi", "target": 5, "saleCode": "010Q6125", "name": "ปสันน์ธรรศ"},
-    {"team": "RR Multi", "target": 5, "saleCode": "12808188", "name": "อินทิรา"},
-    {"team": "RR Multi", "target": 5, "saleCode": "010L6084", "name": "นัฑเศรษฐ์"},
-    {"team": "RR Multi", "target": 5, "saleCode": "NEW OS", "name": "พัทน์ธีรา"},
-    {"team": "RR Multi", "target": 5, "saleCode": "12808761", "name": "ณัฐธยาน์"},
-    {"team": "RR Multi", "target": 5, "saleCode": "01075327", "name": "ศุภลักษณ์"},
-    {"team": "RR Multi", "target": 5, "saleCode": "010N6112", "name": "เมธาพร"},
-    {"team": "RR Multi", "target": 5, "saleCode": "010J9581", "name": "จุฬาลักษณ์"},
-    {"team": "RR Multi", "target": 5, "saleCode": "12807924", "name": "คงฤทธิ์"},
-    {"team": "RR Multi", "target": 5, "saleCode": "12810390", "name": "ดลภัทร"},
-    {"team": "RR Multi", "target": 5, "saleCode": "010L6770", "name": "สุนีย์"},
-    {"team": "RR Multi", "target": 5, "saleCode": "010O2425", "name": "อลงกรณ์"},
-    {"team": "RR Multi", "target": 5, "saleCode": "12809845", "name": "ขนิษฐ์"},
-    {"team": "RR Retention", "target": 5, "saleCode": "01055175", "name": "นภัสนันท์"},
-    {"team": "RR Retention", "target": 5, "saleCode": "010E3992", "name": "ธนัฏฐา"},
+    {"team": "RR Multi", "saleCode": "010J4920", "name": "จรรยาภรณ์"},
+    {"team": "RR Multi", "saleCode": "010Q6125", "name": "ปสันน์ธรรศ"},
+    {"team": "RR Multi", "saleCode": "12808188", "name": "อินทิรา"},
+    {"team": "RR Multi", "saleCode": "010L6084", "name": "นัฑเศรษฐ์"},
+    {"team": "RR Multi", "saleCode": "NEW OS", "name": "พัทน์ธีรา"},
+    {"team": "RR Multi", "saleCode": "12808761", "name": "ณัฐธยาน์"},
+    {"team": "RR Multi", "saleCode": "01075327", "name": "ศุภลักษณ์"},
+    {"team": "RR Multi", "saleCode": "010N6112", "name": "เมธาพร"},
+    {"team": "RR Multi", "saleCode": "010J9581", "name": "จุฬาลักษณ์"},
+    {"team": "RR Multi", "saleCode": "12807924", "name": "คงฤทธิ์"},
+    {"team": "RR Multi", "saleCode": "12810390", "name": "ดลภัทร"},
+    {"team": "RR Multi", "saleCode": "010L6770", "name": "สุนีย์"},
+    {"team": "RR Multi", "saleCode": "010O2425", "name": "อลงกรณ์"},
+    {"team": "RR Multi", "saleCode": "12809845", "name": "ขนิษฐ์"},
+    {"team": "RR Retention", "saleCode": "01055175", "name": "นภัสนันท์"},
+    {"team": "RR Retention", "saleCode": "010E3992", "name": "ธนัฏฐา"},
 ]
 
 
@@ -105,11 +107,22 @@ def build_records(counts):
                 "team": person["team"],
                 "saleCode": person["saleCode"],
                 "name": person["name"],
-                "target": person["target"],
                 "entryModel": entryModel,
             }
         )
     return records
+
+
+def build_output(records):
+    teams = {}
+    for team, target in TEAM_TARGETS.items():
+        members = [r for r in records if r["team"] == team]
+        teams[team] = {
+            "target": target,
+            "achieved": sum(m["entryModel"] for m in members),
+            "members": members,
+        }
+    return teams
 
 
 def main():
@@ -121,14 +134,15 @@ def main():
 
     counts = count_entry_model(csv_text)
     records = build_records(counts)
+    output = build_output(records)
 
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(records, f, indent=2, ensure_ascii=False)
+        json.dump(output, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
-    total = sum(r["entryModel"] for r in records)
-    print(f"Wrote {len(records)} roster records to {OUTPUT_PATH} (total Entry Model: {total})")
+    total = sum(t["achieved"] for t in output.values())
+    print(f"Wrote {len(records)} roster records across {len(output)} teams to {OUTPUT_PATH} (total Entry Model: {total})")
 
 
 if __name__ == "__main__":

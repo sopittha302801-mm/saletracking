@@ -150,9 +150,11 @@ const DATA_URL = 'data/indy_data.json';
 const CACHE_BUSTED_URL = DATA_URL + '?t=' + Date.now();
 
 class IndyDashboard {
-  constructor(data) {
-    this.rawData = data;
-    this.filtered = data;
+  constructor(teamsObj) {
+    // Flatten team-grouped data into rows for filtering, keep team meta for targets.
+    this.teamsMeta = teamsObj; // { 'RR Multi': {target, achieved, members: [...]}, ... }
+    this.rawData = Object.values(teamsObj).flatMap(t => t.members);
+    this.filteredTeams = Object.keys(teamsObj);
     this.chart = null;
     this.init();
   }
@@ -162,8 +164,11 @@ class IndyDashboard {
   }
   applyFilter() {
     const team = document.getElementById('filter-team').value;
-    this.filtered = team === 'ALL' ? this.rawData : this.rawData.filter(r => r.team === team);
+    this.filteredTeams = team === 'ALL' ? Object.keys(this.teamsMeta) : [team];
     this.render();
+  }
+  get filtered() {
+    return this.filteredTeams.flatMap(t => this.teamsMeta[t].members);
   }
   render() {
     this.renderKPIs();
@@ -172,15 +177,20 @@ class IndyDashboard {
   }
   renderKPIs() {
     const d = this.filtered;
-    const totalEntry = d.reduce((a, r) => a + r.entryModel, 0);
-    const totalTarget = d.reduce((a, r) => a + r.target, 0);
+    const totalEntry = this.filteredTeams.reduce((a, t) => a + this.teamsMeta[t].achieved, 0);
+    const totalTarget = this.filteredTeams.reduce((a, t) => a + this.teamsMeta[t].target, 0);
     const overallAch = totalTarget ? (totalEntry / totalTarget * 100) : 0;
-    const hitTarget = d.filter(r => r.entryModel >= r.target).length;
     const kpis = [
       { label: 'Total Entry Model Sales', value: totalEntry, sub: d.length + ' staff in scope' },
-      { label: 'Total Target', value: totalTarget, sub: 'sum of individual targets' },
+      { label: 'Total Team Target', value: totalTarget, sub: this.filteredTeams.length + ' team(s) in scope' },
       { label: 'Overall Achievement', value: overallAch.toFixed(0) + '%', sub: overallAch >= 100 ? 'On/above target' : 'Below target' },
-      { label: 'Staff at/above target', value: hitTarget + ' / ' + d.length, sub: 'individuals hitting target' },
+      { label: 'Top Performer', value: (() => {
+          const top = [...d].sort((a, b) => b.entryModel - a.entryModel)[0];
+          return top ? top.entryModel : '—';
+        })(), sub: (() => {
+          const top = [...d].sort((a, b) => b.entryModel - a.entryModel)[0];
+          return top ? top.name : '';
+        })() },
     ];
     document.getElementById('kpi-row').innerHTML = kpis.map(k => `
       <div class="kpi-card">
@@ -195,7 +205,6 @@ class IndyDashboard {
     const rows = [...this.filtered].sort((a, b) => b.entryModel - a.entryModel);
     const labels = rows.map(r => r.name + ' (' + r.saleCode + ')');
     const values = rows.map(r => r.entryModel);
-    const targets = rows.map(r => r.target);
     const colors = rows.map(r => TEAM_COLORS[r.team] || '#999');
     if (this.chart) this.chart.destroy();
     this.chart = new Chart(ctx, {
@@ -204,12 +213,11 @@ class IndyDashboard {
         labels,
         datasets: [
           { label: 'Entry Model', data: values, backgroundColor: colors, borderRadius: 4 },
-          { label: 'Target', data: targets, type: 'line', borderColor: '#9aa5b1', borderDash: [5, 4], pointRadius: 0, borderWidth: 2, fill: false },
         ]
       },
       options: {
         responsive: true,
-        plugins: { legend: { position: 'top', labels: { boxWidth: 10, font: { size: 11 } } } },
+        plugins: { legend: { display: false } },
         scales: {
           x: { ticks: { font: { size: 10 }, maxRotation: 55, minRotation: 35 }, grid: { display: false } },
           y: { ticks: { font: { size: 10 }, stepSize: 1 }, grid: { color: '#eef1f4' }, beginAtZero: true }
@@ -218,14 +226,12 @@ class IndyDashboard {
     });
   }
   renderTeams() {
-    const teams = ['RR Multi', 'RR Retention'].filter(t => this.filtered.some(r => r.team === t));
+    const teams = this.filteredTeams;
     const container = document.getElementById('teams-container');
     container.innerHTML = teams.map(team => {
-      const rows = this.filtered.filter(r => r.team === team).sort((a, b) => b.entryModel - a.entryModel);
-      const target = rows[0]?.target ?? 0;
-      const totalEntry = rows.reduce((a, r) => a + r.entryModel, 0);
-      const totalTarget = rows.reduce((a, r) => a + r.target, 0);
-      const teamAch = totalTarget ? (totalEntry / totalTarget * 100) : 0;
+      const meta = this.teamsMeta[team];
+      const rows = [...meta.members].sort((a, b) => b.entryModel - a.entryModel);
+      const teamAch = meta.target ? (meta.achieved / meta.target * 100) : 0;
       const color = TEAM_COLORS[team];
       return `
         <div class="team-section">
@@ -233,11 +239,17 @@ class IndyDashboard {
             <div class="team-title">
               <span class="team-dot" style="background:${color}"></span>
               <h3>${team}</h3>
-              <span class="team-target">Target/person: ${target}</span>
+              <span class="team-target">Team target: ${meta.target}</span>
             </div>
             <span class="team-achieve" style="color:${teamAch >= 100 ? 'var(--positive)' : 'var(--text-secondary)'}">
-              Team total: ${totalEntry} / ${totalTarget} (${teamAch.toFixed(0)}%)
+              Team total: ${meta.achieved} / ${meta.target} (${teamAch.toFixed(0)}%)
             </span>
+          </div>
+          <div class="ach-bar-wrap" style="margin-bottom:14px;">
+            <div class="ach-bar-bg" style="width:100%;height:8px;">
+              <div class="ach-bar-fill" style="width:${Math.min(teamAch,100)}%; background:${teamAch >= 100 ? 'var(--positive)' : color}"></div>
+            </div>
+            <span style="font-size:12px;color:var(--text-secondary);white-space:nowrap;">${teamAch.toFixed(0)}%</span>
           </div>
           <table class="data-table">
             <thead>
@@ -245,24 +257,21 @@ class IndyDashboard {
                 <th>Sale Code</th>
                 <th>Name</th>
                 <th>Entry Model</th>
-                <th>Target</th>
-                <th>Achievement</th>
+                <th>Share of Team Total</th>
               </tr>
             </thead>
             <tbody>
               ${rows.map(r => {
-                const pct = r.target ? (r.entryModel / r.target * 100) : 0;
-                const hit = r.entryModel >= r.target;
+                const share = meta.achieved ? (r.entryModel / meta.achieved * 100) : 0;
                 return `
                   <tr>
                     <td>${r.saleCode}</td>
                     <td>${r.name}</td>
-                    <td><span class="count-badge ${hit ? 'hit' : 'miss'}">${r.entryModel}</span></td>
-                    <td>${r.target}</td>
+                    <td><span class="count-badge ${r.entryModel > 0 ? 'hit' : 'miss'}">${r.entryModel}</span></td>
                     <td>
                       <div class="ach-bar-wrap">
-                        <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:${Math.min(pct,100)}%; background:${hit ? 'var(--positive)' : color}"></div></div>
-                        <span>${pct.toFixed(0)}%</span>
+                        <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:${share}%; background:${color}"></div></div>
+                        <span>${share.toFixed(0)}%</span>
                       </div>
                     </td>
                   </tr>
