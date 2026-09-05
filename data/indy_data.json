@@ -3,28 +3,108 @@
     "target": 15,
     "achieved": 16,
     "members": [
-      { "team": "RR Multi", "saleCode": "010J4920", "name": "จรรยาภรณ์", "entryModel": 1 },
-      { "team": "RR Multi", "saleCode": "010Q6125", "name": "ปสันน์ธรรศ", "entryModel": 0 },
-      { "team": "RR Multi", "saleCode": "12808188", "name": "อินทิรา", "entryModel": 0 },
-      { "team": "RR Multi", "saleCode": "010L6084", "name": "นัฑเศรษฐ์", "entryModel": 0 },
-      { "team": "RR Multi", "saleCode": "NEW OS", "name": "พัทน์ธีรา", "entryModel": 0 },
-      { "team": "RR Multi", "saleCode": "12808761", "name": "ณัฐธยาน์", "entryModel": 2 },
-      { "team": "RR Multi", "saleCode": "01075327", "name": "ศุภลักษณ์", "entryModel": 0 },
-      { "team": "RR Multi", "saleCode": "010N6112", "name": "เมธาพร", "entryModel": 1 },
-      { "team": "RR Multi", "saleCode": "010J9581", "name": "จุฬาลักษณ์", "entryModel": 1 },
-      { "team": "RR Multi", "saleCode": "12807924", "name": "คงฤทธิ์", "entryModel": 1 },
-      { "team": "RR Multi", "saleCode": "12810390", "name": "ดลภัทร", "entryModel": 0 },
-      { "team": "RR Multi", "saleCode": "010L6770", "name": "สุนีย์", "entryModel": 6 },
-      { "team": "RR Multi", "saleCode": "010O2425", "name": "อลงกรณ์", "entryModel": 0 },
-      { "team": "RR Multi", "saleCode": "12809845", "name": "ขนิษฐ์", "entryModel": 4 }
+      {
+        "team": "RR Multi",
+        "saleCode": "010J4920",
+        "name": "จรรยาภรณ์",
+        "entryModel": 1
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "010Q6125",
+        "name": "ปสันน์ธรรศ",
+        "entryModel": 0
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "12808188",
+        "name": "อินทิรา",
+        "entryModel": 0
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "010L6084",
+        "name": "นัฑเศรษฐ์",
+        "entryModel": 0
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "NEW OS",
+        "name": "พัทน์ธีรา",
+        "entryModel": 0
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "12808761",
+        "name": "ณัฐธยาน์",
+        "entryModel": 2
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "01075327",
+        "name": "ศุภลักษณ์",
+        "entryModel": 0
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "010N6112",
+        "name": "เมธาพร",
+        "entryModel": 1
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "010J9581",
+        "name": "จุฬาลักษณ์",
+        "entryModel": 1
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "12807924",
+        "name": "คงฤทธิ์",
+        "entryModel": 1
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "12810390",
+        "name": "ดลภัทร",
+        "entryModel": 0
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "010L6770",
+        "name": "สุนีย์",
+        "entryModel": 6
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "010O2425",
+        "name": "อลงกรณ์",
+        "entryModel": 0
+      },
+      {
+        "team": "RR Multi",
+        "saleCode": "12809845",
+        "name": "ขนิษฐ์",
+        "entryModel": 4
+      }
     ]
   },
   "RR Retention": {
     "target": 10,
     "achieved": 0,
     "members": [
-      { "team": "RR Retention", "saleCode": "01055175", "name": "นภัสนันท์", "entryModel": 0 },
-      { "team": "RR Retention", "saleCode": "010E3992", "name": "ธนัฏฐา", "entryModel": 0 }
+      {
+        "team": "RR Retention",
+        "saleCode": "01055175",
+        "name": "นภัสนันท์",
+        "entryModel": 0
+      },
+      {
+        "team": "RR Retention",
+        "saleCode": "010E3992",
+        "name": "ธนัฏฐา",
+        "entryModel": 0
+      }
     ]
   }
 }
