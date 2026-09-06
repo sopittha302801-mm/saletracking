@@ -7,17 +7,17 @@
     "targetDay": 1395,
     "targetWeek": 11157,
     "days": [
+      1198,
       599,
       399,
-      399,
-      499
+      399
     ],
-    "sumWk1": 2894,
-    "pctAch": 25.9,
-    "gapWeek": -8263,
-    "rrWeek": 3859,
-    "lWeek": 1633,
-    "wow": 136.29
+    "sumWk1": 36.7,
+    "pctAch": -7065,
+    "gapWeek": 5456,
+    "rrWeek": 2032,
+    "lWeek": 168.5,
+    "wow": null
   },
   {
     "category": "POSTPAY",
@@ -27,17 +27,17 @@
     "targetDay": 3426,
     "targetWeek": 27411,
     "days": [
+      0,
       4492,
       2694,
-      3347,
-      3595
+      3347
     ],
-    "sumWk1": 20518,
-    "pctAch": 74.9,
-    "gapWeek": -6893,
-    "rrWeek": 27357,
-    "lWeek": 15584,
-    "wow": 75.55
+    "sumWk1": 74.9,
+    "pctAch": -6893,
+    "gapWeek": 27357,
+    "rrWeek": 17303,
+    "lWeek": 58.11,
+    "wow": null
   },
   {
     "category": "POSTPAY",
@@ -47,17 +47,17 @@
     "targetDay": 1671,
     "targetWeek": 13369,
     "days": [
+      0,
       2347,
       1198,
-      2675,
-      1598
+      2675
     ],
-    "sumWk1": 12389,
-    "pctAch": 92.7,
-    "gapWeek": -980,
-    "rrWeek": 16519,
-    "lWeek": 6927,
-    "wow": 138.47
+    "sumWk1": 92.7,
+    "pctAch": -980,
+    "gapWeek": 16519,
+    "rrWeek": 10223,
+    "lWeek": 61.58,
+    "wow": null
   },
   {
     "category": "POSTPAY",
@@ -67,15 +67,15 @@
     "targetDay": 521,
     "targetWeek": 4168,
     "days": [
-      399,
+      0,
       399,
       399,
       399
     ],
-    "sumWk1": 1596,
-    "pctAch": 38.3,
-    "gapWeek": -2572,
-    "rrWeek": 2128,
+    "sumWk1": 38.3,
+    "pctAch": -2572,
+    "gapWeek": 2128,
+    "rrWeek": 0,
     "lWeek": 0,
     "wow": null
   },
@@ -89,13 +89,13 @@
     "days": [
       0,
       0,
-      699,
-      0
+      0,
+      699
     ],
-    "sumWk1": 699,
-    "pctAch": 30.9,
-    "gapWeek": -1565,
-    "rrWeek": 932,
+    "sumWk1": 30.9,
+    "pctAch": -1565,
+    "gapWeek": 932,
+    "rrWeek": 0,
     "lWeek": 0,
     "wow": null
   },
@@ -110,14 +110,14 @@
       0,
       0,
       0,
-      998
+      0
     ],
-    "sumWk1": 1442,
-    "pctAch": 63.7,
-    "gapWeek": -822,
-    "rrWeek": 1923,
-    "lWeek": 464,
-    "wow": 314.37
+    "sumWk1": 63.7,
+    "pctAch": -822,
+    "gapWeek": 1923,
+    "rrWeek": 464,
+    "lWeek": 314.37,
+    "wow": null
   },
   {
     "category": "TOL",
@@ -132,12 +132,12 @@
       0,
       0
     ],
-    "sumWk1": 1,
-    "pctAch": 100.0,
-    "gapWeek": 0,
-    "rrWeek": 1,
-    "lWeek": 3,
-    "wow": -55.56
+    "sumWk1": 100.0,
+    "pctAch": 0,
+    "gapWeek": 1,
+    "rrWeek": 3,
+    "lWeek": -55.56,
+    "wow": null
   },
   {
     "category": "TOL",
@@ -147,17 +147,17 @@
     "targetDay": 1,
     "targetWeek": 8,
     "days": [
+      0,
       1,
       1,
-      1,
-      0
+      1
     ],
-    "sumWk1": 3,
-    "pctAch": 37.5,
-    "gapWeek": -5,
-    "rrWeek": 4,
-    "lWeek": 6,
-    "wow": -33.33
+    "sumWk1": 37.5,
+    "pctAch": -5,
+    "gapWeek": 4,
+    "rrWeek": 5,
+    "lWeek": -20.0,
+    "wow": null
   },
   {
     "category": "TOL",
@@ -169,15 +169,15 @@
     "days": [
       0,
       0,
-      1,
+      0,
       1
     ],
-    "sumWk1": 3,
-    "pctAch": 300.0,
-    "gapWeek": 2,
-    "rrWeek": 4,
-    "lWeek": 2,
-    "wow": 100.0
+    "sumWk1": 300.0,
+    "pctAch": 2,
+    "gapWeek": 4,
+    "rrWeek": 1,
+    "lWeek": 300.0,
+    "wow": null
   },
   {
     "category": "DEVICE",
@@ -187,17 +187,17 @@
     "targetDay": 15000,
     "targetWeek": 120000,
     "days": [
-      1498,
-      897,
-      897,
-      10748
+      34407,
+      2396,
+      2498,
+      4797
     ],
-    "sumWk1": 56709,
-    "pctAch": 47.3,
-    "gapWeek": -63291,
-    "rrWeek": 75612,
-    "lWeek": 199790,
-    "wow": -62.15
+    "sumWk1": 73.3,
+    "pctAch": -32035,
+    "gapWeek": 117287,
+    "rrWeek": 135319,
+    "lWeek": -13.33,
+    "wow": null
   },
   {
     "category": "DEVICE",
@@ -207,17 +207,17 @@
     "targetDay": 73333,
     "targetWeek": 586664,
     "days": [
-      32049,
-      57597,
-      36280,
-      37499
+      0,
+      32399,
+      59297,
+      39610
     ],
-    "sumWk1": 495939,
-    "pctAch": 84.5,
-    "gapWeek": -90725,
-    "rrWeek": 661252,
-    "lWeek": 815049,
-    "wow": -18.87
+    "sumWk1": 85.9,
+    "pctAch": -82895,
+    "gapWeek": 671692,
+    "rrWeek": 815049,
+    "lWeek": -17.59,
+    "wow": null
   },
   {
     "category": "DEVICE",
@@ -227,16 +227,16 @@
     "targetDay": 91667,
     "targetWeek": 733336,
     "days": [
+      68106,
       32397,
       5597,
-      20248,
-      32299
+      20248
     ],
-    "sumWk1": 446504,
-    "pctAch": 60.9,
-    "gapWeek": -286832,
-    "rrWeek": 595339,
-    "lWeek": 419280,
-    "wow": 41.99
+    "sumWk1": 70.2,
+    "pctAch": -218726,
+    "gapWeek": 686147,
+    "rrWeek": 354504,
+    "lWeek": 93.55,
+    "wow": null
   }
 ]
