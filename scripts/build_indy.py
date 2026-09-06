@@ -4,8 +4,15 @@ Fetches the published 'raw' sheet CSV, counts qualifying "Entry Model"
 transactions per salesperson (matched via SALE_CODE), and rebuilds
 data/indy_data.json in the shape the INDY page expects.
 
-Entry Model match rule (per business definition):
-  DESCRIPTION contains any of: A06, Y05, A7 PRO, X5C  (case-insensitive)
+Entry Model match rule (per business definition) — description contains any of
+these 7 models' identifying keywords (case-insensitive):
+  Samsung A06        -> "A06"
+  Oppo A6C           -> "A6C"
+  Vivo Y05           -> "Y05"
+  Redmi A7 Pro       -> "A7 PRO"
+  Honor X5C          -> "X5C"
+  Realme Note 80     -> "NOTE 80"
+  Infinix Smart 20   -> "SMART 20"
 
 The team roster (who belongs to RR Multi vs RR Retention, and each team's
 Entry Model target) is not present in 'raw' and must be maintained here.
@@ -25,7 +32,18 @@ RAW_CSV_URL = os.environ.get(
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRmXea3iF9clmxoUACQbJfMhRRbQasI5a2i3ceOYVPxSegUgq6gSTUxhSmo1TrGKFm4b3W0ksgG0hea/pub?gid=56102410&single=true&output=csv",
 )
 
-MATCH_KEYWORDS = ["A06", "Y05", "A7 PRO", "X5C"]
+# 7 Entry Model devices tracked. Each entry is (model label, required keyword
+# that must appear in DESCRIPTION, case-insensitive).
+ENTRY_MODELS = [
+    ("Samsung A06", "A06"),
+    ("Oppo A6C", "A6C"),
+    ("Vivo Y05", "Y05"),
+    ("Redmi A7 Pro", "A7 PRO"),
+    ("Honor X5C", "X5C"),
+    ("Realme Note 80", "NOTE 80"),
+    ("Infinix Smart 20", "SMART 20"),
+]
+MATCH_KEYWORDS = [kw for _, kw in ENTRY_MODELS]
 
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "indy_data.json")
 
