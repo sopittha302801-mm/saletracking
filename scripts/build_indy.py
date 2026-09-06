@@ -50,7 +50,7 @@ OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "indy_data.j
 # Team roster. Entry Model target is PER PERSON (RR Multi: 15, RR Retention: 10).
 ROSTER = [
     {"team": "RR Multi", "target": 15, "saleCode": "010J4920", "name": "จรรยาภรณ์"},
-    {"team": "RR Multi", "target": 15, "saleCode": "010Q6125", "name": "ปสันน์ธรรศ"},
+    {"team": "RR Multi", "target": 15, "saleCode": "39115146", "name": "ปสันน์ธรรศ"},
     {"team": "RR Multi", "target": 15, "saleCode": "12808188", "name": "อินทิรา"},
     {"team": "RR Multi", "target": 15, "saleCode": "010L6084", "name": "นัฑเศรษฐ์"},
     {"team": "RR Multi", "target": 15, "saleCode": "NEW OS", "name": "พัทน์ธีรา"},
