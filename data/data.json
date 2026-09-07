@@ -400,8 +400,8 @@
     "shopCode": "80100805",
     "shopName": "True Shop Lotus's Phatthanakan",
     "typeShop": "Non Matching",
-    "targetDay": 15000,
-    "targetWeek": 105000,
+    "targetDay": 40459,
+    "targetWeek": 283213,
     "days": [
       {
         "date": "2026-08-31",
@@ -433,8 +433,8 @@
       }
     ],
     "sumWk1": 87965,
-    "pctAch": 83.8,
-    "gapWeek": -17035,
+    "pctAch": 31.1,
+    "gapWeek": -195248,
     "rrWeek": 87965,
     "lWeek": 135319,
     "wow": -34.99
@@ -444,8 +444,8 @@
     "shopCode": "80101296",
     "shopName": "True Shop Paradise Park Srinakarin",
     "typeShop": "Non Matching",
-    "targetDay": 73333,
-    "targetWeek": 513331,
+    "targetDay": 206877,
+    "targetWeek": 1448139,
     "days": [
       {
         "date": "2026-08-31",
@@ -477,8 +477,8 @@
       }
     ],
     "sumWk1": 503769,
-    "pctAch": 98.1,
-    "gapWeek": -9562,
+    "pctAch": 34.8,
+    "gapWeek": -944370,
     "rrWeek": 503769,
     "lWeek": 815049,
     "wow": -38.19
@@ -488,8 +488,8 @@
     "shopCode": "80101632",
     "shopName": "True Shop Lotus's Bangna-trad",
     "typeShop": "Non Matching",
-    "targetDay": 91667,
-    "targetWeek": 641669,
+    "targetDay": 88707,
+    "targetWeek": 620949,
     "days": [
       {
         "date": "2026-08-31",
@@ -521,8 +521,8 @@
       }
     ],
     "sumWk1": 514610,
-    "pctAch": 80.2,
-    "gapWeek": -127059,
+    "pctAch": 82.9,
+    "gapWeek": -106339,
     "rrWeek": 514610,
     "lWeek": 354504,
     "wow": 45.16
