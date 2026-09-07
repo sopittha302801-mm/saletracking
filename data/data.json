@@ -7,17 +7,41 @@
     "targetDay": 1395,
     "targetWeek": 11157,
     "days": [
-      1198,
-      599,
-      399,
-      399
+      {
+        "date": "2026-08-31",
+        "value": 1198
+      },
+      {
+        "date": "2026-09-01",
+        "value": 599
+      },
+      {
+        "date": "2026-09-02",
+        "value": 399
+      },
+      {
+        "date": "2026-09-03",
+        "value": 399
+      },
+      {
+        "date": "2026-09-04",
+        "value": 499
+      },
+      {
+        "date": "2026-09-05",
+        "value": 399
+      },
+      {
+        "date": "2026-09-06",
+        "value": 599
+      }
     ],
-    "sumWk1": 36.7,
-    "pctAch": -7065,
-    "gapWeek": 5456,
-    "rrWeek": 2032,
-    "lWeek": 168.5,
-    "wow": null
+    "sumWk1": 4092,
+    "pctAch": 36.7,
+    "gapWeek": -7065,
+    "rrWeek": 4092,
+    "lWeek": 2032,
+    "wow": 101.38
   },
   {
     "category": "POSTPAY",
@@ -27,17 +51,41 @@
     "targetDay": 3426,
     "targetWeek": 27411,
     "days": [
-      0,
-      4492,
-      2694,
-      3347
+      {
+        "date": "2026-08-31",
+        "value": 499
+      },
+      {
+        "date": "2026-09-01",
+        "value": 4492
+      },
+      {
+        "date": "2026-09-02",
+        "value": 2694
+      },
+      {
+        "date": "2026-09-03",
+        "value": 3347
+      },
+      {
+        "date": "2026-09-04",
+        "value": 3595
+      },
+      {
+        "date": "2026-09-05",
+        "value": 3695
+      },
+      {
+        "date": "2026-09-06",
+        "value": 2695
+      }
     ],
-    "sumWk1": 74.9,
-    "pctAch": -6893,
-    "gapWeek": 27357,
-    "rrWeek": 17303,
-    "lWeek": 58.11,
-    "wow": null
+    "sumWk1": 21017,
+    "pctAch": 76.7,
+    "gapWeek": -6394,
+    "rrWeek": 21017,
+    "lWeek": 17303,
+    "wow": 21.46
   },
   {
     "category": "POSTPAY",
@@ -47,17 +95,41 @@
     "targetDay": 1671,
     "targetWeek": 13369,
     "days": [
-      0,
-      2347,
-      1198,
-      2675
+      {
+        "date": "2026-08-31",
+        "value": 2417
+      },
+      {
+        "date": "2026-09-01",
+        "value": 2347
+      },
+      {
+        "date": "2026-09-02",
+        "value": 1198
+      },
+      {
+        "date": "2026-09-03",
+        "value": 2675
+      },
+      {
+        "date": "2026-09-04",
+        "value": 1598
+      },
+      {
+        "date": "2026-09-05",
+        "value": 1577
+      },
+      {
+        "date": "2026-09-06",
+        "value": 2994
+      }
     ],
-    "sumWk1": 92.7,
-    "pctAch": -980,
-    "gapWeek": 16519,
-    "rrWeek": 10223,
-    "lWeek": 61.58,
-    "wow": null
+    "sumWk1": 14806,
+    "pctAch": 110.7,
+    "gapWeek": 1437,
+    "rrWeek": 14806,
+    "lWeek": 10223,
+    "wow": 44.83
   },
   {
     "category": "POSTPAY",
@@ -65,17 +137,41 @@
     "shopName": "True Shop Lotus's Bang Plee",
     "typeShop": "Lotus's",
     "targetDay": 521,
-    "targetWeek": 4168,
+    "targetWeek": 3647,
     "days": [
-      0,
-      399,
-      399,
-      399
+      {
+        "date": "2026-08-31",
+        "value": 0
+      },
+      {
+        "date": "2026-09-01",
+        "value": 399
+      },
+      {
+        "date": "2026-09-02",
+        "value": 399
+      },
+      {
+        "date": "2026-09-03",
+        "value": 399
+      },
+      {
+        "date": "2026-09-04",
+        "value": 399
+      },
+      {
+        "date": "2026-09-05",
+        "value": 0
+      },
+      {
+        "date": "2026-09-06",
+        "value": 0
+      }
     ],
-    "sumWk1": 38.3,
-    "pctAch": -2572,
-    "gapWeek": 2128,
-    "rrWeek": 0,
+    "sumWk1": 1596,
+    "pctAch": 43.8,
+    "gapWeek": -2051,
+    "rrWeek": 1596,
     "lWeek": 0,
     "wow": null
   },
@@ -85,17 +181,41 @@
     "shopName": "True Shop Lotus's Onnut 80",
     "typeShop": "Lotus's",
     "targetDay": 283,
-    "targetWeek": 2264,
+    "targetWeek": 1981,
     "days": [
-      0,
-      0,
-      0,
-      699
+      {
+        "date": "2026-08-31",
+        "value": 0
+      },
+      {
+        "date": "2026-09-01",
+        "value": 0
+      },
+      {
+        "date": "2026-09-02",
+        "value": 0
+      },
+      {
+        "date": "2026-09-03",
+        "value": 699
+      },
+      {
+        "date": "2026-09-04",
+        "value": 0
+      },
+      {
+        "date": "2026-09-05",
+        "value": 0
+      },
+      {
+        "date": "2026-09-06",
+        "value": 0
+      }
     ],
-    "sumWk1": 30.9,
-    "pctAch": -1565,
-    "gapWeek": 932,
-    "rrWeek": 0,
+    "sumWk1": 699,
+    "pctAch": 35.3,
+    "gapWeek": -1282,
+    "rrWeek": 699,
     "lWeek": 0,
     "wow": null
   },
@@ -105,19 +225,43 @@
     "shopName": "True Shop Lotus's Sriwaree",
     "typeShop": "Lotus's",
     "targetDay": 283,
-    "targetWeek": 2264,
+    "targetWeek": 1981,
     "days": [
-      0,
-      0,
-      0,
-      0
+      {
+        "date": "2026-08-31",
+        "value": 0
+      },
+      {
+        "date": "2026-09-01",
+        "value": 0
+      },
+      {
+        "date": "2026-09-02",
+        "value": 0
+      },
+      {
+        "date": "2026-09-03",
+        "value": 0
+      },
+      {
+        "date": "2026-09-04",
+        "value": 998
+      },
+      {
+        "date": "2026-09-05",
+        "value": 444
+      },
+      {
+        "date": "2026-09-06",
+        "value": 0
+      }
     ],
-    "sumWk1": 63.7,
-    "pctAch": -822,
-    "gapWeek": 1923,
-    "rrWeek": 464,
-    "lWeek": 314.37,
-    "wow": null
+    "sumWk1": 1442,
+    "pctAch": 72.8,
+    "gapWeek": -539,
+    "rrWeek": 1442,
+    "lWeek": 464,
+    "wow": 210.78
   },
   {
     "category": "TOL",
@@ -127,17 +271,41 @@
     "targetDay": 0,
     "targetWeek": 1,
     "days": [
-      0,
-      0,
-      0,
-      0
+      {
+        "date": "2026-08-31",
+        "value": 1
+      },
+      {
+        "date": "2026-09-01",
+        "value": 0
+      },
+      {
+        "date": "2026-09-02",
+        "value": 0
+      },
+      {
+        "date": "2026-09-03",
+        "value": 0
+      },
+      {
+        "date": "2026-09-04",
+        "value": 0
+      },
+      {
+        "date": "2026-09-05",
+        "value": 0
+      },
+      {
+        "date": "2026-09-06",
+        "value": 1
+      }
     ],
-    "sumWk1": 100.0,
-    "pctAch": 0,
+    "sumWk1": 2,
+    "pctAch": 200.0,
     "gapWeek": 1,
-    "rrWeek": 3,
-    "lWeek": -55.56,
-    "wow": null
+    "rrWeek": 2,
+    "lWeek": 3,
+    "wow": -33.33
   },
   {
     "category": "TOL",
@@ -147,17 +315,41 @@
     "targetDay": 1,
     "targetWeek": 8,
     "days": [
-      0,
-      1,
-      1,
-      1
+      {
+        "date": "2026-08-31",
+        "value": 1
+      },
+      {
+        "date": "2026-09-01",
+        "value": 1
+      },
+      {
+        "date": "2026-09-02",
+        "value": 1
+      },
+      {
+        "date": "2026-09-03",
+        "value": 1
+      },
+      {
+        "date": "2026-09-04",
+        "value": 0
+      },
+      {
+        "date": "2026-09-05",
+        "value": 0
+      },
+      {
+        "date": "2026-09-06",
+        "value": 0
+      }
     ],
-    "sumWk1": 37.5,
-    "pctAch": -5,
-    "gapWeek": 4,
-    "rrWeek": 5,
-    "lWeek": -20.0,
-    "wow": null
+    "sumWk1": 4,
+    "pctAch": 50.0,
+    "gapWeek": -4,
+    "rrWeek": 4,
+    "lWeek": 5,
+    "wow": -20.0
   },
   {
     "category": "TOL",
@@ -167,17 +359,41 @@
     "targetDay": 0,
     "targetWeek": 1,
     "days": [
-      0,
-      0,
-      0,
-      1
+      {
+        "date": "2026-08-31",
+        "value": 0
+      },
+      {
+        "date": "2026-09-01",
+        "value": 0
+      },
+      {
+        "date": "2026-09-02",
+        "value": 0
+      },
+      {
+        "date": "2026-09-03",
+        "value": 1
+      },
+      {
+        "date": "2026-09-04",
+        "value": 1
+      },
+      {
+        "date": "2026-09-05",
+        "value": 0
+      },
+      {
+        "date": "2026-09-06",
+        "value": 1
+      }
     ],
-    "sumWk1": 300.0,
-    "pctAch": 2,
-    "gapWeek": 4,
-    "rrWeek": 1,
-    "lWeek": 300.0,
-    "wow": null
+    "sumWk1": 3,
+    "pctAch": 300.0,
+    "gapWeek": 2,
+    "rrWeek": 3,
+    "lWeek": 1,
+    "wow": 200.0
   },
   {
     "category": "DEVICE",
@@ -185,19 +401,43 @@
     "shopName": "True Shop Lotus's Phatthanakan",
     "typeShop": "Non Matching",
     "targetDay": 15000,
-    "targetWeek": 120000,
+    "targetWeek": 105000,
     "days": [
-      34407,
-      2396,
-      2498,
-      4797
+      {
+        "date": "2026-08-31",
+        "value": 34407
+      },
+      {
+        "date": "2026-09-01",
+        "value": 2396
+      },
+      {
+        "date": "2026-09-02",
+        "value": 2498
+      },
+      {
+        "date": "2026-09-03",
+        "value": 4797
+      },
+      {
+        "date": "2026-09-04",
+        "value": 1198
+      },
+      {
+        "date": "2026-09-05",
+        "value": 35880
+      },
+      {
+        "date": "2026-09-06",
+        "value": 6789
+      }
     ],
-    "sumWk1": 73.3,
-    "pctAch": -32035,
-    "gapWeek": 117287,
-    "rrWeek": 135319,
-    "lWeek": -13.33,
-    "wow": null
+    "sumWk1": 87965,
+    "pctAch": 83.8,
+    "gapWeek": -17035,
+    "rrWeek": 87965,
+    "lWeek": 135319,
+    "wow": -34.99
   },
   {
     "category": "DEVICE",
@@ -205,19 +445,43 @@
     "shopName": "True Shop Paradise Park Srinakarin",
     "typeShop": "Non Matching",
     "targetDay": 73333,
-    "targetWeek": 586664,
+    "targetWeek": 513331,
     "days": [
-      0,
-      32399,
-      59297,
-      39610
+      {
+        "date": "2026-08-31",
+        "value": 0
+      },
+      {
+        "date": "2026-09-01",
+        "value": 32399
+      },
+      {
+        "date": "2026-09-02",
+        "value": 59297
+      },
+      {
+        "date": "2026-09-03",
+        "value": 39610
+      },
+      {
+        "date": "2026-09-04",
+        "value": 39949
+      },
+      {
+        "date": "2026-09-05",
+        "value": 168675
+      },
+      {
+        "date": "2026-09-06",
+        "value": 163839
+      }
     ],
-    "sumWk1": 85.9,
-    "pctAch": -82895,
-    "gapWeek": 671692,
-    "rrWeek": 815049,
-    "lWeek": -17.59,
-    "wow": null
+    "sumWk1": 503769,
+    "pctAch": 98.1,
+    "gapWeek": -9562,
+    "rrWeek": 503769,
+    "lWeek": 815049,
+    "wow": -38.19
   },
   {
     "category": "DEVICE",
@@ -225,18 +489,42 @@
     "shopName": "True Shop Lotus's Bangna-trad",
     "typeShop": "Non Matching",
     "targetDay": 91667,
-    "targetWeek": 733336,
+    "targetWeek": 641669,
     "days": [
-      68106,
-      32397,
-      5597,
-      20248
+      {
+        "date": "2026-08-31",
+        "value": 68106
+      },
+      {
+        "date": "2026-09-01",
+        "value": 32397
+      },
+      {
+        "date": "2026-09-02",
+        "value": 5597
+      },
+      {
+        "date": "2026-09-03",
+        "value": 20248
+      },
+      {
+        "date": "2026-09-04",
+        "value": 32299
+      },
+      {
+        "date": "2026-09-05",
+        "value": 163839
+      },
+      {
+        "date": "2026-09-06",
+        "value": 192124
+      }
     ],
-    "sumWk1": 70.2,
-    "pctAch": -218726,
-    "gapWeek": 686147,
-    "rrWeek": 354504,
-    "lWeek": 93.55,
-    "wow": null
+    "sumWk1": 514610,
+    "pctAch": 80.2,
+    "gapWeek": -127059,
+    "rrWeek": 514610,
+    "lWeek": 354504,
+    "wow": 45.16
   }
 ]

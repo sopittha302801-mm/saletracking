@@ -122,7 +122,7 @@
   <header class="dashboard-header">
     <div>
       <h1>Sale Tracking — BMAIV</h1>
-      <div class="subtitle">Week 1 performance across POSTPAY · TOL · DEVICE</div>
+      <div class="subtitle">Performance across POSTPAY · TOL · DEVICE — filterable by week</div>
       <div class="subtitle" id="last-updated" style="margin-top:2px;">Loading data…</div>
     </div>
     <a href="indy.html" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:600;border:1px solid var(--accent-soft);background:var(--accent-soft);padding:8px 14px;border-radius:8px;">INDY Scorecard &rarr;</a>
@@ -142,6 +142,17 @@
           <option value="ALL">All Shops</option>
         </select>
       </div>
+      <div class="filter-group">
+        <label>Week</label>
+        <select id="filter-week">
+          <option value="ALL">All Available Days</option>
+          <option value="1">Week 1 (Aug 31 – Sep 6)</option>
+          <option value="2">Week 2 (Sep 7 – 13)</option>
+          <option value="3">Week 3 (Sep 14 – 20)</option>
+          <option value="4">Week 4 (Sep 21 – 27)</option>
+          <option value="5">Week 5 (Sep 28 – Oct 4)</option>
+        </select>
+      </div>
     </div>
   </header>
 
@@ -149,13 +160,13 @@
 
   <section class="chart-row">
     <div class="chart-container">
-      <h3>Week 1 Sales vs Target by Shop</h3>
-      <div class="chart-sub">Sum of Week 1 sales against Week 1 target, per shop</div>
+      <h3>Sales vs Target by Shop</h3>
+      <div class="chart-sub">Sum of sales against target, per shop — scoped to the selected week filter</div>
       <canvas id="chart-sales-target"></canvas>
     </div>
     <div class="chart-container">
       <h3>Category Mix</h3>
-      <div class="chart-sub">Share of total Week 1 sales</div>
+      <div class="chart-sub">Share of total sales in the selected week filter</div>
       <canvas id="chart-category-mix"></canvas>
     </div>
   </section>
@@ -163,18 +174,19 @@
   <section class="chart-row secondary">
     <div class="chart-container">
       <h3>Daily Sales Trend</h3>
-      <div class="chart-sub">Date 1 – Date 4 (Dates 5–8 not yet recorded)</div>
+      <div class="chart-sub">Actual calendar dates, scoped to the selected week filter</div>
       <canvas id="chart-daily-trend"></canvas>
     </div>
     <div class="chart-container">
       <h3>Achievement % by Shop</h3>
-      <div class="chart-sub">Week 1 sales as % of Week 1 target</div>
+      <div class="chart-sub">Sales as % of target, scoped to the selected week filter</div>
       <canvas id="chart-achievement"></canvas>
     </div>
   </section>
 
   <section class="table-section">
     <h3>Shop Detail</h3>
+    <p style="font-size:12px;color:var(--text-secondary);margin:-8px 0 14px;">Target/Sum/%Ach/Gap reflect the selected week filter. RR Week, L Week, and WoW are sourced directly from the sheet and always reflect its own currently-tracked week.</p>
     <table class="data-table" id="data-table">
       <thead>
         <tr>
@@ -213,10 +225,33 @@ function fmt(n){
 }
 function fmtPct(n){ return (n===null||n===undefined) ? '—' : n.toFixed(1)+'%'; }
 
+// Week bucketing: Week 1 starts 2026-08-31, each subsequent week is 7 days.
+const WEEK1_START = new Date('2026-08-31T00:00:00Z');
+function weekNumberForDate(dateStr){
+  const d = new Date(dateStr + 'T00:00:00Z');
+  const deltaDays = Math.round((d - WEEK1_START) / 86400000);
+  if(deltaDays < 0) return null;
+  return Math.floor(deltaDays / 7) + 1;
+}
+// Effective sum/target for a shop record, given a week filter ('ALL' or 1-5).
+function effectiveMetrics(record, weekFilter){
+  let days = record.days || [];
+  if(weekFilter !== 'ALL'){
+    const wk = Number(weekFilter);
+    days = days.filter(d => weekNumberForDate(d.date) === wk);
+  }
+  const sum = days.reduce((a,d)=>a+(d.value||0), 0);
+  const target = weekFilter === 'ALL' ? record.targetWeek : (record.targetDay * 7);
+  const pctAch = target ? (sum/target*100) : 0;
+  const gap = sum - target;
+  return { sum, target, pctAch, gap, days };
+}
+
 class Dashboard{
   constructor(data){
     this.rawData = data;
     this.filtered = data;
+    this.weekFilter = 'ALL';
     this.sortKey = null;
     this.sortAsc = true;
     this.charts = {};
@@ -244,6 +279,7 @@ class Dashboard{
   bindFilters(){
     document.getElementById('filter-category').addEventListener('change', ()=>this.applyFilters());
     document.getElementById('filter-shop').addEventListener('change', ()=>this.applyFilters());
+    document.getElementById('filter-week').addEventListener('change', ()=>this.applyFilters());
     document.querySelectorAll('.data-table thead th').forEach(th=>{
       th.addEventListener('click', ()=>{
         const key = th.dataset.key;
@@ -255,6 +291,7 @@ class Dashboard{
   applyFilters(){
     const cat = document.getElementById('filter-category').value;
     const shop = document.getElementById('filter-shop').value;
+    this.weekFilter = document.getElementById('filter-week').value;
     this.filtered = this.rawData.filter(r=>{
       if(cat!=='ALL' && r.category!==cat) return false;
       if(shop!=='ALL' && r.shopCode!==shop) return false;
@@ -272,13 +309,15 @@ class Dashboard{
   }
   renderKPIs(){
     const d = this.filtered;
-    const totalSales = d.reduce((a,r)=>a+r.sumWk1,0);
-    const totalTarget = d.reduce((a,r)=>a+r.targetWeek,0);
+    const metrics = d.map(r => effectiveMetrics(r, this.weekFilter));
+    const totalSales = metrics.reduce((a,m)=>a+m.sum,0);
+    const totalTarget = metrics.reduce((a,m)=>a+m.target,0);
     const overallAch = totalTarget ? (totalSales/totalTarget*100) : 0;
-    const totalGap = d.reduce((a,r)=>a+r.gapWeek,0);
+    const totalGap = metrics.reduce((a,m)=>a+m.gap,0);
+    const weekLabel = this.weekFilter === 'ALL' ? 'All Available Days' : ('Week ' + this.weekFilter);
     const kpis = [
-      { label:'Total Week 1 Sales', value: fmt(totalSales), sub: d.length+' shop record(s)' },
-      { label:'Total Week 1 Target', value: fmt(totalTarget), sub: 'across selected scope' },
+      { label:'Total Sales — '+weekLabel, value: fmt(totalSales), sub: d.length+' shop record(s)' },
+      { label:'Total Target — '+weekLabel, value: fmt(totalTarget), sub: 'across selected scope' },
       { label:'Overall Achievement', value: overallAch.toFixed(1)+'%', changeClass: overallAch>=100?'positive':'negative', change: overallAch>=100 ? 'On/above target' : 'Below target' },
       { label:'Total Gap to Target', value: fmt(totalGap), changeClass: totalGap>=0?'positive':'negative', change: totalGap>=0 ? 'Surplus' : 'Shortfall' },
     ];
@@ -294,16 +333,16 @@ class Dashboard{
   renderSalesTargetChart(){
     const ctx = document.getElementById('chart-sales-target').getContext('2d');
     const labels = this.filtered.map(r=> r.shopName.replace('True Shop ','') + ' (' + r.category + ')');
-    const sales = this.filtered.map(r=>r.sumWk1);
-    const target = this.filtered.map(r=>r.targetWeek);
+    const sales = this.filtered.map(r=> effectiveMetrics(r, this.weekFilter).sum);
+    const target = this.filtered.map(r=> effectiveMetrics(r, this.weekFilter).target);
     if(this.charts.st) this.charts.st.destroy();
     this.charts.st = new Chart(ctx, {
       type:'bar',
       data:{
         labels,
         datasets:[
-          { label:'Sum Wk1', data:sales, backgroundColor:'#2f6fed', borderRadius:4 },
-          { label:'Target Wk1', data:target, backgroundColor:'#d7e3fb', borderRadius:4 },
+          { label:'Sales', data:sales, backgroundColor:'#2f6fed', borderRadius:4 },
+          { label:'Target', data:target, backgroundColor:'#d7e3fb', borderRadius:4 },
         ]
       },
       options:{
@@ -319,7 +358,10 @@ class Dashboard{
   renderCategoryMixChart(){
     const ctx = document.getElementById('chart-category-mix').getContext('2d');
     const byCat = {};
-    this.filtered.forEach(r=>{ byCat[r.category] = (byCat[r.category]||0) + r.sumWk1; });
+    this.filtered.forEach(r=>{
+      const m = effectiveMetrics(r, this.weekFilter);
+      byCat[r.category] = (byCat[r.category]||0) + m.sum;
+    });
     const labels = Object.keys(byCat);
     const values = labels.map(l=>byCat[l]);
     if(this.charts.mix) this.charts.mix.destroy();
@@ -338,9 +380,27 @@ class Dashboard{
   renderDailyTrendChart(){
     const ctx = document.getElementById('chart-daily-trend').getContext('2d');
     const cats = ['POSTPAY','TOL','DEVICE'].filter(c => this.filtered.some(r=>r.category===c));
+
+    // Collect the set of dates in scope (respecting the week filter), sorted.
+    const dateSet = new Set();
+    this.filtered.forEach(r=>{
+      (r.days||[]).forEach(d=>{
+        if(this.weekFilter==='ALL' || weekNumberForDate(d.date)===Number(this.weekFilter)){
+          dateSet.add(d.date);
+        }
+      });
+    });
+    const dates = [...dateSet].sort();
+    const dateLabels = dates.map(ds => new Date(ds+'T00:00:00Z').toLocaleDateString(undefined,{month:'short',day:'numeric',timeZone:'UTC'}));
+
     const datasets = cats.map(cat=>{
       const rows = this.filtered.filter(r=>r.category===cat);
-      const dayTotals = [0,1,2,3].map(i => rows.reduce((a,r)=>a + (r.days[i]||0), 0));
+      const dayTotals = dates.map(ds =>
+        rows.reduce((a,r)=>{
+          const day = (r.days||[]).find(d=>d.date===ds);
+          return a + (day ? day.value : 0);
+        }, 0)
+      );
       return {
         label: cat,
         data: dayTotals,
@@ -356,7 +416,7 @@ class Dashboard{
     if(this.charts.trend) this.charts.trend.destroy();
     this.charts.trend = new Chart(ctx, {
       type:'line',
-      data:{ labels:['Date 1','Date 2','Date 3','Date 4'], datasets },
+      data:{ labels: dateLabels, datasets },
       options:{
         responsive:true,
         plugins:{ legend:{ position:'top', labels:{ boxWidth:10, font:{size:11} } } },
@@ -369,10 +429,12 @@ class Dashboard{
   }
   renderAchievementChart(){
     const ctx = document.getElementById('chart-achievement').getContext('2d');
-    const rows = [...this.filtered].sort((a,b)=>b.pctAch-a.pctAch);
-    const labels = rows.map(r=> r.shopName.replace('True Shop ','') + ' · ' + r.category);
-    const values = rows.map(r=>r.pctAch);
-    const colors = rows.map(r=> r.pctAch>=100 ? '#1a9c6b' : '#e0473f');
+    const rows = [...this.filtered]
+      .map(r => ({ r, m: effectiveMetrics(r, this.weekFilter) }))
+      .sort((a,b)=>b.m.pctAch-a.m.pctAch);
+    const labels = rows.map(({r})=> r.shopName.replace('True Shop ','') + ' · ' + r.category);
+    const values = rows.map(({m})=>m.pctAch);
+    const colors = rows.map(({m})=> m.pctAch>=100 ? '#1a9c6b' : '#e0473f');
     if(this.charts.ach) this.charts.ach.destroy();
     this.charts.ach = new Chart(ctx, {
       type:'bar',
@@ -389,10 +451,22 @@ class Dashboard{
     });
   }
   renderTable(){
-    let rows = [...this.filtered];
+    let rows = this.filtered.map(r => ({ r, m: effectiveMetrics(r, this.weekFilter) }));
+    const accessor = (row, key) => {
+      switch(key){
+        case 'targetWeek': return row.m.target;
+        case 'sumWk1': return row.m.sum;
+        case 'pctAch': return row.m.pctAch;
+        case 'gapWeek': return row.m.gap;
+        case 'rrWeek': return row.r.rrWeek;
+        case 'lWeek': return row.r.lWeek;
+        case 'wow': return row.r.wow;
+        default: return row.r[key];
+      }
+    };
     if(this.sortKey){
       rows.sort((a,b)=>{
-        let av = a[this.sortKey], bv = b[this.sortKey];
+        let av = accessor(a, this.sortKey), bv = accessor(b, this.sortKey);
         if(typeof av === 'string'){ av = av.toLowerCase(); bv = (bv||'').toLowerCase(); }
         if(av===null||av===undefined) av = -Infinity;
         if(bv===null||bv===undefined) bv = -Infinity;
@@ -405,22 +479,22 @@ class Dashboard{
       th.classList.toggle('sorted', th.dataset.key===this.sortKey);
     });
     const tbody = document.getElementById('table-body');
-    tbody.innerHTML = rows.map(r=>`
+    tbody.innerHTML = rows.map(({r,m})=>`
       <tr>
         <td><span class="cat-badge ${r.category}">${r.category}</span></td>
         <td>${r.shopCode}</td>
         <td>${r.shopName}</td>
         <td>${r.typeShop}</td>
         <td>${fmt(r.targetDay)}</td>
-        <td>${fmt(r.targetWeek)}</td>
-        <td>${fmt(r.sumWk1)}</td>
+        <td>${fmt(m.target)}</td>
+        <td>${fmt(m.sum)}</td>
         <td>
           <div class="ach-bar-wrap">
-            <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:${Math.min(r.pctAch,100)}%; background:${r.pctAch>=100?'#1a9c6b':'#2f6fed'}"></div></div>
-            <span>${fmtPct(r.pctAch)}</span>
+            <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:${Math.min(m.pctAch,100)}%; background:${m.pctAch>=100?'#1a9c6b':'#2f6fed'}"></div></div>
+            <span>${fmtPct(m.pctAch)}</span>
           </div>
         </td>
-        <td class="${r.gapWeek>=0?'num-pos':'num-neg'}">${fmt(r.gapWeek)}</td>
+        <td class="${m.gap>=0?'num-pos':'num-neg'}">${fmt(m.gap)}</td>
         <td>${fmt(r.rrWeek)}</td>
         <td>${fmt(r.lWeek)}</td>
         <td class="${r.wow===null?'':(r.wow>=0?'num-pos':'num-neg')}">${r.wow===null?'—':fmtPct(r.wow)}</td>
