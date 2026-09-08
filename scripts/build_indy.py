@@ -43,7 +43,6 @@ ENTRY_MODELS = [
     ("Realme Note 80", "NOTE 80"),
     ("Infinix Smart 20", "SMART 20"),
 ]
-MATCH_KEYWORDS = [kw for _, kw in ENTRY_MODELS]
 
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "indy_data.json")
 
@@ -96,18 +95,23 @@ def fetch_csv(url):
 
 
 def count_entry_model(csv_text):
+    """Returns { normalized_sale_code: { model_label: count, ... }, ... }.
+    A row can match at most one model (keywords are distinct device models)."""
     reader = csv.DictReader(io.StringIO(csv_text))
     counts = {}
-    pattern = re.compile("|".join(re.escape(k) for k in MATCH_KEYWORDS), re.IGNORECASE)
+    compiled = [(label, re.compile(re.escape(kw), re.IGNORECASE)) for label, kw in ENTRY_MODELS]
 
     for row in reader:
         sale_code = row.get("SALE_CODE") or row.get("SALE CODE") or ""
         description = row.get("DESCRIPTION") or ""
         if not sale_code or not description:
             continue
-        if pattern.search(description):
-            key = normalize_code(sale_code)
-            counts[key] = counts.get(key, 0) + 1
+        for label, pattern in compiled:
+            if pattern.search(description):
+                key = normalize_code(sale_code)
+                counts.setdefault(key, {})
+                counts[key][label] = counts[key].get(label, 0) + 1
+                break  # count each row under its first matching model only
 
     return counts
 
@@ -116,7 +120,9 @@ def build_records(counts):
     records = []
     for person in ROSTER:
         key = normalize_code(person["saleCode"])
-        entryModel = counts.get(key, 0)
+        by_model = counts.get(key, {})
+        model_counts = {label: by_model.get(label, 0) for label, _ in ENTRY_MODELS}
+        entryModel = sum(model_counts.values())
         records.append(
             {
                 "team": person["team"],
@@ -124,6 +130,7 @@ def build_records(counts):
                 "name": person["name"],
                 "target": person["target"],
                 "entryModel": entryModel,
+                "byModel": model_counts,
             }
         )
     return records

@@ -4,111 +4,255 @@
     "saleCode": "010J4920",
     "name": "จรรยาภรณ์",
     "target": 15,
-    "entryModel": 1
+    "entryModel": 1,
+    "byModel": {
+      "Samsung A06": 1,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "39115146",
     "name": "ปสันน์ธรรศ",
     "target": 15,
-    "entryModel": 4
+    "entryModel": 4,
+    "byModel": {
+      "Samsung A06": 4,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "12808188",
     "name": "อินทิรา",
     "target": 15,
-    "entryModel": 1
+    "entryModel": 1,
+    "byModel": {
+      "Samsung A06": 1,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "010L6084",
     "name": "นัฑเศรษฐ์",
     "target": 15,
-    "entryModel": 1
+    "entryModel": 1,
+    "byModel": {
+      "Samsung A06": 1,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "NEW OS",
     "name": "พัทน์ธีรา",
     "target": 15,
-    "entryModel": 0
+    "entryModel": 0,
+    "byModel": {
+      "Samsung A06": 0,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "12808761",
     "name": "ณัฐธยาน์",
     "target": 15,
-    "entryModel": 2
+    "entryModel": 2,
+    "byModel": {
+      "Samsung A06": 2,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "01075327",
     "name": "ศุภลักษณ์",
     "target": 15,
-    "entryModel": 3
+    "entryModel": 3,
+    "byModel": {
+      "Samsung A06": 3,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "010N6112",
     "name": "เมธาพร",
     "target": 15,
-    "entryModel": 1
+    "entryModel": 1,
+    "byModel": {
+      "Samsung A06": 1,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "010J9581",
     "name": "จุฬาลักษณ์",
     "target": 15,
-    "entryModel": 1
+    "entryModel": 1,
+    "byModel": {
+      "Samsung A06": 1,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "12807924",
     "name": "คงฤทธิ์",
     "target": 15,
-    "entryModel": 1
+    "entryModel": 1,
+    "byModel": {
+      "Samsung A06": 1,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "12810390",
     "name": "ดลภัทร",
     "target": 15,
-    "entryModel": 0
+    "entryModel": 0,
+    "byModel": {
+      "Samsung A06": 0,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "010L6770",
     "name": "สุนีย์",
     "target": 15,
-    "entryModel": 12
+    "entryModel": 12,
+    "byModel": {
+      "Samsung A06": 12,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "010O2425",
     "name": "อลงกรณ์",
     "target": 15,
-    "entryModel": 0
+    "entryModel": 0,
+    "byModel": {
+      "Samsung A06": 0,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Multi",
     "saleCode": "12809845",
     "name": "ขนิษฐ์",
     "target": 15,
-    "entryModel": 4
+    "entryModel": 4,
+    "byModel": {
+      "Samsung A06": 4,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Retention",
     "saleCode": "01055175",
     "name": "นภัสนันท์",
     "target": 10,
-    "entryModel": 0
+    "entryModel": 0,
+    "byModel": {
+      "Samsung A06": 0,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   },
   {
     "team": "RR Retention",
     "saleCode": "010E3992",
     "name": "ธนัฏฐา",
     "target": 10,
-    "entryModel": 0
+    "entryModel": 0,
+    "byModel": {
+      "Samsung A06": 0,
+      "Oppo A6C": 0,
+      "Vivo Y05": 0,
+      "Redmi A7 Pro": 0,
+      "Honor X5C": 0,
+      "Realme Note 80": 0,
+      "Infinix Smart 20": 0
+    }
   }
 ]
