@@ -77,6 +77,13 @@
 
   .table-section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 3px rgba(20,30,45,0.04);overflow-x:auto;}
   .table-section h3{font-size:14px;font-weight:700;margin:0 0 14px;}
+  .category-block{margin-bottom:24px;}
+  .category-block:last-child{margin-bottom:0;}
+  .category-block-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+  .category-block-title{display:flex;align-items:center;gap:10px;}
+  .category-block-title h4{font-size:13.5px;font-weight:700;margin:0;}
+  .category-dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .category-block-sub{font-size:12px;color:var(--text-secondary);}
   .data-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:920px;}
   .data-table thead th{
     text-align:left;padding:9px 10px;border-bottom:2px solid var(--border);
@@ -88,6 +95,7 @@
   .data-table tbody td{padding:9px 10px;border-bottom:1px solid #f0f2f5;white-space:nowrap;}
   .data-table tbody tr:hover{background:#f8fafc;}
   .data-table tbody tr:last-child td{border-bottom:none;}
+  .data-table tfoot td{padding:9px 10px;border-top:2px solid var(--border);font-weight:700;}
   .cat-badge{
     display:inline-block;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700;
   }
@@ -186,30 +194,12 @@
 
   <section class="table-section">
     <h3>Shop Detail</h3>
-    <p style="font-size:12px;color:var(--text-secondary);margin:-8px 0 14px;">Target/Sum/%Ach/Gap reflect the selected week filter. RR Week, L Week, and WoW are sourced directly from the sheet and always reflect its own currently-tracked week.</p>
-    <table class="data-table" id="data-table">
-      <thead>
-        <tr>
-          <th data-key="category">Category</th>
-          <th data-key="shopCode">Shop Code</th>
-          <th data-key="shopName">Shop Name</th>
-          <th data-key="typeShop">Type</th>
-          <th data-key="targetDay">Target/Day</th>
-          <th data-key="targetWeek">Target Wk1</th>
-          <th data-key="sumWk1">Sum Wk1</th>
-          <th data-key="pctAch">% Ach Wk1</th>
-          <th data-key="gapWeek">Gap Week</th>
-          <th data-key="rrWeek">RR Week</th>
-          <th data-key="lWeek">L Week</th>
-          <th data-key="wow">WoW</th>
-        </tr>
-      </thead>
-      <tbody id="table-body"></tbody>
-    </table>
+    <p style="font-size:12px;color:var(--text-secondary);margin:-8px 0 14px;">Target/Sum/%Ach/Gap reflect the selected week filter. RR Week, L Week, and WoW are sourced directly from the sheet and always reflect its own currently-tracked week. Split by category below — POSTPAY, TOL, and DEVICE use very different scales (THB vs. line count), so keeping them separate avoids misreading one category's numbers as another's.</p>
+    <div id="shop-detail-container"></div>
   </section>
 
   <footer class="dashboard-footer">
-    Data as of Week 1 (Date 1–4 recorded) · Source: SALE TRACKING FRM BMAIV
+    Source: SALE TRACKING FRM BMAIV · auto-refreshed hourly
   </footer>
 </div>
 
@@ -280,12 +270,12 @@ class Dashboard{
     document.getElementById('filter-category').addEventListener('change', ()=>this.applyFilters());
     document.getElementById('filter-shop').addEventListener('change', ()=>this.applyFilters());
     document.getElementById('filter-week').addEventListener('change', ()=>this.applyFilters());
-    document.querySelectorAll('.data-table thead th').forEach(th=>{
-      th.addEventListener('click', ()=>{
-        const key = th.dataset.key;
-        if(this.sortKey===key){ this.sortAsc = !this.sortAsc; } else { this.sortKey = key; this.sortAsc = true; }
-        this.renderTable();
-      });
+    document.getElementById('shop-detail-container').addEventListener('click', (e)=>{
+      const th = e.target.closest('th[data-key]');
+      if(!th) return;
+      const key = th.dataset.key;
+      if(this.sortKey===key){ this.sortAsc = !this.sortAsc; } else { this.sortKey = key; this.sortAsc = true; }
+      this.renderTable();
     });
   }
   applyFilters(){
@@ -451,7 +441,6 @@ class Dashboard{
     });
   }
   renderTable(){
-    let rows = this.filtered.map(r => ({ r, m: effectiveMetrics(r, this.weekFilter) }));
     const accessor = (row, key) => {
       switch(key){
         case 'targetWeek': return row.m.target;
@@ -464,8 +453,10 @@ class Dashboard{
         default: return row.r[key];
       }
     };
-    if(this.sortKey){
-      rows.sort((a,b)=>{
+    const sortRows = (rows) => {
+      if(!this.sortKey) return rows;
+      const sorted = [...rows];
+      sorted.sort((a,b)=>{
         let av = accessor(a, this.sortKey), bv = accessor(b, this.sortKey);
         if(typeof av === 'string'){ av = av.toLowerCase(); bv = (bv||'').toLowerCase(); }
         if(av===null||av===undefined) av = -Infinity;
@@ -474,32 +465,80 @@ class Dashboard{
         if(av>bv) return this.sortAsc?1:-1;
         return 0;
       });
-    }
-    document.querySelectorAll('.data-table thead th').forEach(th=>{
-      th.classList.toggle('sorted', th.dataset.key===this.sortKey);
-    });
-    const tbody = document.getElementById('table-body');
-    tbody.innerHTML = rows.map(({r,m})=>`
-      <tr>
-        <td><span class="cat-badge ${r.category}">${r.category}</span></td>
-        <td>${r.shopCode}</td>
-        <td>${r.shopName}</td>
-        <td>${r.typeShop}</td>
-        <td>${fmt(r.targetDay)}</td>
-        <td>${fmt(m.target)}</td>
-        <td>${fmt(m.sum)}</td>
-        <td>
-          <div class="ach-bar-wrap">
-            <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:${Math.min(m.pctAch,100)}%; background:${m.pctAch>=100?'#1a9c6b':'#2f6fed'}"></div></div>
-            <span>${fmtPct(m.pctAch)}</span>
+      return sorted;
+    };
+
+    const categories = ['POSTPAY','TOL','DEVICE'].filter(c => this.filtered.some(r=>r.category===c));
+    const container = document.getElementById('shop-detail-container');
+
+    container.innerHTML = categories.map(cat=>{
+      let rows = this.filtered.filter(r=>r.category===cat).map(r => ({ r, m: effectiveMetrics(r, this.weekFilter) }));
+      rows = sortRows(rows);
+      const totalSum = rows.reduce((a,{m})=>a+m.sum,0);
+      const totalTarget = rows.reduce((a,{m})=>a+m.target,0);
+      const catAch = totalTarget ? (totalSum/totalTarget*100) : 0;
+      const color = CAT_COLORS[cat];
+      return `
+        <div class="category-block">
+          <div class="category-block-header">
+            <div class="category-block-title">
+              <span class="category-dot" style="background:${color}"></span>
+              <h4>${cat}</h4>
+            </div>
+            <span class="category-block-sub">Total: ${fmt(totalSum)} / ${fmt(totalTarget)} (${catAch.toFixed(1)}%) — ${rows.length} shop(s)</span>
           </div>
-        </td>
-        <td class="${m.gap>=0?'num-pos':'num-neg'}">${fmt(m.gap)}</td>
-        <td>${fmt(r.rrWeek)}</td>
-        <td>${fmt(r.lWeek)}</td>
-        <td class="${r.wow===null?'':(r.wow>=0?'num-pos':'num-neg')}">${r.wow===null?'—':fmtPct(r.wow)}</td>
-      </tr>
-    `).join('');
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th data-key="shopCode" class="${this.sortKey==='shopCode'?'sorted':''}">Shop Code</th>
+                <th data-key="shopName" class="${this.sortKey==='shopName'?'sorted':''}">Shop Name</th>
+                <th data-key="typeShop" class="${this.sortKey==='typeShop'?'sorted':''}">Type</th>
+                <th data-key="targetDay" class="${this.sortKey==='targetDay'?'sorted':''}">Target/Day</th>
+                <th data-key="targetWeek" class="${this.sortKey==='targetWeek'?'sorted':''}">Target</th>
+                <th data-key="sumWk1" class="${this.sortKey==='sumWk1'?'sorted':''}">Sum</th>
+                <th data-key="pctAch" class="${this.sortKey==='pctAch'?'sorted':''}">% Ach</th>
+                <th data-key="gapWeek" class="${this.sortKey==='gapWeek'?'sorted':''}">Gap</th>
+                <th data-key="rrWeek" class="${this.sortKey==='rrWeek'?'sorted':''}">RR Week</th>
+                <th data-key="lWeek" class="${this.sortKey==='lWeek'?'sorted':''}">L Week</th>
+                <th data-key="wow" class="${this.sortKey==='wow'?'sorted':''}">WoW</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map(({r,m})=>`
+                <tr>
+                  <td>${r.shopCode}</td>
+                  <td>${r.shopName}</td>
+                  <td>${r.typeShop}</td>
+                  <td>${fmt(r.targetDay)}</td>
+                  <td>${fmt(m.target)}</td>
+                  <td>${fmt(m.sum)}</td>
+                  <td>
+                    <div class="ach-bar-wrap">
+                      <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:${Math.min(m.pctAch,100)}%; background:${m.pctAch>=100?'#1a9c6b':color}"></div></div>
+                      <span>${fmtPct(m.pctAch)}</span>
+                    </div>
+                  </td>
+                  <td class="${m.gap>=0?'num-pos':'num-neg'}">${fmt(m.gap)}</td>
+                  <td>${fmt(r.rrWeek)}</td>
+                  <td>${fmt(r.lWeek)}</td>
+                  <td class="${r.wow===null?'':(r.wow>=0?'num-pos':'num-neg')}">${r.wow===null?'—':fmtPct(r.wow)}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4">Category total</td>
+                <td>${fmt(totalTarget)}</td>
+                <td>${fmt(totalSum)}</td>
+                <td>${catAch.toFixed(1)}%</td>
+                <td>${fmt(totalSum-totalTarget)}</td>
+                <td colspan="3"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      `;
+    }).join('');
   }
 }
 
