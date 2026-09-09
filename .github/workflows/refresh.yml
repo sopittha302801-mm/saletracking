@@ -31,9 +31,13 @@ jobs:
       - name: Install Python dependencies
         run: pip install requests
 
-      - name: Rebuild data/data.json from the published sheet
+      - name: Rebuild data/data.json from the published sheet(s)
         env:
           SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+          SHEET_CSV_URL_WEEK2: ${{ secrets.SHEET_CSV_URL_WEEK2 }}
+          SHEET_CSV_URL_WEEK3: ${{ secrets.SHEET_CSV_URL_WEEK3 }}
+          SHEET_CSV_URL_WEEK4: ${{ secrets.SHEET_CSV_URL_WEEK4 }}
+          SHEET_CSV_URL_WEEK5: ${{ secrets.SHEET_CSV_URL_WEEK5 }}
         run: python3 scripts/build_data.py
 
       - name: Rebuild data/indy_data.json (Entry Model scorecard)

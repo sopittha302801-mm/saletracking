@@ -5,7 +5,7 @@
     "shopName": "True Shop Lotus's Phatthanakan",
     "typeShop": "Non Matching",
     "targetDay": 1395,
-    "targetWeek": 11157,
+    "targetWeek": 9765,
     "days": [
       {
         "date": "2026-08-31",
@@ -34,14 +34,42 @@
       {
         "date": "2026-09-06",
         "value": 599
+      },
+      {
+        "date": "2026-09-07",
+        "value": 1398
+      },
+      {
+        "date": "2026-09-08",
+        "value": 998
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 4092,
-    "pctAch": 36.7,
-    "gapWeek": -7065,
-    "rrWeek": 4092,
-    "lWeek": 2032,
-    "wow": 101.38
+    "sumWk1": 2396,
+    "pctAch": 24.5,
+    "gapWeek": -7369,
+    "rrWeek": 8386,
+    "lWeek": 4092,
+    "wow": 104.94
   },
   {
     "category": "POSTPAY",
@@ -49,7 +77,7 @@
     "shopName": "True Shop Paradise Park Srinakarin",
     "typeShop": "Non Matching",
     "targetDay": 3426,
-    "targetWeek": 27411,
+    "targetWeek": 23982,
     "days": [
       {
         "date": "2026-08-31",
@@ -78,14 +106,42 @@
       {
         "date": "2026-09-06",
         "value": 2695
+      },
+      {
+        "date": "2026-09-07",
+        "value": 798
+      },
+      {
+        "date": "2026-09-08",
+        "value": 2825
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 21017,
-    "pctAch": 76.7,
-    "gapWeek": -6394,
-    "rrWeek": 21017,
-    "lWeek": 17303,
-    "wow": 21.46
+    "sumWk1": 3623,
+    "pctAch": 37.1,
+    "gapWeek": -20359,
+    "rrWeek": 12681,
+    "lWeek": 21017,
+    "wow": -39.67
   },
   {
     "category": "POSTPAY",
@@ -93,7 +149,7 @@
     "shopName": "True Shop Lotus's Bangna-trad",
     "typeShop": "Non Matching",
     "targetDay": 1671,
-    "targetWeek": 13369,
+    "targetWeek": 11697,
     "days": [
       {
         "date": "2026-08-31",
@@ -122,14 +178,42 @@
       {
         "date": "2026-09-06",
         "value": 2994
+      },
+      {
+        "date": "2026-09-07",
+        "value": 0
+      },
+      {
+        "date": "2026-09-08",
+        "value": 599
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 14806,
-    "pctAch": 110.7,
-    "gapWeek": 1437,
-    "rrWeek": 14806,
-    "lWeek": 10223,
-    "wow": 44.83
+    "sumWk1": 599,
+    "pctAch": 6.1,
+    "gapWeek": -11098,
+    "rrWeek": 2097,
+    "lWeek": 14806,
+    "wow": -85.84
   },
   {
     "category": "POSTPAY",
@@ -166,14 +250,42 @@
       {
         "date": "2026-09-06",
         "value": 0
+      },
+      {
+        "date": "2026-09-07",
+        "value": 0
+      },
+      {
+        "date": "2026-09-08",
+        "value": 0
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 1596,
-    "pctAch": 43.8,
-    "gapWeek": -2051,
-    "rrWeek": 1596,
-    "lWeek": 0,
-    "wow": null
+    "sumWk1": 0,
+    "pctAch": 0.0,
+    "gapWeek": -3647,
+    "rrWeek": 0,
+    "lWeek": 1596,
+    "wow": -100.0
   },
   {
     "category": "POSTPAY",
@@ -210,14 +322,42 @@
       {
         "date": "2026-09-06",
         "value": 0
+      },
+      {
+        "date": "2026-09-07",
+        "value": 0
+      },
+      {
+        "date": "2026-09-08",
+        "value": 0
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 699,
-    "pctAch": 35.3,
-    "gapWeek": -1282,
-    "rrWeek": 699,
-    "lWeek": 0,
-    "wow": null
+    "sumWk1": 0,
+    "pctAch": 0.0,
+    "gapWeek": -1981,
+    "rrWeek": 0,
+    "lWeek": 699,
+    "wow": -100.0
   },
   {
     "category": "POSTPAY",
@@ -254,14 +394,42 @@
       {
         "date": "2026-09-06",
         "value": 0
+      },
+      {
+        "date": "2026-09-07",
+        "value": 0
+      },
+      {
+        "date": "2026-09-08",
+        "value": 549
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 1442,
-    "pctAch": 72.8,
-    "gapWeek": -539,
-    "rrWeek": 1442,
-    "lWeek": 464,
-    "wow": 210.78
+    "sumWk1": 549,
+    "pctAch": 5.6,
+    "gapWeek": -1432,
+    "rrWeek": 1922,
+    "lWeek": 1442,
+    "wow": 33.25
   },
   {
     "category": "TOL",
@@ -298,14 +466,42 @@
       {
         "date": "2026-09-06",
         "value": 1
+      },
+      {
+        "date": "2026-09-07",
+        "value": 0
+      },
+      {
+        "date": "2026-09-08",
+        "value": 0
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 2,
-    "pctAch": 200.0,
-    "gapWeek": 1,
-    "rrWeek": 2,
-    "lWeek": 3,
-    "wow": -33.33
+    "sumWk1": 0,
+    "pctAch": 0.0,
+    "gapWeek": -1,
+    "rrWeek": 0,
+    "lWeek": 2,
+    "wow": -100.0
   },
   {
     "category": "TOL",
@@ -313,7 +509,7 @@
     "shopName": "True Shop Paradise Park Srinakarin",
     "typeShop": "Non Matching",
     "targetDay": 1,
-    "targetWeek": 8,
+    "targetWeek": 7,
     "days": [
       {
         "date": "2026-08-31",
@@ -342,14 +538,42 @@
       {
         "date": "2026-09-06",
         "value": 0
+      },
+      {
+        "date": "2026-09-07",
+        "value": 1
+      },
+      {
+        "date": "2026-09-08",
+        "value": 1
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 4,
-    "pctAch": 50.0,
-    "gapWeek": -4,
-    "rrWeek": 4,
-    "lWeek": 5,
-    "wow": -20.0
+    "sumWk1": 2,
+    "pctAch": 0.0,
+    "gapWeek": -5,
+    "rrWeek": 7,
+    "lWeek": 4,
+    "wow": 75.0
   },
   {
     "category": "TOL",
@@ -386,14 +610,42 @@
       {
         "date": "2026-09-06",
         "value": 1
+      },
+      {
+        "date": "2026-09-07",
+        "value": 1
+      },
+      {
+        "date": "2026-09-08",
+        "value": 1
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 3,
-    "pctAch": 300.0,
-    "gapWeek": 2,
-    "rrWeek": 3,
-    "lWeek": 1,
-    "wow": 200.0
+    "sumWk1": 2,
+    "pctAch": 0.0,
+    "gapWeek": 1,
+    "rrWeek": 7,
+    "lWeek": 3,
+    "wow": 133.33
   },
   {
     "category": "DEVICE",
@@ -430,14 +682,42 @@
       {
         "date": "2026-09-06",
         "value": 6789
+      },
+      {
+        "date": "2026-09-07",
+        "value": 3096
+      },
+      {
+        "date": "2026-09-08",
+        "value": 4297
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 87965,
-    "pctAch": 31.1,
-    "gapWeek": -195248,
-    "rrWeek": 87965,
-    "lWeek": 135319,
-    "wow": -34.99
+    "sumWk1": 7393,
+    "pctAch": 75.7,
+    "gapWeek": -275820,
+    "rrWeek": 25876,
+    "lWeek": 87965,
+    "wow": -70.58
   },
   {
     "category": "DEVICE",
@@ -474,14 +754,42 @@
       {
         "date": "2026-09-06",
         "value": 163839
+      },
+      {
+        "date": "2026-09-07",
+        "value": 50600
+      },
+      {
+        "date": "2026-09-08",
+        "value": 64429
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 503769,
-    "pctAch": 34.8,
-    "gapWeek": -944370,
-    "rrWeek": 503769,
-    "lWeek": 815049,
-    "wow": -38.19
+    "sumWk1": 115029,
+    "pctAch": 1178.0,
+    "gapWeek": -1333110,
+    "rrWeek": 402602,
+    "lWeek": 503769,
+    "wow": -20.08
   },
   {
     "category": "DEVICE",
@@ -518,13 +826,41 @@
       {
         "date": "2026-09-06",
         "value": 192124
+      },
+      {
+        "date": "2026-09-07",
+        "value": 85059
+      },
+      {
+        "date": "2026-09-08",
+        "value": 52248
+      },
+      {
+        "date": "2026-09-09",
+        "value": 0
+      },
+      {
+        "date": "2026-09-10",
+        "value": 0
+      },
+      {
+        "date": "2026-09-11",
+        "value": 0
+      },
+      {
+        "date": "2026-09-12",
+        "value": 0
+      },
+      {
+        "date": "2026-09-13",
+        "value": 0
       }
     ],
-    "sumWk1": 514610,
-    "pctAch": 82.9,
-    "gapWeek": -106339,
-    "rrWeek": 514610,
-    "lWeek": 354504,
-    "wow": 45.16
+    "sumWk1": 137307,
+    "pctAch": 1406.1,
+    "gapWeek": -483642,
+    "rrWeek": 480575,
+    "lWeek": 514610,
+    "wow": -6.61
   }
 ]

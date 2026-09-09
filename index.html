@@ -194,7 +194,7 @@
 
   <section class="table-section">
     <h3>Shop Detail</h3>
-    <p style="font-size:12px;color:var(--text-secondary);margin:-8px 0 14px;">Target/Sum/%Ach/Gap reflect the selected week filter. RR Week, L Week, and WoW are sourced directly from the sheet and always reflect its own currently-tracked week. Split by category below — POSTPAY, TOL, and DEVICE use very different scales (THB vs. line count), so keeping them separate avoids misreading one category's numbers as another's.</p>
+    <p style="font-size:12px;color:var(--text-secondary);margin:-8px 0 14px;">Target/Sum/%Ach/Gap reflect the selected week filter, computed from real daily data across all configured weeks. RR Week, L Week, and WoW are sourced directly from the sheet and reflect the most recently added week's tab. Split by category below — POSTPAY, TOL, and DEVICE use very different scales (THB vs. line count), so keeping them separate avoids misreading one category's numbers as another's.</p>
     <div id="shop-detail-container"></div>
   </section>
 
@@ -231,7 +231,7 @@ function effectiveMetrics(record, weekFilter){
     days = days.filter(d => weekNumberForDate(d.date) === wk);
   }
   const sum = days.reduce((a,d)=>a+(d.value||0), 0);
-  const target = weekFilter === 'ALL' ? record.targetWeek : (record.targetDay * 7);
+  const target = weekFilter === 'ALL' ? (record.targetDay * days.length) : (record.targetDay * 7);
   const pctAch = target ? (sum/target*100) : 0;
   const gap = sum - target;
   return { sum, target, pctAch, gap, days };
