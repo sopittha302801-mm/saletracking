@@ -44,6 +44,13 @@ ENTRY_MODELS = [
     ("Infinix Smart 20", "SMART 20"),
 ]
 
+# Accessories (film/screen protectors, cases, etc.) whose DESCRIPTION happens
+# to mention a tracked model name but should NOT count as an Entry Model
+# sale. Exclude by PRODUCT_CODE.
+EXCLUDED_PRODUCT_CODES = {
+    "9000013155",  # screen protector film for Samsung A06 — not a device sale
+}
+
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "indy_data.json")
 
 # Team roster. Entry Model target is PER PERSON (RR Multi: 15, RR Retention: 10).
@@ -104,7 +111,10 @@ def count_entry_model(csv_text):
     for row in reader:
         sale_code = row.get("SALE_CODE") or row.get("SALE CODE") or ""
         description = row.get("DESCRIPTION") or ""
+        product_code = (row.get("PRODUCT_CODE") or row.get("PRODUCT CODE") or "").strip()
         if not sale_code or not description:
+            continue
+        if product_code in EXCLUDED_PRODUCT_CODES:
             continue
         for label, pattern in compiled:
             if pattern.search(description):
