@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sale Tracking Dashboard — BMAIV</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
 <style>
   :root{
     --bg-page:#f4f6f8;
@@ -64,13 +63,6 @@
   .kpi-change.negative{color:var(--negative);}
   .kpi-sub{font-size:12px;color:var(--text-secondary);}
 
-  .chart-row{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--gap);margin-bottom:var(--gap);}
-  .chart-row.secondary{grid-template-columns:1fr 1fr;}
-  .chart-container{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 3px rgba(20,30,45,0.04);}
-  .chart-container h3{font-size:14px;font-weight:700;margin:0 0 4px;}
-  .chart-container .chart-sub{font-size:12px;color:var(--text-secondary);margin-bottom:14px;}
-  .chart-container canvas{max-height:300px;}
-
   .legend-pills{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
   .pill{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);}
   .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
@@ -111,7 +103,6 @@
   .dashboard-footer{text-align:center;font-size:12px;color:var(--text-secondary);padding:18px 0 4px;}
 
   @media (max-width:900px){
-    .chart-row, .chart-row.secondary{grid-template-columns:1fr;}
   }
   @media (max-width:768px){
     .dashboard-header{flex-direction:column;align-items:flex-start;}
@@ -120,7 +111,6 @@
   @media print{
     body{background:#fff;}
     .filters{display:none;}
-    .chart-container{break-inside:avoid;}
   }
 </style>
 </head>
@@ -165,32 +155,6 @@
   </header>
 
   <section class="kpi-row" id="kpi-row"></section>
-
-  <section class="chart-row">
-    <div class="chart-container">
-      <h3>Sales vs Target by Shop</h3>
-      <div class="chart-sub">Sum of sales against target, per shop — scoped to the selected week filter</div>
-      <canvas id="chart-sales-target"></canvas>
-    </div>
-    <div class="chart-container">
-      <h3>Category Mix</h3>
-      <div class="chart-sub">Share of total sales in the selected week filter</div>
-      <canvas id="chart-category-mix"></canvas>
-    </div>
-  </section>
-
-  <section class="chart-row secondary">
-    <div class="chart-container">
-      <h3>Daily Sales Trend</h3>
-      <div class="chart-sub">Actual calendar dates, scoped to the selected week filter</div>
-      <canvas id="chart-daily-trend"></canvas>
-    </div>
-    <div class="chart-container">
-      <h3>Achievement % by Shop</h3>
-      <div class="chart-sub">Sales as % of target, scoped to the selected week filter</div>
-      <canvas id="chart-achievement"></canvas>
-    </div>
-  </section>
 
   <section class="table-section">
     <h3>Shop Detail</h3>
@@ -244,7 +208,6 @@ class Dashboard{
     this.weekFilter = 'ALL';
     this.sortKey = null;
     this.sortAsc = true;
-    this.charts = {};
     this.init();
   }
   init(){
@@ -291,10 +254,6 @@ class Dashboard{
   }
   render(){
     this.renderKPIs();
-    this.renderSalesTargetChart();
-    this.renderCategoryMixChart();
-    this.renderDailyTrendChart();
-    this.renderAchievementChart();
     this.renderTable();
   }
   renderKPIs(){
@@ -319,126 +278,6 @@ class Dashboard{
         ${k.change ? `<div class="kpi-change ${k.changeClass}">${k.change}</div>` : `<div class="kpi-sub">${k.sub||''}</div>`}
       </div>
     `).join('');
-  }
-  renderSalesTargetChart(){
-    const ctx = document.getElementById('chart-sales-target').getContext('2d');
-    const labels = this.filtered.map(r=> r.shopName.replace('True Shop ','') + ' (' + r.category + ')');
-    const sales = this.filtered.map(r=> effectiveMetrics(r, this.weekFilter).sum);
-    const target = this.filtered.map(r=> effectiveMetrics(r, this.weekFilter).target);
-    if(this.charts.st) this.charts.st.destroy();
-    this.charts.st = new Chart(ctx, {
-      type:'bar',
-      data:{
-        labels,
-        datasets:[
-          { label:'Sales', data:sales, backgroundColor:'#2f6fed', borderRadius:4 },
-          { label:'Target', data:target, backgroundColor:'#d7e3fb', borderRadius:4 },
-        ]
-      },
-      options:{
-        responsive:true,
-        plugins:{ legend:{ position:'top', labels:{ boxWidth:10, font:{size:11} } } },
-        scales:{
-          x:{ ticks:{ font:{size:10}, maxRotation:40, minRotation:20 }, grid:{ display:false } },
-          y:{ ticks:{ font:{size:10} }, grid:{ color:'#eef1f4' } }
-        }
-      }
-    });
-  }
-  renderCategoryMixChart(){
-    const ctx = document.getElementById('chart-category-mix').getContext('2d');
-    const byCat = {};
-    this.filtered.forEach(r=>{
-      const m = effectiveMetrics(r, this.weekFilter);
-      byCat[r.category] = (byCat[r.category]||0) + m.sum;
-    });
-    const labels = Object.keys(byCat);
-    const values = labels.map(l=>byCat[l]);
-    if(this.charts.mix) this.charts.mix.destroy();
-    this.charts.mix = new Chart(ctx, {
-      type:'doughnut',
-      data:{
-        labels,
-        datasets:[{ data:values, backgroundColor: labels.map(l=>CAT_COLORS[l]), borderWidth:2, borderColor:'#ffffff' }]
-      },
-      options:{
-        responsive:true,
-        plugins:{ legend:{ position:'bottom', labels:{ boxWidth:10, font:{size:11} } } }
-      }
-    });
-  }
-  renderDailyTrendChart(){
-    const ctx = document.getElementById('chart-daily-trend').getContext('2d');
-    const cats = ['POSTPAY','TOL','DEVICE'].filter(c => this.filtered.some(r=>r.category===c));
-
-    // Collect the set of dates in scope (respecting the week filter), sorted.
-    const dateSet = new Set();
-    this.filtered.forEach(r=>{
-      (r.days||[]).forEach(d=>{
-        if(this.weekFilter==='ALL' || weekNumberForDate(d.date)===Number(this.weekFilter)){
-          dateSet.add(d.date);
-        }
-      });
-    });
-    const dates = [...dateSet].sort();
-    const dateLabels = dates.map(ds => new Date(ds+'T00:00:00Z').toLocaleDateString(undefined,{month:'short',day:'numeric',timeZone:'UTC'}));
-
-    const datasets = cats.map(cat=>{
-      const rows = this.filtered.filter(r=>r.category===cat);
-      const dayTotals = dates.map(ds =>
-        rows.reduce((a,r)=>{
-          const day = (r.days||[]).find(d=>d.date===ds);
-          return a + (day ? day.value : 0);
-        }, 0)
-      );
-      return {
-        label: cat,
-        data: dayTotals,
-        borderColor: CAT_COLORS[cat],
-        backgroundColor: CAT_COLORS[cat]+'20',
-        borderWidth:2,
-        tension:0.3,
-        pointRadius:3,
-        pointHoverRadius:6,
-        fill:false,
-      };
-    });
-    if(this.charts.trend) this.charts.trend.destroy();
-    this.charts.trend = new Chart(ctx, {
-      type:'line',
-      data:{ labels: dateLabels, datasets },
-      options:{
-        responsive:true,
-        plugins:{ legend:{ position:'top', labels:{ boxWidth:10, font:{size:11} } } },
-        scales:{
-          x:{ grid:{ display:false }, ticks:{ font:{size:11} } },
-          y:{ grid:{ color:'#eef1f4' }, ticks:{ font:{size:10} } }
-        }
-      }
-    });
-  }
-  renderAchievementChart(){
-    const ctx = document.getElementById('chart-achievement').getContext('2d');
-    const rows = [...this.filtered]
-      .map(r => ({ r, m: effectiveMetrics(r, this.weekFilter) }))
-      .sort((a,b)=>b.m.pctAch-a.m.pctAch);
-    const labels = rows.map(({r})=> r.shopName.replace('True Shop ','') + ' · ' + r.category);
-    const values = rows.map(({m})=>m.pctAch);
-    const colors = rows.map(({m})=> m.pctAch>=100 ? '#1a9c6b' : '#e0473f');
-    if(this.charts.ach) this.charts.ach.destroy();
-    this.charts.ach = new Chart(ctx, {
-      type:'bar',
-      data:{ labels, datasets:[{ label:'% Achievement', data: values, backgroundColor: colors, borderRadius:4 }] },
-      options:{
-        indexAxis:'y',
-        responsive:true,
-        plugins:{ legend:{ display:false } },
-        scales:{
-          x:{ grid:{ color:'#eef1f4' }, ticks:{ font:{size:10}, callback:v=>v+'%' } },
-          y:{ grid:{ display:false }, ticks:{ font:{size:10} } }
-        }
-      }
-    });
   }
   renderTable(){
     const accessor = (row, key) => {
