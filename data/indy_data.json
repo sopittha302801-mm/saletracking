@@ -20,9 +20,9 @@
     "saleCode": "39115146",
     "name": "ปสันน์ธรรศ",
     "target": 15,
-    "entryModel": 3,
+    "entryModel": 4,
     "byModel": {
-      "Samsung A06": 2,
+      "Samsung A06": 3,
       "Oppo A6C": 0,
       "Vivo Y05": 1,
       "Redmi A7 Pro": 0,
@@ -212,13 +212,13 @@
     "saleCode": "12809845",
     "name": "ขนิษฐ์",
     "target": 15,
-    "entryModel": 3,
+    "entryModel": 4,
     "byModel": {
       "Samsung A06": 2,
       "Oppo A6C": 0,
       "Vivo Y05": 0,
       "Redmi A7 Pro": 1,
-      "Honor X5C": 0,
+      "Honor X5C": 1,
       "Realme Note 80": 0,
       "Infinix Smart 20": 0
     }
@@ -228,9 +228,9 @@
     "saleCode": "01055175",
     "name": "นภัสนันท์",
     "target": 10,
-    "entryModel": 0,
+    "entryModel": 1,
     "byModel": {
-      "Samsung A06": 0,
+      "Samsung A06": 1,
       "Oppo A6C": 0,
       "Vivo Y05": 0,
       "Redmi A7 Pro": 0,
