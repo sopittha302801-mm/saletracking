@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INDY Performance</title>
+<style>
+  :root{
+    --bg-page:#f4f6f8;
+    --bg-card:#ffffff;
+    --bg-header:#ffffff;
+    --border:#e5e9ee;
+    --text-primary:#1a2433;
+    --text-secondary:#6b7684;
+    --accent:#2f6fed;
+    --accent-soft:#eaf1fe;
+    --positive:#1a9c6b;
+    --negative:#e0473f;
+    --radius:12px;
+    --gap:18px;
+    --gia:#2f6fed;
+    --device:#9b51e0;
+    --prepay:#f2994a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg-page);
+    color:var(--text-primary);
+  }
+  .dashboard-container{max-width:1320px;margin:0 auto;padding:24px;}
+
+  .dashboard-header{
+    background:var(--bg-header);
+    border:1px solid var(--border);
+    padding:22px 26px;
+    border-radius:var(--radius);
+    margin-bottom:var(--gap);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    box-shadow:0 1px 3px rgba(20,30,45,0.04);
+  }
+  .dashboard-header h1{font-size:21px;font-weight:700;margin:0 0 4px;}
+  .dashboard-header .subtitle{font-size:13px;color:var(--text-secondary);}
+  .nav-links{display:flex;gap:10px;flex-wrap:wrap;}
+  .nav-link{
+    font-size:13px;color:var(--accent);text-decoration:none;font-weight:600;
+    border:1px solid var(--accent-soft);background:var(--accent-soft);
+    padding:8px 14px;border-radius:8px;
+  }
+  .nav-link:hover{background:#dfe9fd;}
+
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--gap);margin-bottom:var(--gap);}
+  .kpi-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 3px rgba(20,30,45,0.04);}
+  .kpi-label{font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;font-weight:600;}
+  .kpi-value{font-size:26px;font-weight:700;margin-bottom:6px;}
+  .kpi-sub{font-size:12px;color:var(--text-secondary);}
+
+  .shop-block{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 3px rgba(20,30,45,0.04);margin-bottom:var(--gap);overflow-x:auto;}
+  .shop-block-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .shop-block-title{font-size:15px;font-weight:700;margin:0;}
+  .shop-block-sub{font-size:12px;color:var(--text-secondary);}
+
+  .data-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:820px;}
+  .data-table thead tr.type-row th{
+    text-align:center;padding:6px 8px;font-size:10.5px;text-transform:uppercase;
+    letter-spacing:.3px;color:var(--text-secondary);font-weight:700;border-bottom:1px solid var(--border);
+  }
+  .data-table thead tr.metric-row th{
+    text-align:center;padding:6px 8px 10px;font-size:11px;color:var(--text-secondary);font-weight:600;
+    border-bottom:2px solid var(--border);white-space:nowrap;
+  }
+  .data-table thead th.col-name{text-align:left;}
+  .type-gia{color:var(--gia);}
+  .type-device{color:var(--device);}
+  .type-prepay{color:var(--prepay);}
+  .data-table tbody td{padding:8px;border-bottom:1px solid #f0f2f5;white-space:nowrap;text-align:center;}
+  .data-table tbody td.col-name{text-align:left;font-weight:600;}
+  .data-table tbody tr:hover{background:#f8fafc;}
+  .data-table tbody tr:last-child td{border-bottom:none;}
+  .data-table tfoot td{padding:9px 8px;border-top:2px solid var(--border);font-weight:700;text-align:center;}
+  .data-table tfoot td.col-name{text-align:left;}
+  .cell-count{font-weight:700;}
+  .cell-net{color:var(--text-secondary);font-size:11.5px;}
+  .zero{color:#c3cad3;}
+
+  .dashboard-footer{text-align:center;font-size:12px;color:var(--text-secondary);padding:18px 0 4px;}
+
+  @media (max-width:768px){
+    .dashboard-header{flex-direction:column;align-items:flex-start;}
+    .kpi-row{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+<div class="dashboard-container">
+
+  <header class="dashboard-header">
+    <div>
+      <h1>INDY Performance</h1>
+      <div class="subtitle">Per-staff transaction count and net amount, by type (GIA · DEVICE · PREPAY)</div>
+      <div class="subtitle" id="last-updated" style="margin-top:2px;">Loading data…</div>
+    </div>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">&larr; Main Dashboard</a>
+      <a class="nav-link" href="indy.html">INDY Scorecard</a>
+    </div>
+  </header>
+
+  <section class="kpi-row" id="kpi-row"></section>
+
+  <div id="shops-container"></div>
+
+  <footer class="dashboard-footer">
+    Source: 'raw' sheet, joined on SHOP_CODE / SALE_CODE / SALE_NAME · TYPE restricted to GIA, DEVICE, PREPAY (other values excluded) · auto-refreshed hourly
+  </footer>
+</div>
+
+<script>
+const VALID_TYPES = ['GIA', 'DEVICE', 'PREPAY'];
+const TYPE_CLASS = { GIA: 'type-gia', DEVICE: 'type-device', PREPAY: 'type-prepay' };
+const DATA_URL = 'data/indy_performance.json';
+const CACHE_BUSTED_URL = DATA_URL + '?t=' + Date.now();
+
+function fmt(n){
+  if(n===null||n===undefined) return '—';
+  return Number(n).toLocaleString(undefined,{maximumFractionDigits:0});
+}
+
+class PerformanceDashboard {
+  constructor(shops) {
+    this.shops = shops;
+    this.render();
+  }
+  render() {
+    this.renderKPIs();
+    this.renderShops();
+  }
+  renderKPIs() {
+    const totalStaff = this.shops.reduce((a, s) => a + s.staff.length, 0);
+    const totalCount = this.shops.reduce((a, s) => a + s.shopTotals.totalCount, 0);
+    const totalNet = this.shops.reduce((a, s) => a + s.shopTotals.totalNet, 0);
+    const byType = { GIA: 0, DEVICE: 0, PREPAY: 0 };
+    this.shops.forEach(s => VALID_TYPES.forEach(t => byType[t] += s.shopTotals.byType[t].net));
+    const topType = Object.entries(byType).sort((a,b)=>b[1]-a[1])[0];
+    const kpis = [
+      { label: 'Shops in Scope', value: this.shops.length, sub: this.shops.map(s=>s.shopName.replace("True Shop ","")).join(' · ') },
+      { label: 'Staff in Scope', value: totalStaff, sub: 'across all 3 shops' },
+      { label: 'Total Transactions', value: fmt(totalCount), sub: 'GIA + DEVICE + PREPAY' },
+      { label: 'Total Net Amount', value: '฿' + fmt(totalNet), sub: 'Top type: ' + (topType ? topType[0] : '—') },
+    ];
+    document.getElementById('kpi-row').innerHTML = kpis.map(k => `
+      <div class="kpi-card">
+        <div class="kpi-label">${k.label}</div>
+        <div class="kpi-value">${k.value}</div>
+        <div class="kpi-sub">${k.sub}</div>
+      </div>
+    `).join('');
+  }
+  renderShops() {
+    const container = document.getElementById('shops-container');
+    container.innerHTML = this.shops.map(shop => {
+      const t = shop.shopTotals;
+      return `
+        <div class="shop-block">
+          <div class="shop-block-header">
+            <h3 class="shop-block-title">${shop.shopName}</h3>
+            <span class="shop-block-sub">${shop.staff.length} staff · ${fmt(t.totalCount)} txns · ฿${fmt(t.totalNet)} net</span>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr class="type-row">
+                <th class="col-name" rowspan="2">Staff</th>
+                <th class="col-name" rowspan="2">Sale Code</th>
+                ${VALID_TYPES.map(t2 => `<th colspan="2" class="${TYPE_CLASS[t2]}">${t2}</th>`).join('')}
+                <th colspan="2">Total</th>
+              </tr>
+              <tr class="metric-row">
+                ${VALID_TYPES.map(()=>`<th>Qty</th><th>Net (฿)</th>`).join('')}
+                <th>Qty</th><th>Net (฿)</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${shop.staff.map(s => `
+                <tr>
+                  <td class="col-name">${s.saleName}</td>
+                  <td>${s.saleCode}</td>
+                  ${VALID_TYPES.map(t2 => {
+                    const v = s.byType[t2];
+                    const zeroClass = v.count === 0 ? 'zero' : '';
+                    return `<td class="cell-count ${zeroClass}">${fmt(v.count)}</td><td class="cell-net ${zeroClass}">${fmt(v.net)}</td>`;
+                  }).join('')}
+                  <td class="cell-count"><strong>${fmt(s.totalCount)}</strong></td>
+                  <td class="cell-net"><strong>${fmt(s.totalNet)}</strong></td>
+                </tr>
+              `).join('')}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td class="col-name" colspan="2">Shop total</td>
+                ${VALID_TYPES.map(t2 => `<td>${fmt(t.byType[t2].count)}</td><td>${fmt(t.byType[t2].net)}</td>`).join('')}
+                <td>${fmt(t.totalCount)}</td>
+                <td>${fmt(t.totalNet)}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      `;
+    }).join('');
+  }
+}
+
+async function loadDataAndStart() {
+  const lastUpdatedEl = document.getElementById('last-updated');
+  try {
+    const res = await fetch(CACHE_BUSTED_URL, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    window.performanceDashboard = new PerformanceDashboard(data);
+    let updatedLabel = 'Data loaded';
+    const lastMod = res.headers.get('last-modified');
+    if (lastMod) updatedLabel = 'Data last updated: ' + new Date(lastMod).toLocaleString();
+    lastUpdatedEl.textContent = updatedLabel;
+  } catch (err) {
+    lastUpdatedEl.textContent = 'Failed to load data/indy_performance.json — ' + err.message;
+    console.error('INDY Performance data load failed:', err);
+  }
+}
+
+loadDataAndStart();
+setInterval(() => location.reload(), 60 * 60 * 1000);
+</script>
+</body>
+</html>

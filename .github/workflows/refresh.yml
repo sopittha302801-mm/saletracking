@@ -45,14 +45,19 @@ jobs:
           RAW_CSV_URL: ${{ secrets.RAW_CSV_URL }}
         run: python3 scripts/build_indy.py
 
+      - name: Rebuild data/indy_performance.json (INDY Performance)
+        env:
+          RAW_CSV_URL: ${{ secrets.RAW_CSV_URL }}
+        run: python3 scripts/build_indy_performance.py
+
       - name: Commit updated data (if changed)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- data/data.json data/indy_data.json; then
+          if git diff --quiet -- data/data.json data/indy_data.json data/indy_performance.json; then
             echo "No data changes."
           else
-            git add data/data.json data/indy_data.json
+            git add data/data.json data/indy_data.json data/indy_performance.json
             git commit -m "Auto-refresh sale tracking data [skip ci]"
             git push
           fi

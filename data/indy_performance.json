@@ -1,0 +1,113 @@
+[
+  {
+    "shopCode": "80100805",
+    "shopName": "True Shop Lotus's Phatthanakan",
+    "staff": [],
+    "shopTotals": {
+      "byType": {
+        "GIA": {
+          "count": 0,
+          "net": 0
+        },
+        "DEVICE": {
+          "count": 0,
+          "net": 0
+        },
+        "PREPAY": {
+          "count": 0,
+          "net": 0
+        }
+      },
+      "totalCount": 0,
+      "totalNet": 0
+    }
+  },
+  {
+    "shopCode": "80101296",
+    "shopName": "True Shop Paradise Park Srinakarin",
+    "staff": [
+      {
+        "saleCode": "12807924",
+        "saleName": "คงฤทธิ์ พุ่มแก้ว",
+        "byType": {
+          "GIA": {
+            "count": 1,
+            "net": 199
+          },
+          "DEVICE": {
+            "count": 0,
+            "net": 0
+          },
+          "PREPAY": {
+            "count": 0,
+            "net": 0
+          }
+        },
+        "totalCount": 1,
+        "totalNet": 199
+      }
+    ],
+    "shopTotals": {
+      "byType": {
+        "GIA": {
+          "count": 1,
+          "net": 199
+        },
+        "DEVICE": {
+          "count": 0,
+          "net": 0
+        },
+        "PREPAY": {
+          "count": 0,
+          "net": 0
+        }
+      },
+      "totalCount": 1,
+      "totalNet": 199
+    }
+  },
+  {
+    "shopCode": "80101632",
+    "shopName": "True Shop Lotus's Bangna-trad",
+    "staff": [
+      {
+        "saleCode": "010J4920",
+        "saleName": "จรรยาภรณ์ คนชม",
+        "byType": {
+          "GIA": {
+            "count": 0,
+            "net": 0
+          },
+          "DEVICE": {
+            "count": 1,
+            "net": 299
+          },
+          "PREPAY": {
+            "count": 0,
+            "net": 0
+          }
+        },
+        "totalCount": 1,
+        "totalNet": 299
+      }
+    ],
+    "shopTotals": {
+      "byType": {
+        "GIA": {
+          "count": 0,
+          "net": 0
+        },
+        "DEVICE": {
+          "count": 1,
+          "net": 299
+        },
+        "PREPAY": {
+          "count": 0,
+          "net": 0
+        }
+      },
+      "totalCount": 1,
+      "totalNet": 299
+    }
+  }
+]
