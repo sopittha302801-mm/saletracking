@@ -2,24 +2,105 @@
   {
     "shopCode": "80100805",
     "shopName": "True Shop Lotus's Phatthanakan",
-    "staff": [],
+    "staff": [
+      {
+        "saleCode": "12809845",
+        "saleName": "ขนิษฐ์ เรืองณรงค์",
+        "byType": {
+          "GIA": {
+            "count": 2,
+            "net": 481
+          },
+          "DEVICE": {
+            "count": 6,
+            "net": 77956
+          },
+          "PREPAY": {
+            "count": 4,
+            "net": 3048
+          }
+        },
+        "totalCount": 12,
+        "totalNet": 81485
+      },
+      {
+        "saleCode": "010O2425",
+        "saleName": "อลงกรณ์ มูลมี",
+        "byType": {
+          "GIA": {
+            "count": 2,
+            "net": 300
+          },
+          "DEVICE": {
+            "count": 2,
+            "net": 77660
+          },
+          "PREPAY": {
+            "count": 2,
+            "net": 400
+          }
+        },
+        "totalCount": 6,
+        "totalNet": 78360
+      },
+      {
+        "saleCode": "010L6770",
+        "saleName": "สุนีย์ ศรีจักร",
+        "byType": {
+          "GIA": {
+            "count": 5,
+            "net": 2274
+          },
+          "DEVICE": {
+            "count": 17,
+            "net": 66455
+          },
+          "PREPAY": {
+            "count": 9,
+            "net": 8887
+          }
+        },
+        "totalCount": 31,
+        "totalNet": 77616
+      },
+      {
+        "saleCode": "1093680",
+        "saleName": "ณัฐวุฒิ สีมันตะ",
+        "byType": {
+          "GIA": {
+            "count": 0,
+            "net": 0
+          },
+          "DEVICE": {
+            "count": 2,
+            "net": 598
+          },
+          "PREPAY": {
+            "count": 0,
+            "net": 0
+          }
+        },
+        "totalCount": 2,
+        "totalNet": 598
+      }
+    ],
     "shopTotals": {
       "byType": {
         "GIA": {
-          "count": 0,
-          "net": 0
+          "count": 9,
+          "net": 3055
         },
         "DEVICE": {
-          "count": 0,
-          "net": 0
+          "count": 27,
+          "net": 222669
         },
         "PREPAY": {
-          "count": 0,
-          "net": 0
+          "count": 15,
+          "net": 12335
         }
       },
-      "totalCount": 0,
-      "totalNet": 0
+      "totalCount": 51,
+      "totalNet": 238059
     }
   },
   {
@@ -27,43 +108,143 @@
     "shopName": "True Shop Paradise Park Srinakarin",
     "staff": [
       {
+        "saleCode": "1075327",
+        "saleName": "Supalak Lawthongsan",
+        "byType": {
+          "GIA": {
+            "count": 14,
+            "net": 17026
+          },
+          "DEVICE": {
+            "count": 18,
+            "net": 428652
+          },
+          "PREPAY": {
+            "count": 10,
+            "net": 7896
+          }
+        },
+        "totalCount": 42,
+        "totalNet": 453574
+      },
+      {
         "saleCode": "12807924",
         "saleName": "คงฤทธิ์ พุ่มแก้ว",
         "byType": {
           "GIA": {
+            "count": 14,
+            "net": 11773
+          },
+          "DEVICE": {
+            "count": 14,
+            "net": 370938
+          },
+          "PREPAY": {
+            "count": 2,
+            "net": 5500
+          }
+        },
+        "totalCount": 30,
+        "totalNet": 388211
+      },
+      {
+        "saleCode": "010J9581",
+        "saleName": "จุฬาลักษณ์ ฤมิตร",
+        "byType": {
+          "GIA": {
+            "count": 4,
+            "net": 2389
+          },
+          "DEVICE": {
+            "count": 9,
+            "net": 241418
+          },
+          "PREPAY": {
+            "count": 2,
+            "net": 98
+          }
+        },
+        "totalCount": 15,
+        "totalNet": 243905
+      },
+      {
+        "saleCode": "010N6112",
+        "saleName": "เมธาพร ถาโท",
+        "byType": {
+          "GIA": {
             "count": 1,
-            "net": 199
+            "net": 3193
+          },
+          "DEVICE": {
+            "count": 7,
+            "net": 135277
+          },
+          "PREPAY": {
+            "count": 9,
+            "net": 7525
+          }
+        },
+        "totalCount": 17,
+        "totalNet": 145995
+      },
+      {
+        "saleCode": "1055175",
+        "saleName": "นภัสนันท์ โพธิ์จันทร์",
+        "byType": {
+          "GIA": {
+            "count": 1,
+            "net": 390
+          },
+          "DEVICE": {
+            "count": 1,
+            "net": 299
+          },
+          "PREPAY": {
+            "count": 8,
+            "net": 9599
+          }
+        },
+        "totalCount": 10,
+        "totalNet": 10288
+      },
+      {
+        "saleCode": "010E3992",
+        "saleName": "ธนัฏฐา ชุ่มสวัสดิ์",
+        "byType": {
+          "GIA": {
+            "count": 0,
+            "net": 0
           },
           "DEVICE": {
             "count": 0,
             "net": 0
           },
           "PREPAY": {
-            "count": 0,
-            "net": 0
+            "count": 3,
+            "net": 3698
           }
         },
-        "totalCount": 1,
-        "totalNet": 199
+        "totalCount": 3,
+        "totalNet": 3698
       }
     ],
     "shopTotals": {
       "byType": {
         "GIA": {
-          "count": 1,
-          "net": 199
+          "count": 34,
+          "net": 34771
         },
         "DEVICE": {
-          "count": 0,
-          "net": 0
+          "count": 49,
+          "net": 1176584
         },
         "PREPAY": {
-          "count": 0,
-          "net": 0
+          "count": 34,
+          "net": 34316
         }
       },
-      "totalCount": 1,
-      "totalNet": 199
+      "totalCount": 117,
+      "totalNet": 1245671
     }
   },
   {
@@ -71,43 +252,123 @@
     "shopName": "True Shop Lotus's Bangna-trad",
     "staff": [
       {
-        "saleCode": "010J4920",
-        "saleName": "จรรยาภรณ์ คนชม",
+        "saleCode": "39115146",
+        "saleName": "ปสันน์ธรรศ กันต์กรณ์กฤตย์",
         "byType": {
           "GIA": {
-            "count": 0,
-            "net": 0
+            "count": 26,
+            "net": 21512
           },
           "DEVICE": {
-            "count": 1,
-            "net": 299
+            "count": 21,
+            "net": 411859
+          },
+          "PREPAY": {
+            "count": 4,
+            "net": 8450
+          }
+        },
+        "totalCount": 51,
+        "totalNet": 441821
+      },
+      {
+        "saleCode": "12808188",
+        "saleName": "อินทิรา นันทะทอง",
+        "byType": {
+          "GIA": {
+            "count": 7,
+            "net": 3448
+          },
+          "DEVICE": {
+            "count": 8,
+            "net": 136373
           },
           "PREPAY": {
             "count": 0,
             "net": 0
           }
         },
-        "totalCount": 1,
-        "totalNet": 299
+        "totalCount": 15,
+        "totalNet": 139821
+      },
+      {
+        "saleCode": "010J4920",
+        "saleName": "จรรยาภรณ์ คนชม",
+        "byType": {
+          "GIA": {
+            "count": 12,
+            "net": 33509
+          },
+          "DEVICE": {
+            "count": 7,
+            "net": 85464
+          },
+          "PREPAY": {
+            "count": 6,
+            "net": 3599
+          }
+        },
+        "totalCount": 25,
+        "totalNet": 122572
+      },
+      {
+        "saleCode": "010L6084",
+        "saleName": "นัฑเศรษฐ์ ทิพย์ศิริ",
+        "byType": {
+          "GIA": {
+            "count": 0,
+            "net": 0
+          },
+          "DEVICE": {
+            "count": 3,
+            "net": 56978
+          },
+          "PREPAY": {
+            "count": 2,
+            "net": 2240
+          }
+        },
+        "totalCount": 5,
+        "totalNet": 59218
+      },
+      {
+        "saleCode": "12808761",
+        "saleName": "ณัฐธยาน์ อนันยชพาณิชกูล",
+        "byType": {
+          "GIA": {
+            "count": 3,
+            "net": 1369
+          },
+          "DEVICE": {
+            "count": 5,
+            "net": 21995
+          },
+          "PREPAY": {
+            "count": 1,
+            "net": 2750
+          }
+        },
+        "totalCount": 9,
+        "totalNet": 26114
       }
     ],
     "shopTotals": {
       "byType": {
         "GIA": {
-          "count": 0,
-          "net": 0
+          "count": 48,
+          "net": 59838
         },
         "DEVICE": {
-          "count": 1,
-          "net": 299
+          "count": 44,
+          "net": 712669
         },
         "PREPAY": {
-          "count": 0,
-          "net": 0
+          "count": 13,
+          "net": 17039
         }
       },
-      "totalCount": 1,
-      "totalNet": 299
+      "totalCount": 105,
+      "totalNet": 789546
     }
   }
 ]
