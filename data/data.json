@@ -133,15 +133,15 @@
       },
       {
         "date": "2026-09-13",
-        "value": 0
+        "value": 3344
       }
     ],
-    "sumWk1": 15317,
-    "pctAch": 63.9,
-    "gapWeek": -8665,
-    "rrWeek": 15317,
+    "sumWk1": 18661,
+    "pctAch": 77.8,
+    "gapWeek": -5321,
+    "rrWeek": 18661,
     "lWeek": 21017,
-    "wow": -27.12
+    "wow": -11.21
   },
   {
     "category": "POSTPAY",
@@ -205,15 +205,15 @@
       },
       {
         "date": "2026-09-13",
-        "value": 0
+        "value": 499
       }
     ],
-    "sumWk1": 5471,
-    "pctAch": 46.8,
-    "gapWeek": -6226,
-    "rrWeek": 5471,
+    "sumWk1": 5970,
+    "pctAch": 51.0,
+    "gapWeek": -5727,
+    "rrWeek": 5970,
     "lWeek": 14806,
-    "wow": -63.05
+    "wow": -59.68
   },
   {
     "category": "POSTPAY",
@@ -565,15 +565,15 @@
       },
       {
         "date": "2026-09-13",
-        "value": 0
+        "value": 1
       }
     ],
-    "sumWk1": 6,
-    "pctAch": 85.7,
-    "gapWeek": -1,
-    "rrWeek": 6,
+    "sumWk1": 7,
+    "pctAch": 100.0,
+    "gapWeek": 0,
+    "rrWeek": 7,
     "lWeek": 4,
-    "wow": 50.0
+    "wow": 75.0
   },
   {
     "category": "TOL",
@@ -637,15 +637,15 @@
       },
       {
         "date": "2026-09-13",
-        "value": 0
+        "value": 2
       }
     ],
-    "sumWk1": 3,
-    "pctAch": 300.0,
-    "gapWeek": 2,
-    "rrWeek": 3,
+    "sumWk1": 5,
+    "pctAch": 500.0,
+    "gapWeek": 4,
+    "rrWeek": 5,
     "lWeek": 3,
-    "wow": 0.0
+    "wow": 66.67
   },
   {
     "category": "DEVICE",
@@ -709,15 +709,15 @@
       },
       {
         "date": "2026-09-13",
-        "value": 0
+        "value": 88178
       }
     ],
-    "sumWk1": 162111,
-    "pctAch": 57.2,
-    "gapWeek": -121102,
-    "rrWeek": 162111,
+    "sumWk1": 250289,
+    "pctAch": 88.4,
+    "gapWeek": -32924,
+    "rrWeek": 250289,
     "lWeek": 87965,
-    "wow": 84.29
+    "wow": 184.53
   },
   {
     "category": "DEVICE",
@@ -781,15 +781,15 @@
       },
       {
         "date": "2026-09-13",
-        "value": 0
+        "value": 303180
       }
     ],
-    "sumWk1": 680645,
-    "pctAch": 47.0,
-    "gapWeek": -767494,
-    "rrWeek": 680645,
+    "sumWk1": 983825,
+    "pctAch": 67.9,
+    "gapWeek": -464314,
+    "rrWeek": 983825,
     "lWeek": 503769,
-    "wow": 35.11
+    "wow": 95.29
   },
   {
     "category": "DEVICE",
@@ -853,14 +853,14 @@
       },
       {
         "date": "2026-09-13",
-        "value": 0
+        "value": 304886
       }
     ],
-    "sumWk1": 367707,
-    "pctAch": 59.2,
-    "gapWeek": -253242,
-    "rrWeek": 367707,
+    "sumWk1": 672593,
+    "pctAch": 108.3,
+    "gapWeek": 51644,
+    "rrWeek": 672593,
     "lWeek": 514610,
-    "wow": -28.55
+    "wow": 30.7
   }
 ]
