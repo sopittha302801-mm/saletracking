@@ -31,6 +31,14 @@
   }
   .dashboard-container{max-width:1360px;margin:0 auto;padding:24px;}
 
+  .site-navbar{background:#151d2b;border-bottom:1px solid #0c111a;}
+  .site-navbar-inner{max-width:1360px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:54px;flex-wrap:wrap;gap:8px;}
+  .site-navbar-brand{color:#e7ebf1;font-weight:700;font-size:14px;letter-spacing:.2px;}
+  .site-navbar-links{display:flex;gap:4px;}
+  .site-navbar-link{color:#9aa5b4;text-decoration:none;font-size:13px;font-weight:600;padding:8px 14px;border-radius:8px;transition:background .15s,color .15s;}
+  .site-navbar-link:hover{background:rgba(255,255,255,0.08);color:#ffffff;}
+  .site-navbar-link.active{background:var(--accent);color:#ffffff;}
+
   .dashboard-header{
     background:var(--bg-header);
     border:1px solid var(--border);
@@ -107,14 +115,27 @@
   @media (max-width:768px){
     .dashboard-header{flex-direction:column;align-items:flex-start;}
     .kpi-row{grid-template-columns:repeat(2,1fr);}
+    .site-navbar-inner{height:auto;padding:10px 16px;flex-direction:column;align-items:flex-start;}
+    .site-navbar-links{flex-wrap:wrap;}
   }
   @media print{
     body{background:#fff;}
     .filters{display:none;}
+    .site-navbar{display:none;}
   }
 </style>
 </head>
 <body>
+<nav class="site-navbar">
+  <div class="site-navbar-inner">
+    <span class="site-navbar-brand">BMAIV Sale Tracking</span>
+    <div class="site-navbar-links">
+      <a href="index.html" class="site-navbar-link active">Main Dashboard</a>
+      <a href="indy.html" class="site-navbar-link">INDY Scorecard</a>
+      <a href="indy_performance.html" class="site-navbar-link">INDY Performance</a>
+    </div>
+  </div>
+</nav>
 <div class="dashboard-container">
 
   <header class="dashboard-header">
@@ -123,8 +144,6 @@
       <div class="subtitle">Performance across POSTPAY · TOL · DEVICE — filterable by week</div>
       <div class="subtitle" id="last-updated" style="margin-top:2px;">Loading data…</div>
     </div>
-    <a href="indy.html" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:600;border:1px solid var(--accent-soft);background:var(--accent-soft);padding:8px 14px;border-radius:8px;">INDY Scorecard &rarr;</a>
-    <a href="indy_performance.html" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:600;border:1px solid var(--accent-soft);background:var(--accent-soft);padding:8px 14px;border-radius:8px;margin-left:8px;">INDY Performance &rarr;</a>
     <div class="filters">
       <div class="filter-group">
         <label>Category</label>
