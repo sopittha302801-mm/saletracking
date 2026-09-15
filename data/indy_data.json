@@ -148,13 +148,13 @@
     "saleCode": "12807924",
     "name": "คงฤทธิ์",
     "target": 15,
-    "entryModel": 1,
+    "entryModel": 2,
     "byModel": {
       "Samsung A06": 0,
       "Oppo A6C": 0,
       "Vivo Y05": 0,
       "Redmi A7 Pro": 1,
-      "Honor X5C": 0,
+      "Honor X5C": 1,
       "Realme Note 80": 0,
       "Infinix Smart 20": 0
     }
