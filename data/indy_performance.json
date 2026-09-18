@@ -4,6 +4,26 @@
     "shopName": "True Shop Lotus's Phatthanakan",
     "staff": [
       {
+        "saleCode": "010O2425",
+        "saleName": "อลงกรณ์ มูลมี",
+        "byType": {
+          "GIA": {
+            "count": 4,
+            "net": 1239
+          },
+          "DEVICE": {
+            "count": 11,
+            "net": 169563
+          },
+          "PREPAY": {
+            "count": 3,
+            "net": 3150
+          }
+        },
+        "totalCount": 18,
+        "totalNet": 173952
+      },
+      {
         "saleCode": "010L6770",
         "saleName": "สุนีย์ ศรีจักร",
         "byType": {
@@ -32,36 +52,16 @@
             "net": 481
           },
           "DEVICE": {
-            "count": 7,
-            "net": 117936
+            "count": 8,
+            "net": 150216
           },
           "PREPAY": {
-            "count": 4,
-            "net": 3048
+            "count": 5,
+            "net": 3097
           }
         },
-        "totalCount": 13,
-        "totalNet": 121465
-      },
-      {
-        "saleCode": "010O2425",
-        "saleName": "อลงกรณ์ มูลมี",
-        "byType": {
-          "GIA": {
-            "count": 2,
-            "net": 300
-          },
-          "DEVICE": {
-            "count": 3,
-            "net": 113440
-          },
-          "PREPAY": {
-            "count": 2,
-            "net": 400
-          }
-        },
-        "totalCount": 7,
-        "totalNet": 114140
+        "totalCount": 15,
+        "totalNet": 153794
       },
       {
         "saleCode": "1093680",
@@ -87,20 +87,20 @@
     "shopTotals": {
       "byType": {
         "GIA": {
-          "count": 12,
-          "net": 4334
+          "count": 14,
+          "net": 5273
         },
         "DEVICE": {
-          "count": 33,
-          "net": 382907
+          "count": 42,
+          "net": 471310
         },
         "PREPAY": {
-          "count": 16,
-          "net": 15085
+          "count": 18,
+          "net": 17884
         }
       },
-      "totalCount": 61,
-      "totalNet": 402326
+      "totalCount": 74,
+      "totalNet": 494467
     }
   },
   {
@@ -112,20 +112,20 @@
         "saleName": "Supalak Lawthongsan",
         "byType": {
           "GIA": {
-            "count": 14,
-            "net": 17026
+            "count": 15,
+            "net": 17416
           },
           "DEVICE": {
             "count": 20,
             "net": 501932
           },
           "PREPAY": {
-            "count": 11,
-            "net": 10646
+            "count": 15,
+            "net": 12043
           }
         },
-        "totalCount": 45,
-        "totalNet": 529604
+        "totalCount": 50,
+        "totalNet": 531391
       },
       {
         "saleCode": "12807924",
@@ -148,44 +148,44 @@
         "totalNet": 483879
       },
       {
+        "saleCode": "010N6112",
+        "saleName": "เมธาพร ถาโท",
+        "byType": {
+          "GIA": {
+            "count": 4,
+            "net": 5172
+          },
+          "DEVICE": {
+            "count": 16,
+            "net": 373854
+          },
+          "PREPAY": {
+            "count": 14,
+            "net": 10822
+          }
+        },
+        "totalCount": 34,
+        "totalNet": 389848
+      },
+      {
         "saleCode": "010J9581",
         "saleName": "จุฬาลักษณ์ ฤมิตร",
         "byType": {
           "GIA": {
-            "count": 6,
-            "net": 3207
+            "count": 7,
+            "net": 3597
           },
           "DEVICE": {
-            "count": 11,
-            "net": 305898
+            "count": 12,
+            "net": 306197
           },
           "PREPAY": {
             "count": 4,
             "net": 5598
           }
         },
-        "totalCount": 21,
-        "totalNet": 314703
-      },
-      {
-        "saleCode": "010N6112",
-        "saleName": "เมธาพร ถาโท",
-        "byType": {
-          "GIA": {
-            "count": 2,
-            "net": 3892
-          },
-          "DEVICE": {
-            "count": 10,
-            "net": 213436
-          },
-          "PREPAY": {
-            "count": 12,
-            "net": 10223
-          }
-        },
-        "totalCount": 24,
-        "totalNet": 227551
+        "totalCount": 23,
+        "totalNet": 315392
       },
       {
         "saleCode": "1055175",
@@ -200,12 +200,12 @@
             "net": 299
           },
           "PREPAY": {
-            "count": 8,
-            "net": 9599
+            "count": 11,
+            "net": 12749
           }
         },
-        "totalCount": 10,
-        "totalNet": 10288
+        "totalCount": 13,
+        "totalNet": 13438
       },
       {
         "saleCode": "010E3992",
@@ -231,20 +231,20 @@
     "shopTotals": {
       "byType": {
         "GIA": {
-          "count": 42,
-          "net": 37997
+          "count": 46,
+          "net": 40057
         },
         "DEVICE": {
-          "count": 60,
-          "net": 1486462
+          "count": 67,
+          "net": 1647179
         },
         "PREPAY": {
-          "count": 40,
-          "net": 45264
+          "count": 49,
+          "net": 50410
         }
       },
-      "totalCount": 142,
-      "totalNet": 1569723
+      "totalCount": 162,
+      "totalNet": 1737646
     }
   },
   {
@@ -256,20 +256,20 @@
         "saleName": "ปสันน์ธรรศ กันต์กรณ์กฤตย์",
         "byType": {
           "GIA": {
-            "count": 29,
-            "net": 22741
+            "count": 35,
+            "net": 35899
           },
           "DEVICE": {
-            "count": 24,
-            "net": 472658
+            "count": 28,
+            "net": 515635
           },
           "PREPAY": {
-            "count": 4,
-            "net": 8450
+            "count": 7,
+            "net": 11600
           }
         },
-        "totalCount": 57,
-        "totalNet": 503849
+        "totalCount": 70,
+        "totalNet": 563134
       },
       {
         "saleCode": "010J4920",
@@ -280,56 +280,56 @@
             "net": 37518
           },
           "DEVICE": {
-            "count": 13,
-            "net": 254882
+            "count": 14,
+            "net": 268881
           },
           "PREPAY": {
-            "count": 6,
-            "net": 3599
+            "count": 7,
+            "net": 4389
           }
         },
-        "totalCount": 35,
-        "totalNet": 295999
+        "totalCount": 37,
+        "totalNet": 310788
       },
       {
         "saleCode": "12808188",
         "saleName": "อินทิรา นันทะทอง",
         "byType": {
           "GIA": {
-            "count": 8,
-            "net": 7638
+            "count": 9,
+            "net": 8328
           },
           "DEVICE": {
-            "count": 12,
-            "net": 238022
+            "count": 15,
+            "net": 301491
           },
           "PREPAY": {
-            "count": 0,
-            "net": 0
+            "count": 2,
+            "net": 448
           }
         },
-        "totalCount": 20,
-        "totalNet": 245660
+        "totalCount": 26,
+        "totalNet": 310267
       },
       {
         "saleCode": "010L6084",
         "saleName": "นัฑเศรษฐ์ ทิพย์ศิริ",
         "byType": {
           "GIA": {
-            "count": 1,
-            "net": 13900
+            "count": 2,
+            "net": 14329
           },
           "DEVICE": {
-            "count": 5,
-            "net": 121958
+            "count": 7,
+            "net": 187838
           },
           "PREPAY": {
-            "count": 4,
-            "net": 3230
+            "count": 6,
+            "net": 6180
           }
         },
-        "totalCount": 10,
-        "totalNet": 139088
+        "totalCount": 15,
+        "totalNet": 208347
       },
       {
         "saleCode": "12808761",
@@ -355,20 +355,20 @@
     "shopTotals": {
       "byType": {
         "GIA": {
-          "count": 59,
-          "net": 84346
+          "count": 67,
+          "net": 98623
         },
         "DEVICE": {
-          "count": 60,
-          "net": 1143295
+          "count": 70,
+          "net": 1329620
         },
         "PREPAY": {
-          "count": 15,
-          "net": 18029
+          "count": 23,
+          "net": 25367
         }
       },
-      "totalCount": 134,
-      "totalNet": 1245670
+      "totalCount": 160,
+      "totalNet": 1453610
     }
   }
 ]
