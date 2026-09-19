@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INDY Performance</title>
+<title>iPhone 18</title>
 <style>
   :root{
     --bg-page:#f4f6f8;
@@ -16,11 +16,11 @@
     --accent-soft:#eaf1fe;
     --positive:#1a9c6b;
     --negative:#e0473f;
+    --warning:#c98a1c;
     --radius:12px;
     --gap:18px;
-    --gia:#2f6fed;
-    --device:#9b51e0;
-    --prepay:#f2994a;
+    --pro:#2f6fed;
+    --promax:#9b51e0;
   }
   *{box-sizing:border-box;}
   body{
@@ -55,6 +55,9 @@
   .dashboard-header h1{font-size:21px;font-weight:700;margin:0 0 4px;}
   .dashboard-header .subtitle{font-size:13px;color:var(--text-secondary);}
 
+  .section-title{font-size:16px;font-weight:700;margin:0 0 4px;}
+  .section-sub{font-size:12.5px;color:var(--text-secondary);margin:0 0 14px;}
+
   .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--gap);margin-bottom:var(--gap);}
   .kpi-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 3px rgba(20,30,45,0.04);}
   .kpi-label{font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;font-weight:600;}
@@ -66,7 +69,7 @@
   .shop-block-title{font-size:15px;font-weight:700;margin:0;}
   .shop-block-sub{font-size:12px;color:var(--text-secondary);}
 
-  .data-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:820px;}
+  .data-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:760px;}
   .data-table thead tr.type-row th{
     text-align:center;padding:6px 8px;font-size:10.5px;text-transform:uppercase;
     letter-spacing:.3px;color:var(--text-secondary);font-weight:700;border-bottom:1px solid var(--border);
@@ -76,9 +79,8 @@
     border-bottom:2px solid var(--border);white-space:nowrap;
   }
   .data-table thead th.col-name{text-align:left;}
-  .type-gia{color:var(--gia);}
-  .type-device{color:var(--device);}
-  .type-prepay{color:var(--prepay);}
+  .type-pro{color:var(--pro);}
+  .type-promax{color:var(--promax);}
   .data-table tbody td{padding:8px;border-bottom:1px solid #f0f2f5;white-space:nowrap;text-align:center;}
   .data-table tbody td.col-name{text-align:left;font-weight:600;}
   .data-table tbody tr:hover{background:#f8fafc;}
@@ -88,6 +90,24 @@
   .cell-count{font-weight:700;}
   .cell-net{color:var(--text-secondary);font-size:11.5px;}
   .zero{color:#c3cad3;}
+  .empty-note{font-size:12.5px;color:var(--text-secondary);padding:8px 0;}
+
+  .summary-table{width:100%;border-collapse:collapse;font-size:13px;min-width:700px;}
+  .summary-table thead th{
+    text-align:center;padding:9px 10px;border-bottom:2px solid var(--border);
+    color:var(--text-secondary);font-weight:700;font-size:11px;text-transform:uppercase;
+    letter-spacing:.3px;white-space:nowrap;
+  }
+  .summary-table thead th.col-name{text-align:left;}
+  .summary-table tbody td{padding:9px 10px;border-bottom:1px solid #f0f2f5;text-align:center;white-space:nowrap;}
+  .summary-table tbody td.col-name{text-align:left;font-weight:600;}
+  .summary-table tbody tr:last-child td{border-bottom:none;}
+  .stock-bar-wrap{display:flex;align-items:center;gap:8px;justify-content:center;}
+  .stock-bar-bg{width:80px;height:6px;background:#eef1f4;border-radius:4px;overflow:hidden;}
+  .stock-bar-fill{height:100%;border-radius:4px;}
+  .stock-out{color:var(--negative);font-weight:700;}
+  .stock-low{color:var(--warning);font-weight:700;}
+  .stock-ok{color:var(--positive);font-weight:700;}
 
   .dashboard-footer{text-align:center;font-size:12px;color:var(--text-secondary);padding:18px 0 4px;}
 
@@ -106,8 +126,8 @@
     <div class="site-navbar-links">
       <a href="index.html" class="site-navbar-link">Main Dashboard</a>
       <a href="indy.html" class="site-navbar-link">INDY Scorecard</a>
-      <a href="indy_performance.html" class="site-navbar-link active">INDY Performance</a>
-      <a href="iphone18.html" class="site-navbar-link">iPhone 18</a>
+      <a href="indy_performance.html" class="site-navbar-link">INDY Performance</a>
+      <a href="iphone18.html" class="site-navbar-link active">iPhone 18</a>
     </div>
   </div>
 </nav>
@@ -115,25 +135,36 @@
 
   <header class="dashboard-header">
     <div>
-      <h1>INDY Performance</h1>
-      <div class="subtitle">Per-staff transaction count and net amount, by type (GIA · DEVICE · PREPAY)</div>
+      <h1>iPhone 18</h1>
+      <div class="subtitle">iPhone 18 Pro &amp; Pro Max — staff sales (Sep 18–30) and shop-level sold vs. stock</div>
       <div class="subtitle" id="last-updated" style="margin-top:2px;">Loading data…</div>
     </div>
   </header>
 
   <section class="kpi-row" id="kpi-row"></section>
 
-  <div id="shops-container"></div>
+  <h2 class="section-title">Staff Sales (Sep 18 – Sep 30)</h2>
+  <p class="section-sub">QTY and Net Amount per staff, by shop, restricted to orders dated Sep 18–30. Matched via SHOP_CODE / SALE_CODE / SALE_NAME.</p>
+  <div id="staff-container"></div>
+
+  <h2 class="section-title">Shop Summary — Sold vs. Stock</h2>
+  <p class="section-sub">Units sold (all-time, from 'raw') vs. current stock balance, per shop and model.</p>
+  <div class="shop-block">
+    <table class="summary-table" id="summary-table">
+      <thead><tr id="summary-head"></tr></thead>
+      <tbody id="summary-body"></tbody>
+    </table>
+  </div>
 
   <footer class="dashboard-footer">
-    Source: 'raw' sheet, joined on SHOP_CODE / SALE_CODE / SALE_NAME · TYPE restricted to GIA, DEVICE, PREPAY (other values excluded) · auto-refreshed hourly
+    Source: 'raw' transaction sheet + stock balance sheet, joined on SHOP_CODE · auto-refreshed hourly
   </footer>
 </div>
 
 <script>
-const VALID_TYPES = ['GIA', 'DEVICE', 'PREPAY'];
-const TYPE_CLASS = { GIA: 'type-gia', DEVICE: 'type-device', PREPAY: 'type-prepay' };
-const DATA_URL = 'data/indy_performance.json';
+const MODELS = ['iPhone 18 Pro', 'iPhone 18 Pro Max'];
+const MODEL_CLASS = { 'iPhone 18 Pro': 'type-pro', 'iPhone 18 Pro Max': 'type-promax' };
+const DATA_URL = 'data/iphone18.json';
 const CACHE_BUSTED_URL = DATA_URL + '?t=' + Date.now();
 
 function fmt(n){
@@ -141,27 +172,27 @@ function fmt(n){
   return Number(n).toLocaleString(undefined,{maximumFractionDigits:0});
 }
 
-class PerformanceDashboard {
+class Iphone18Dashboard {
   constructor(shops) {
     this.shops = shops;
     this.render();
   }
   render() {
     this.renderKPIs();
-    this.renderShops();
+    this.renderStaff();
+    this.renderSummary();
   }
   renderKPIs() {
     const totalStaff = this.shops.reduce((a, s) => a + s.staff.length, 0);
-    const totalCount = this.shops.reduce((a, s) => a + s.shopTotals.totalCount, 0);
-    const totalNet = this.shops.reduce((a, s) => a + s.shopTotals.totalNet, 0);
-    const byType = { GIA: 0, DEVICE: 0, PREPAY: 0 };
-    this.shops.forEach(s => VALID_TYPES.forEach(t => byType[t] += s.shopTotals.byType[t].net));
-    const topType = Object.entries(byType).sort((a,b)=>b[1]-a[1])[0];
+    const totalQty = this.shops.reduce((a, s) => a + s.staffTotals['iPhone 18 Pro'].qty + s.staffTotals['iPhone 18 Pro Max'].qty, 0);
+    const totalNet = this.shops.reduce((a, s) => a + s.staffTotals['iPhone 18 Pro'].net + s.staffTotals['iPhone 18 Pro Max'].net, 0);
+    const totalSold = this.shops.reduce((a, s) => a + s.modelSummary['iPhone 18 Pro'].sold + s.modelSummary['iPhone 18 Pro Max'].sold, 0);
+    const totalStock = this.shops.reduce((a, s) => a + s.modelSummary['iPhone 18 Pro'].stock + s.modelSummary['iPhone 18 Pro Max'].stock, 0);
     const kpis = [
-      { label: 'Shops in Scope', value: this.shops.length, sub: this.shops.map(s=>s.shopName.replace("True Shop ","")).join(' · ') },
-      { label: 'Staff in Scope', value: totalStaff, sub: 'across all 3 shops' },
-      { label: 'Total Transactions', value: fmt(totalCount), sub: 'GIA + DEVICE + PREPAY' },
-      { label: 'Total Net Amount', value: '฿' + fmt(totalNet), sub: 'Top type: ' + (topType ? topType[0] : '—') },
+      { label: 'Units Sold (Sep 18–30)', value: fmt(totalQty), sub: totalStaff + ' staff with activity' },
+      { label: 'Net Amount (Sep 18–30)', value: '฿' + fmt(totalNet), sub: 'across ' + this.shops.length + ' shop(s)' },
+      { label: 'Total Units Sold (all-time)', value: fmt(totalSold), sub: 'from raw sheet' },
+      { label: 'Total Stock on Hand', value: fmt(totalStock), sub: 'current balance' },
     ];
     document.getElementById('kpi-row').innerHTML = kpis.map(k => `
       <div class="kpi-card">
@@ -171,26 +202,33 @@ class PerformanceDashboard {
       </div>
     `).join('');
   }
-  renderShops() {
-    const container = document.getElementById('shops-container');
-    container.innerHTML = this.shops.map(shop => {
-      const t = shop.shopTotals;
+  renderStaff() {
+    const container = document.getElementById('staff-container');
+    const shopsWithStaff = this.shops.filter(s => s.staff.length > 0);
+    if(shopsWithStaff.length === 0){
+      container.innerHTML = `<div class="shop-block"><p class="empty-note">No staff-level iPhone 18 Pro / Pro Max sales found for Sep 18–30.</p></div>`;
+      return;
+    }
+    container.innerHTML = shopsWithStaff.map(shop => {
+      const t = shop.staffTotals;
+      const totalQty = t['iPhone 18 Pro'].qty + t['iPhone 18 Pro Max'].qty;
+      const totalNet = t['iPhone 18 Pro'].net + t['iPhone 18 Pro Max'].net;
       return `
         <div class="shop-block">
           <div class="shop-block-header">
             <h3 class="shop-block-title">${shop.shopName}</h3>
-            <span class="shop-block-sub">${shop.staff.length} staff · ${fmt(t.totalCount)} txns · ฿${fmt(t.totalNet)} net</span>
+            <span class="shop-block-sub">${shop.staff.length} staff · ${fmt(totalQty)} units · ฿${fmt(totalNet)} net</span>
           </div>
           <table class="data-table">
             <thead>
               <tr class="type-row">
                 <th class="col-name" rowspan="2">Staff</th>
                 <th class="col-name" rowspan="2">Sale Code</th>
-                ${VALID_TYPES.map(t2 => `<th colspan="2" class="${TYPE_CLASS[t2]}">${t2}</th>`).join('')}
+                ${MODELS.map(m => `<th colspan="2" class="${MODEL_CLASS[m]}">${m}</th>`).join('')}
                 <th colspan="2">Total</th>
               </tr>
               <tr class="metric-row">
-                ${VALID_TYPES.map(()=>`<th>Qty</th><th>Net (฿)</th>`).join('')}
+                ${MODELS.map(()=>`<th>Qty</th><th>Net (฿)</th>`).join('')}
                 <th>Qty</th><th>Net (฿)</th>
               </tr>
             </thead>
@@ -199,12 +237,12 @@ class PerformanceDashboard {
                 <tr>
                   <td class="col-name">${s.saleName}</td>
                   <td>${s.saleCode}</td>
-                  ${VALID_TYPES.map(t2 => {
-                    const v = s.byType[t2];
-                    const zeroClass = v.count === 0 ? 'zero' : '';
-                    return `<td class="cell-count ${zeroClass}">${fmt(v.count)}</td><td class="cell-net ${zeroClass}">${fmt(v.net)}</td>`;
+                  ${MODELS.map(m => {
+                    const v = s.byModel[m];
+                    const zeroClass = v.qty === 0 ? 'zero' : '';
+                    return `<td class="cell-count ${zeroClass}">${fmt(v.qty)}</td><td class="cell-net ${zeroClass}">${fmt(v.net)}</td>`;
                   }).join('')}
-                  <td class="cell-count"><strong>${fmt(s.totalCount)}</strong></td>
+                  <td class="cell-count"><strong>${fmt(s.totalQty)}</strong></td>
                   <td class="cell-net"><strong>${fmt(s.totalNet)}</strong></td>
                 </tr>
               `).join('')}
@@ -212,13 +250,37 @@ class PerformanceDashboard {
             <tfoot>
               <tr>
                 <td class="col-name" colspan="2">Shop total</td>
-                ${VALID_TYPES.map(t2 => `<td>${fmt(t.byType[t2].count)}</td><td>${fmt(t.byType[t2].net)}</td>`).join('')}
-                <td>${fmt(t.totalCount)}</td>
-                <td>${fmt(t.totalNet)}</td>
+                ${MODELS.map(m => `<td>${fmt(t[m].qty)}</td><td>${fmt(t[m].net)}</td>`).join('')}
+                <td>${fmt(totalQty)}</td>
+                <td>${fmt(totalNet)}</td>
               </tr>
             </tfoot>
           </table>
         </div>
+      `;
+    }).join('');
+  }
+  renderSummary() {
+    const head = document.getElementById('summary-head');
+    const body = document.getElementById('summary-body');
+    head.innerHTML = '<th class="col-name">Shop</th>' + MODELS.map(m => `<th colspan="2" class="${MODEL_CLASS[m]}">${m}</th>`).join('') + '';
+    // second header row for Sold/Stock sub-columns — inject via a second <tr>
+    const subRow = document.createElement('tr');
+    subRow.innerHTML = '<th></th>' + MODELS.map(()=>`<th style="font-size:10px;">Sold</th><th style="font-size:10px;">Stock</th>`).join('');
+    head.parentElement.appendChild(subRow);
+
+    body.innerHTML = this.shops.map(shop => {
+      return `
+        <tr>
+          <td class="col-name">${shop.shopName}</td>
+          ${MODELS.map(m => {
+            const ms = shop.modelSummary[m];
+            let stockClass = 'stock-ok';
+            if(ms.stock === 0) stockClass = 'stock-out';
+            else if(ms.stock <= 2) stockClass = 'stock-low';
+            return `<td>${fmt(ms.sold)}</td><td class="${stockClass}">${fmt(ms.stock)}</td>`;
+          }).join('')}
+        </tr>
       `;
     }).join('');
   }
@@ -230,14 +292,14 @@ async function loadDataAndStart() {
     const res = await fetch(CACHE_BUSTED_URL, { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
-    window.performanceDashboard = new PerformanceDashboard(data);
+    window.iphone18Dashboard = new Iphone18Dashboard(data);
     let updatedLabel = 'Data loaded';
     const lastMod = res.headers.get('last-modified');
     if (lastMod) updatedLabel = 'Data last updated: ' + new Date(lastMod).toLocaleString();
     lastUpdatedEl.textContent = updatedLabel;
   } catch (err) {
-    lastUpdatedEl.textContent = 'Failed to load data/indy_performance.json — ' + err.message;
-    console.error('INDY Performance data load failed:', err);
+    lastUpdatedEl.textContent = 'Failed to load data/iphone18.json — ' + err.message;
+    console.error('iPhone 18 data load failed:', err);
   }
 }
 

@@ -50,14 +50,20 @@ jobs:
           RAW_CSV_URL: ${{ secrets.RAW_CSV_URL }}
         run: python3 scripts/build_indy_performance.py
 
+      - name: Rebuild data/iphone18.json (iPhone 18)
+        env:
+          RAW_CSV_URL: ${{ secrets.RAW_CSV_URL }}
+          STOCK_CSV_URL: ${{ secrets.STOCK_CSV_URL }}
+        run: python3 scripts/build_iphone18.py
+
       - name: Commit updated data (if changed)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- data/data.json data/indy_data.json data/indy_performance.json; then
+          if git diff --quiet -- data/data.json data/indy_data.json data/indy_performance.json data/iphone18.json; then
             echo "No data changes."
           else
-            git add data/data.json data/indy_data.json data/indy_performance.json
+            git add data/data.json data/indy_data.json data/indy_performance.json data/iphone18.json
             git commit -m "Auto-refresh sale tracking data [skip ci]"
             git push
           fi
