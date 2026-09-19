@@ -1,1 +1,224 @@
-[]
+[
+  {
+    "shopCode": "80100805",
+    "shopName": "True Shop Lotus's Phatthanakan",
+    "staff": [
+      {
+        "saleCode": "010O2425",
+        "saleName": "Alongkorn Moonmee",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 2,
+            "net": 95860
+          },
+          "iPhone 18 Pro": {
+            "qty": 0,
+            "net": 0
+          }
+        },
+        "totalQty": 2,
+        "totalNet": 95860
+      },
+      {
+        "saleCode": "010L6770",
+        "saleName": "Sunee Srijak",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 0,
+            "net": 0
+          },
+          "iPhone 18 Pro": {
+            "qty": 1,
+            "net": 41200
+          }
+        },
+        "totalQty": 1,
+        "totalNet": 41200
+      }
+    ],
+    "staffTotals": {
+      "iPhone 18 Pro Max": {
+        "qty": 2,
+        "net": 95860
+      },
+      "iPhone 18 Pro": {
+        "qty": 1,
+        "net": 41200
+      }
+    },
+    "modelSummary": {
+      "iPhone 18 Pro Max": {
+        "sold": 2,
+        "stock": 0
+      },
+      "iPhone 18 Pro": {
+        "sold": 1,
+        "stock": 2
+      }
+    }
+  },
+  {
+    "shopCode": "80101296",
+    "shopName": "True Shop Paradise Park Srinakarin",
+    "staff": [
+      {
+        "saleCode": "010N6112",
+        "saleName": "Mathaporn Thatho",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 2,
+            "net": 105600
+          },
+          "iPhone 18 Pro": {
+            "qty": 2,
+            "net": 100700
+          }
+        },
+        "totalQty": 4,
+        "totalNet": 206300
+      },
+      {
+        "saleCode": "010J9581",
+        "saleName": "จุฬาลักษณ์ ฤมิตร",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 2,
+            "net": 107060
+          },
+          "iPhone 18 Pro": {
+            "qty": 2,
+            "net": 95160
+          }
+        },
+        "totalQty": 4,
+        "totalNet": 202220
+      },
+      {
+        "saleCode": "12807924",
+        "saleName": "คงฤทธิ์ พุ่มแก้ว",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 3,
+            "net": 145300
+          },
+          "iPhone 18 Pro": {
+            "qty": 1,
+            "net": 48900
+          }
+        },
+        "totalQty": 4,
+        "totalNet": 194200
+      },
+      {
+        "saleCode": "1075327",
+        "saleName": "Supalak Lawthongsan",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 2,
+            "net": 105800
+          },
+          "iPhone 18 Pro": {
+            "qty": 1,
+            "net": 43660
+          }
+        },
+        "totalQty": 3,
+        "totalNet": 149460
+      }
+    ],
+    "staffTotals": {
+      "iPhone 18 Pro Max": {
+        "qty": 9,
+        "net": 463760
+      },
+      "iPhone 18 Pro": {
+        "qty": 6,
+        "net": 288420
+      }
+    },
+    "modelSummary": {
+      "iPhone 18 Pro Max": {
+        "sold": 9,
+        "stock": 3
+      },
+      "iPhone 18 Pro": {
+        "sold": 6,
+        "stock": 13
+      }
+    }
+  },
+  {
+    "shopCode": "80101632",
+    "shopName": "True Shop Lotus's Bangna-trad",
+    "staff": [
+      {
+        "saleCode": "12808188",
+        "saleName": "Inthira Nantathong",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 3,
+            "net": 144760
+          },
+          "iPhone 18 Pro": {
+            "qty": 0,
+            "net": 0
+          }
+        },
+        "totalQty": 3,
+        "totalNet": 144760
+      },
+      {
+        "saleCode": "39115146",
+        "saleName": "Pasanthas Kankornkrit",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 1,
+            "net": 49860
+          },
+          "iPhone 18 Pro": {
+            "qty": 0,
+            "net": 0
+          }
+        },
+        "totalQty": 1,
+        "totalNet": 49860
+      },
+      {
+        "saleCode": "010J4920",
+        "saleName": "Junyaporn konchom",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 0,
+            "net": 0
+          },
+          "iPhone 18 Pro": {
+            "qty": 1,
+            "net": 46760
+          }
+        },
+        "totalQty": 1,
+        "totalNet": 46760
+      }
+    ],
+    "staffTotals": {
+      "iPhone 18 Pro Max": {
+        "qty": 4,
+        "net": 194620
+      },
+      "iPhone 18 Pro": {
+        "qty": 1,
+        "net": 46760
+      }
+    },
+    "modelSummary": {
+      "iPhone 18 Pro Max": {
+        "sold": 4,
+        "stock": 1
+      },
+      "iPhone 18 Pro": {
+        "sold": 1,
+        "stock": 3
+      }
+    }
+  }
+]
