@@ -4,12 +4,12 @@
     "saleCode": "010J4920",
     "name": "จรรยาภรณ์",
     "target": 15,
-    "entryModel": 4,
+    "entryModel": 8,
     "byModel": {
-      "Samsung A06": 2,
+      "Samsung A06": 5,
       "Oppo A6C": 0,
       "Vivo Y05": 2,
-      "Redmi A7 Pro": 0,
+      "Redmi A7 Pro": 1,
       "Honor X5C": 0,
       "Realme Note 80": 0,
       "Infinix Smart 20": 0
@@ -52,12 +52,12 @@
     "saleCode": "010L6084",
     "name": "นัฑเศรษฐ์",
     "target": 15,
-    "entryModel": 1,
+    "entryModel": 2,
     "byModel": {
       "Samsung A06": 0,
       "Oppo A6C": 0,
       "Vivo Y05": 1,
-      "Redmi A7 Pro": 0,
+      "Redmi A7 Pro": 1,
       "Honor X5C": 0,
       "Realme Note 80": 0,
       "Infinix Smart 20": 0
@@ -65,7 +65,7 @@
   },
   {
     "team": "RR Multi",
-    "saleCode": "NEW OS",
+    "saleCode": "12810475",
     "name": "พัทน์ธีรา",
     "target": 15,
     "entryModel": 0,

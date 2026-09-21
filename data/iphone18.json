@@ -53,7 +53,7 @@
       },
       "iPhone 18 Pro": {
         "sold": 1,
-        "stock": 2
+        "stock": 1
       }
     }
   },
@@ -61,6 +61,22 @@
     "shopCode": "80101296",
     "shopName": "True Shop Paradise Park Srinakarin",
     "staff": [
+      {
+        "saleCode": "12807924",
+        "saleName": "คงฤทธิ์ พุ่มแก้ว",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 4,
+            "net": 202600
+          },
+          "iPhone 18 Pro": {
+            "qty": 4,
+            "net": 190660
+          }
+        },
+        "totalQty": 8,
+        "totalNet": 393260
+      },
       {
         "saleCode": "010J9581",
         "saleName": "จุฬาลักษณ์ ฤมิตร",
@@ -94,22 +110,6 @@
         "totalNet": 350920
       },
       {
-        "saleCode": "12807924",
-        "saleName": "คงฤทธิ์ พุ่มแก้ว",
-        "byModel": {
-          "iPhone 18 Pro Max": {
-            "qty": 4,
-            "net": 202600
-          },
-          "iPhone 18 Pro": {
-            "qty": 3,
-            "net": 144860
-          }
-        },
-        "totalQty": 7,
-        "totalNet": 347460
-      },
-      {
         "saleCode": "010N6112",
         "saleName": "Mathaporn Thatho",
         "byModel": {
@@ -118,12 +118,12 @@
             "net": 105600
           },
           "iPhone 18 Pro": {
-            "qty": 3,
-            "net": 141400
+            "qty": 5,
+            "net": 234600
           }
         },
-        "totalQty": 5,
-        "totalNet": 247000
+        "totalQty": 7,
+        "totalNet": 340200
       }
     ],
     "staffTotals": {
@@ -132,8 +132,8 @@
         "net": 734160
       },
       "iPhone 18 Pro": {
-        "qty": 13,
-        "net": 604400
+        "qty": 16,
+        "net": 743400
       }
     },
     "modelSummary": {
@@ -142,8 +142,8 @@
         "stock": 0
       },
       "iPhone 18 Pro": {
-        "sold": 13,
-        "stock": 10
+        "sold": 16,
+        "stock": 5
       }
     }
   },
@@ -160,12 +160,28 @@
             "net": 144760
           },
           "iPhone 18 Pro": {
-            "qty": 0,
-            "net": 0
+            "qty": 1,
+            "net": 43700
           }
         },
-        "totalQty": 3,
-        "totalNet": 144760
+        "totalQty": 4,
+        "totalNet": 188460
+      },
+      {
+        "saleCode": "39115146",
+        "saleName": "Pasanthas Kankornkrit",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 1,
+            "net": 49860
+          },
+          "iPhone 18 Pro": {
+            "qty": 3,
+            "net": 138100
+          }
+        },
+        "totalQty": 4,
+        "totalNet": 187960
       },
       {
         "saleCode": "010J4920",
@@ -182,22 +198,6 @@
         },
         "totalQty": 3,
         "totalNet": 130920
-      },
-      {
-        "saleCode": "39115146",
-        "saleName": "Pasanthas Kankornkrit",
-        "byModel": {
-          "iPhone 18 Pro Max": {
-            "qty": 1,
-            "net": 49860
-          },
-          "iPhone 18 Pro": {
-            "qty": 1,
-            "net": 36900
-          }
-        },
-        "totalQty": 2,
-        "totalNet": 86760
       }
     ],
     "staffTotals": {
@@ -206,8 +206,8 @@
         "net": 194620
       },
       "iPhone 18 Pro": {
-        "qty": 4,
-        "net": 167820
+        "qty": 7,
+        "net": 312720
       }
     },
     "modelSummary": {
@@ -216,8 +216,8 @@
         "stock": 0
       },
       "iPhone 18 Pro": {
-        "sold": 4,
-        "stock": 3
+        "sold": 7,
+        "stock": 0
       }
     }
   }
