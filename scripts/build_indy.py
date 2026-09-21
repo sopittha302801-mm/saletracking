@@ -59,7 +59,7 @@ ROSTER = [
     {"team": "RR Multi", "target": 15, "saleCode": "39115146", "name": "ปสันน์ธรรศ"},
     {"team": "RR Multi", "target": 15, "saleCode": "12808188", "name": "อินทิรา"},
     {"team": "RR Multi", "target": 15, "saleCode": "010L6084", "name": "นัฑเศรษฐ์"},
-    {"team": "RR Multi", "target": 15, "saleCode": "NEW OS", "name": "พัทน์ธีรา"},
+    {"team": "RR Multi", "target": 15, "saleCode": "12810475", "name": "พัทน์ธีรา"},
     {"team": "RR Multi", "target": 15, "saleCode": "12808761", "name": "ณัฐธยาน์"},
     {"team": "RR Multi", "target": 15, "saleCode": "01075327", "name": "ศุภลักษณ์"},
     {"team": "RR Multi", "target": 15, "saleCode": "010N6112", "name": "เมธาพร"},
