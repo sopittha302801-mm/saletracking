@@ -128,10 +128,20 @@ def find_col(fieldnames, *keywords):
     return None
 
 
+def match_suplife(text):
+    """True if DESCRIPTION starts with 'ACC,H/S,SUPLIFE' (case-insensitive,
+    tolerant of leading whitespace)."""
+    if not text:
+        return False
+    return text.strip().upper().startswith("ACC,H/S,SUPLIFE")
+
+
 def build_staff_sales(raw_csv_text):
     """Returns: { shop_code: { normalized_sale_code: {saleCode, saleNameCounts,
-    byModel: {model: {qty, net}}} } }, and also an all-time sold total per
-    shop+model (not date-restricted) for the sold-vs-stock comparison."""
+    byModel: {model: {qty, net}}} } }, an all-time sold total per shop+model
+    (not date-restricted, for the sold-vs-stock comparison), and a per-shop
+    Suplife count restricted to the same Sep 18-30 window as the staff
+    breakdown."""
     reader = csv.DictReader(io.StringIO(raw_csv_text))
     fieldnames = reader.fieldnames or []
 
@@ -145,14 +155,23 @@ def build_staff_sales(raw_csv_text):
 
     staff_by_shop = {}
     alltime_sold = {}  # (shop_code, model) -> {qty, net}
+    suplife_by_shop = {}  # shop_code -> count (Sep 18-30 only)
 
     for row in reader:
         description = row.get(col_desc) or ""
+        shop_code = (row.get(col_shop) or "").strip()
+
+        # Suplife counting: independent of model match, still date-restricted
+        # to Sep 18-30 (same window as the staff breakdown).
+        if shop_code and match_suplife(description):
+            order_date = parse_order_date(row.get(col_date))
+            if order_date is not None and DATE_START <= order_date <= DATE_END:
+                suplife_by_shop[shop_code] = suplife_by_shop.get(shop_code, 0) + 1
+
         model = match_model(description)
         if not model:
             continue
 
-        shop_code = (row.get(col_shop) or "").strip()
         if not shop_code:
             continue
 
@@ -189,7 +208,7 @@ def build_staff_sales(raw_csv_text):
         entry["byModel"][model]["qty"] += qty
         entry["byModel"][model]["net"] += net_amount
 
-    return staff_by_shop, alltime_sold
+    return staff_by_shop, alltime_sold, suplife_by_shop
 
 
 def build_stock(stock_csv_text):
@@ -232,10 +251,12 @@ def main():
         print(f"ERROR fetching stock CSV: {exc}", file=sys.stderr)
         sys.exit(1)
 
-    staff_by_shop, alltime_sold = build_staff_sales(raw_text)
+    staff_by_shop, alltime_sold, suplife_by_shop = build_staff_sales(raw_text)
     stock = build_stock(stock_text)
 
-    all_shop_codes = sorted(set(list(staff_by_shop.keys()) + [k[0] for k in alltime_sold] + [k[0] for k in stock]))
+    all_shop_codes = sorted(set(
+        list(staff_by_shop.keys()) + [k[0] for k in alltime_sold] + [k[0] for k in stock] + list(suplife_by_shop.keys())
+    ))
 
     shops_out = []
     for shop_code in all_shop_codes:
@@ -271,6 +292,10 @@ def main():
             stock_qty = stock.get((shop_code, m), 0)
             model_summary[m] = {"sold": sold_qty, "stock": stock_qty}
 
+        iphone18_units = staff_totals["iPhone 18 Pro"]["qty"] + staff_totals["iPhone 18 Pro Max"]["qty"]
+        suplife_count = suplife_by_shop.get(shop_code, 0)
+        attach_rate = (suplife_count / iphone18_units * 100) if iphone18_units else 0
+
         shops_out.append(
             {
                 "shopCode": shop_code,
@@ -278,6 +303,11 @@ def main():
                 "staff": staff_list,
                 "staffTotals": staff_totals,
                 "modelSummary": model_summary,
+                "suplife": {
+                    "iphone18Units": iphone18_units,
+                    "suplifeCount": suplife_count,
+                    "attachRate": attach_rate,
+                },
             }
         )
 

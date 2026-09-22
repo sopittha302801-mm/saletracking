@@ -156,6 +156,22 @@
     </table>
   </div>
 
+  <h2 class="section-title">iPhone 18 vs. Suplife</h2>
+  <p class="section-sub">iPhone 18 (Pro + Pro Max) units sold vs. Suplife protection plans attached, Sep 18–30. Suplife counted by DESCRIPTION starting with "ACC,H/S,SUPLIFE".</p>
+  <div class="shop-block">
+    <table class="summary-table" id="suplife-table">
+      <thead>
+        <tr>
+          <th class="col-name">Shop</th>
+          <th>iPhone 18 Units</th>
+          <th>Suplife Count</th>
+          <th>Attach Rate</th>
+        </tr>
+      </thead>
+      <tbody id="suplife-body"></tbody>
+    </table>
+  </div>
+
   <footer class="dashboard-footer">
     Source: 'raw' transaction sheet + stock balance sheet, joined on SHOP_CODE · auto-refreshed hourly
   </footer>
@@ -181,6 +197,7 @@ class Iphone18Dashboard {
     this.renderKPIs();
     this.renderStaff();
     this.renderSummary();
+    this.renderSuplife();
   }
   renderKPIs() {
     const totalStaff = this.shops.reduce((a, s) => a + s.staff.length, 0);
@@ -188,11 +205,14 @@ class Iphone18Dashboard {
     const totalNet = this.shops.reduce((a, s) => a + s.staffTotals['iPhone 18 Pro'].net + s.staffTotals['iPhone 18 Pro Max'].net, 0);
     const totalSold = this.shops.reduce((a, s) => a + s.modelSummary['iPhone 18 Pro'].sold + s.modelSummary['iPhone 18 Pro Max'].sold, 0);
     const totalStock = this.shops.reduce((a, s) => a + s.modelSummary['iPhone 18 Pro'].stock + s.modelSummary['iPhone 18 Pro Max'].stock, 0);
+    const totalSuplife = this.shops.reduce((a, s) => a + (s.suplife ? s.suplife.suplifeCount : 0), 0);
+    const overallAttachRate = totalQty ? (totalSuplife / totalQty * 100) : 0;
     const kpis = [
       { label: 'Units Sold (Sep 18–30)', value: fmt(totalQty), sub: totalStaff + ' staff with activity' },
       { label: 'Net Amount (Sep 18–30)', value: '฿' + fmt(totalNet), sub: 'across ' + this.shops.length + ' shop(s)' },
       { label: 'Total Units Sold (all-time)', value: fmt(totalSold), sub: 'from raw sheet' },
       { label: 'Total Stock on Hand', value: fmt(totalStock), sub: 'current balance' },
+      { label: 'Suplife Attach Rate', value: overallAttachRate.toFixed(1) + '%', sub: fmt(totalSuplife) + ' Suplife / ' + fmt(totalQty) + ' units' },
     ];
     document.getElementById('kpi-row').innerHTML = kpis.map(k => `
       <div class="kpi-card">
@@ -280,6 +300,23 @@ class Iphone18Dashboard {
             else if(ms.stock <= 2) stockClass = 'stock-low';
             return `<td>${fmt(ms.sold)}</td><td class="${stockClass}">${fmt(ms.stock)}</td>`;
           }).join('')}
+        </tr>
+      `;
+    }).join('');
+  }
+  renderSuplife() {
+    const body = document.getElementById('suplife-body');
+    body.innerHTML = this.shops.map(shop => {
+      const s = shop.suplife || { iphone18Units: 0, suplifeCount: 0, attachRate: 0 };
+      let rateClass = 'stock-ok';
+      if(s.attachRate < 30) rateClass = 'stock-out';
+      else if(s.attachRate < 60) rateClass = 'stock-low';
+      return `
+        <tr>
+          <td class="col-name">${shop.shopName}</td>
+          <td>${fmt(s.iphone18Units)}</td>
+          <td>${fmt(s.suplifeCount)}</td>
+          <td class="${rateClass}">${s.attachRate.toFixed(1)}%</td>
         </tr>
       `;
     }).join('');
