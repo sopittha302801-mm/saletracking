@@ -144,11 +144,11 @@
     "modelSummary": {
       "iPhone 18 Pro Max": {
         "sold": 14,
-        "stock": 0
+        "stock": 3
       },
       "iPhone 18 Pro": {
         "sold": 20,
-        "stock": 0
+        "stock": 1
       }
     },
     "suplife": {
@@ -223,11 +223,11 @@
     "modelSummary": {
       "iPhone 18 Pro Max": {
         "sold": 4,
-        "stock": 0
+        "stock": 1
       },
       "iPhone 18 Pro": {
         "sold": 7,
-        "stock": 0
+        "stock": 1
       }
     },
     "suplife": {
