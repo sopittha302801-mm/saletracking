@@ -8,8 +8,8 @@
         "saleName": "สุนีย์ ศรีจักร",
         "byType": {
           "GIA": {
-            "count": 11,
-            "net": 4782
+            "count": 12,
+            "net": 5472
           },
           "DEVICE": {
             "count": 28,
@@ -20,8 +20,8 @@
             "net": 11837
           }
         },
-        "totalCount": 50,
-        "totalNet": 281728
+        "totalCount": 51,
+        "totalNet": 282418
       },
       {
         "saleCode": "010O2425",
@@ -32,16 +32,16 @@
             "net": 1619
           },
           "DEVICE": {
-            "count": 13,
-            "net": 265423
+            "count": 15,
+            "net": 267321
           },
           "PREPAY": {
             "count": 3,
             "net": 3150
           }
         },
-        "totalCount": 22,
-        "totalNet": 270192
+        "totalCount": 24,
+        "totalNet": 272090
       },
       {
         "saleCode": "12809845",
@@ -87,20 +87,20 @@
     "shopTotals": {
       "byType": {
         "GIA": {
-          "count": 20,
-          "net": 7061
+          "count": 21,
+          "net": 7751
         },
         "DEVICE": {
-          "count": 52,
-          "net": 682295
+          "count": 54,
+          "net": 684193
         },
         "PREPAY": {
           "count": 20,
           "net": 18284
         }
       },
-      "totalCount": 92,
-      "totalNet": 707640
+      "totalCount": 95,
+      "totalNet": 710228
     }
   },
   {
@@ -112,20 +112,20 @@
         "saleName": "คงฤทธิ์ พุ่มแก้ว",
         "byType": {
           "GIA": {
-            "count": 30,
-            "net": 22531
+            "count": 32,
+            "net": 24870
           },
           "DEVICE": {
-            "count": 28,
-            "net": 882356
+            "count": 31,
+            "net": 989656
           },
           "PREPAY": {
             "count": 3,
             "net": 8250
           }
         },
-        "totalCount": 61,
-        "totalNet": 913137
+        "totalCount": 66,
+        "totalNet": 1022776
       },
       {
         "saleCode": "1075327",
@@ -156,36 +156,36 @@
             "net": 9488
           },
           "DEVICE": {
-            "count": 28,
-            "net": 771230
+            "count": 29,
+            "net": 806510
           },
           "PREPAY": {
             "count": 15,
             "net": 11321
           }
         },
-        "totalCount": 57,
-        "totalNet": 792039
+        "totalCount": 58,
+        "totalNet": 827319
       },
       {
         "saleCode": "010J9581",
         "saleName": "จุฬาลักษณ์ ฤมิตร",
         "byType": {
           "GIA": {
-            "count": 19,
-            "net": 13254
+            "count": 24,
+            "net": 15163
           },
           "DEVICE": {
-            "count": 20,
-            "net": 699377
+            "count": 24,
+            "net": 791866
           },
           "PREPAY": {
             "count": 7,
             "net": 8147
           }
         },
-        "totalCount": 46,
-        "totalNet": 720778
+        "totalCount": 55,
+        "totalNet": 815176
       },
       {
         "saleCode": "1055175",
@@ -231,20 +231,20 @@
     "shopTotals": {
       "byType": {
         "GIA": {
-          "count": 90,
-          "net": 71773
+          "count": 97,
+          "net": 76021
         },
         "DEVICE": {
-          "count": 104,
-          "net": 3206114
+          "count": 112,
+          "net": 3441183
         },
         "PREPAY": {
           "count": 57,
           "net": 57706
         }
       },
-      "totalCount": 251,
-      "totalNet": 3335593
+      "totalCount": 266,
+      "totalNet": 3574910
     }
   },
   {
@@ -260,16 +260,36 @@
             "net": 39247
           },
           "DEVICE": {
-            "count": 35,
-            "net": 764674
+            "count": 40,
+            "net": 778819
           },
           "PREPAY": {
             "count": 7,
             "net": 11600
           }
         },
-        "totalCount": 84,
-        "totalNet": 815521
+        "totalCount": 89,
+        "totalNet": 829666
+      },
+      {
+        "saleCode": "12808188",
+        "saleName": "อินทิรา นันทะทอง",
+        "byType": {
+          "GIA": {
+            "count": 20,
+            "net": 22293
+          },
+          "DEVICE": {
+            "count": 24,
+            "net": 612828
+          },
+          "PREPAY": {
+            "count": 4,
+            "net": 848
+          }
+        },
+        "totalCount": 48,
+        "totalNet": 635969
       },
       {
         "saleCode": "010J4920",
@@ -290,26 +310,6 @@
         },
         "totalCount": 54,
         "totalNet": 520269
-      },
-      {
-        "saleCode": "12808188",
-        "saleName": "อินทิรา นันทะทอง",
-        "byType": {
-          "GIA": {
-            "count": 17,
-            "net": 19923
-          },
-          "DEVICE": {
-            "count": 22,
-            "net": 497948
-          },
-          "PREPAY": {
-            "count": 3,
-            "net": 648
-          }
-        },
-        "totalCount": 42,
-        "totalNet": 518519
       },
       {
         "saleCode": "010L6084",
@@ -360,35 +360,35 @@
             "net": 0
           },
           "DEVICE": {
-            "count": 1,
-            "net": 3449
+            "count": 2,
+            "net": 12448
           },
           "PREPAY": {
             "count": 1,
             "net": 200
           }
         },
-        "totalCount": 2,
-        "totalNet": 3649
+        "totalCount": 3,
+        "totalNet": 12648
       }
     ],
     "shopTotals": {
       "byType": {
         "GIA": {
-          "count": 88,
-          "net": 120033
+          "count": 91,
+          "net": 122403
         },
         "DEVICE": {
-          "count": 97,
-          "net": 1983678
+          "count": 105,
+          "net": 2121702
         },
         "PREPAY": {
-          "count": 25,
-          "net": 25767
+          "count": 26,
+          "net": 25967
         }
       },
-      "totalCount": 210,
-      "totalNet": 2129478
+      "totalCount": 222,
+      "totalNet": 2270072
     }
   }
 ]

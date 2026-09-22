@@ -53,30 +53,19 @@
       },
       "iPhone 18 Pro": {
         "sold": 1,
-        "stock": 1
+        "stock": 0
       }
+    },
+    "suplife": {
+      "iphone18Units": 3,
+      "suplifeCount": 3,
+      "attachRate": 100.0
     }
   },
   {
     "shopCode": "80101296",
     "shopName": "True Shop Paradise Park Srinakarin",
     "staff": [
-      {
-        "saleCode": "12807924",
-        "saleName": "คงฤทธิ์ พุ่มแก้ว",
-        "byModel": {
-          "iPhone 18 Pro Max": {
-            "qty": 4,
-            "net": 202600
-          },
-          "iPhone 18 Pro": {
-            "qty": 4,
-            "net": 190660
-          }
-        },
-        "totalQty": 8,
-        "totalNet": 393260
-      },
       {
         "saleCode": "010J9581",
         "saleName": "จุฬาลักษณ์ ฤมิตร",
@@ -86,12 +75,28 @@
             "net": 160260
           },
           "iPhone 18 Pro": {
-            "qty": 5,
-            "net": 232920
+            "qty": 7,
+            "net": 319620
           }
         },
-        "totalQty": 8,
-        "totalNet": 393180
+        "totalQty": 10,
+        "totalNet": 479880
+      },
+      {
+        "saleCode": "12807924",
+        "saleName": "คงฤทธิ์ พุ่มแก้ว",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 4,
+            "net": 202600
+          },
+          "iPhone 18 Pro": {
+            "qty": 6,
+            "net": 274060
+          }
+        },
+        "totalQty": 10,
+        "totalNet": 476660
       },
       {
         "saleCode": "1075327",
@@ -132,8 +137,8 @@
         "net": 734160
       },
       "iPhone 18 Pro": {
-        "qty": 16,
-        "net": 743400
+        "qty": 20,
+        "net": 913500
       }
     },
     "modelSummary": {
@@ -142,9 +147,14 @@
         "stock": 0
       },
       "iPhone 18 Pro": {
-        "sold": 16,
-        "stock": 5
+        "sold": 20,
+        "stock": 0
       }
+    },
+    "suplife": {
+      "iphone18Units": 34,
+      "suplifeCount": 31,
+      "attachRate": 91.17647058823529
     }
   },
   {
@@ -219,6 +229,11 @@
         "sold": 7,
         "stock": 0
       }
+    },
+    "suplife": {
+      "iphone18Units": 11,
+      "suplifeCount": 10,
+      "attachRate": 90.9090909090909
     }
   }
 ]
