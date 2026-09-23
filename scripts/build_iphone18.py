@@ -136,6 +136,17 @@ def match_suplife(text):
     return text.strip().upper().startswith("ACC,H/S,SUPLIFE")
 
 
+def suplife_weight(text):
+    """Suplife rows normally count as 1. If the description also mentions
+    'BOX SET', that row counts as 3 instead. Returns 0 if not a Suplife
+    row at all."""
+    if not match_suplife(text):
+        return 0
+    if "BOX SET" in text.strip().upper():
+        return 3
+    return 1
+
+
 def build_staff_sales(raw_csv_text):
     """Returns: { shop_code: { normalized_sale_code: {saleCode, saleNameCounts,
     byModel: {model: {qty, net}}} } }, an all-time sold total per shop+model
@@ -162,11 +173,12 @@ def build_staff_sales(raw_csv_text):
         shop_code = (row.get(col_shop) or "").strip()
 
         # Suplife counting: independent of model match, still date-restricted
-        # to Sep 18-30 (same window as the staff breakdown).
+        # to Sep 18-30 (same window as the staff breakdown). Normal Suplife
+        # rows count as 1; "BOX SET" Suplife rows count as 3.
         if shop_code and match_suplife(description):
             order_date = parse_order_date(row.get(col_date))
             if order_date is not None and DATE_START <= order_date <= DATE_END:
-                suplife_by_shop[shop_code] = suplife_by_shop.get(shop_code, 0) + 1
+                suplife_by_shop[shop_code] = suplife_by_shop.get(shop_code, 0) + suplife_weight(description)
 
         model = match_model(description)
         if not model:
