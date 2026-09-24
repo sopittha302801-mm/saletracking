@@ -53,7 +53,7 @@
       },
       "iPhone 18 Pro": {
         "sold": 1,
-        "stock": 0
+        "stock": 1
       }
     },
     "suplife": {
@@ -99,6 +99,22 @@
         "totalNet": 522320
       },
       {
+        "saleCode": "1075327",
+        "saleName": "Supalak Lawthongsan",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 7,
+            "net": 378300
+          },
+          "iPhone 18 Pro": {
+            "qty": 3,
+            "net": 126420
+          }
+        },
+        "totalQty": 10,
+        "totalNet": 504720
+      },
+      {
         "saleCode": "12807924",
         "saleName": "คงฤทธิ์ พุ่มแก้ว",
         "byModel": {
@@ -113,54 +129,54 @@
         },
         "totalQty": 10,
         "totalNet": 476660
-      },
-      {
-        "saleCode": "1075327",
-        "saleName": "Supalak Lawthongsan",
-        "byModel": {
-          "iPhone 18 Pro Max": {
-            "qty": 5,
-            "net": 265700
-          },
-          "iPhone 18 Pro": {
-            "qty": 2,
-            "net": 85220
-          }
-        },
-        "totalQty": 7,
-        "totalNet": 350920
       }
     ],
     "staffTotals": {
       "iPhone 18 Pro Max": {
-        "qty": 18,
-        "net": 929380
+        "qty": 20,
+        "net": 1041980
       },
       "iPhone 18 Pro": {
-        "qty": 22,
-        "net": 998500
+        "qty": 23,
+        "net": 1039700
       }
     },
     "modelSummary": {
       "iPhone 18 Pro Max": {
-        "sold": 18,
-        "stock": 8
+        "sold": 20,
+        "stock": 6
       },
       "iPhone 18 Pro": {
-        "sold": 22,
-        "stock": 9
+        "sold": 23,
+        "stock": 8
       }
     },
     "suplife": {
-      "iphone18Units": 40,
-      "suplifeCount": 60,
-      "attachRate": 150.0
+      "iphone18Units": 43,
+      "suplifeCount": 65,
+      "attachRate": 151.1627906976744
     }
   },
   {
     "shopCode": "80101632",
     "shopName": "True Shop Lotus's Bangna-trad",
     "staff": [
+      {
+        "saleCode": "39115146",
+        "saleName": "Pasanthas Kankornkrit",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 1,
+            "net": 49860
+          },
+          "iPhone 18 Pro": {
+            "qty": 4,
+            "net": 179300
+          }
+        },
+        "totalQty": 5,
+        "totalNet": 229160
+      },
       {
         "saleCode": "010J4920",
         "saleName": "Junyaporn konchom",
@@ -194,36 +210,20 @@
         "totalNet": 188460
       },
       {
-        "saleCode": "39115146",
-        "saleName": "Pasanthas Kankornkrit",
-        "byModel": {
-          "iPhone 18 Pro Max": {
-            "qty": 1,
-            "net": 49860
-          },
-          "iPhone 18 Pro": {
-            "qty": 3,
-            "net": 138100
-          }
-        },
-        "totalQty": 4,
-        "totalNet": 187960
-      },
-      {
         "saleCode": "010L6084",
-        "saleName": "Nattaset Tipsiri",
+        "saleName": "นัฑเศรษฐ์ ทิพย์ศิริ",
         "byModel": {
           "iPhone 18 Pro Max": {
             "qty": 0,
             "net": 0
           },
           "iPhone 18 Pro": {
-            "qty": 2,
-            "net": 90900
+            "qty": 3,
+            "net": 136200
           }
         },
-        "totalQty": 2,
-        "totalNet": 90900
+        "totalQty": 3,
+        "totalNet": 136200
       }
     ],
     "staffTotals": {
@@ -232,8 +232,8 @@
         "net": 292240
       },
       "iPhone 18 Pro": {
-        "qty": 9,
-        "net": 403620
+        "qty": 11,
+        "net": 490120
       }
     },
     "modelSummary": {
@@ -242,14 +242,14 @@
         "stock": 2
       },
       "iPhone 18 Pro": {
-        "sold": 9,
-        "stock": 3
+        "sold": 11,
+        "stock": 1
       }
     },
     "suplife": {
-      "iphone18Units": 15,
-      "suplifeCount": 18,
-      "attachRate": 120.0
+      "iphone18Units": 17,
+      "suplifeCount": 20,
+      "attachRate": 117.64705882352942
     }
   }
 ]
