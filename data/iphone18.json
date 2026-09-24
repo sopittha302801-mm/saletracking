@@ -49,7 +49,7 @@
     "modelSummary": {
       "iPhone 18 Pro Max": {
         "sold": 2,
-        "stock": 0
+        "stock": 2
       },
       "iPhone 18 Pro": {
         "sold": 1,
@@ -58,8 +58,8 @@
     },
     "suplife": {
       "iphone18Units": 3,
-      "suplifeCount": 3,
-      "attachRate": 100.0
+      "suplifeCount": 4,
+      "attachRate": 133.33333333333331
     }
   },
   {
@@ -91,12 +91,12 @@
             "net": 202720
           },
           "iPhone 18 Pro": {
-            "qty": 6,
-            "net": 279400
+            "qty": 7,
+            "net": 319600
           }
         },
-        "totalQty": 10,
-        "totalNet": 482120
+        "totalQty": 11,
+        "totalNet": 522320
       },
       {
         "saleCode": "12807924",
@@ -137,24 +137,24 @@
         "net": 929380
       },
       "iPhone 18 Pro": {
-        "qty": 21,
-        "net": 958300
+        "qty": 22,
+        "net": 998500
       }
     },
     "modelSummary": {
       "iPhone 18 Pro Max": {
         "sold": 18,
-        "stock": 0
+        "stock": 8
       },
       "iPhone 18 Pro": {
-        "sold": 21,
-        "stock": 1
+        "sold": 22,
+        "stock": 9
       }
     },
     "suplife": {
-      "iphone18Units": 39,
-      "suplifeCount": 58,
-      "attachRate": 148.71794871794873
+      "iphone18Units": 40,
+      "suplifeCount": 60,
+      "attachRate": 150.0
     }
   },
   {
@@ -218,12 +218,12 @@
             "net": 0
           },
           "iPhone 18 Pro": {
-            "qty": 1,
-            "net": 49700
+            "qty": 2,
+            "net": 90900
           }
         },
-        "totalQty": 1,
-        "totalNet": 49700
+        "totalQty": 2,
+        "totalNet": 90900
       }
     ],
     "staffTotals": {
@@ -232,24 +232,24 @@
         "net": 292240
       },
       "iPhone 18 Pro": {
-        "qty": 8,
-        "net": 362420
+        "qty": 9,
+        "net": 403620
       }
     },
     "modelSummary": {
       "iPhone 18 Pro Max": {
         "sold": 6,
-        "stock": 0
+        "stock": 2
       },
       "iPhone 18 Pro": {
-        "sold": 8,
-        "stock": 0
+        "sold": 9,
+        "stock": 3
       }
     },
     "suplife": {
-      "iphone18Units": 14,
-      "suplifeCount": 17,
-      "attachRate": 121.42857142857142
+      "iphone18Units": 15,
+      "suplifeCount": 18,
+      "attachRate": 120.0
     }
   }
 ]

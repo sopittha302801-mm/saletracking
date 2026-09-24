@@ -36,9 +36,9 @@
     "saleCode": "12808188",
     "name": "อินทิรา",
     "target": 15,
-    "entryModel": 4,
+    "entryModel": 5,
     "byModel": {
-      "Samsung A06": 3,
+      "Samsung A06": 4,
       "Oppo A6C": 0,
       "Vivo Y05": 1,
       "Redmi A7 Pro": 0,
@@ -196,13 +196,13 @@
     "saleCode": "010O2425",
     "name": "อลงกรณ์",
     "target": 15,
-    "entryModel": 8,
+    "entryModel": 9,
     "byModel": {
       "Samsung A06": 4,
       "Oppo A6C": 1,
       "Vivo Y05": 3,
       "Redmi A7 Pro": 0,
-      "Honor X5C": 0,
+      "Honor X5C": 1,
       "Realme Note 80": 0,
       "Infinix Smart 20": 0
     }
