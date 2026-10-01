@@ -24,22 +24,38 @@
         "saleName": "Sunee Srijak",
         "byModel": {
           "iPhone 18 Pro Max": {
-            "qty": 0,
-            "net": 0
+            "qty": 1,
+            "net": 52600
           },
           "iPhone 18 Pro": {
             "qty": 1,
             "net": 41200
           }
         },
+        "totalQty": 2,
+        "totalNet": 93800
+      },
+      {
+        "saleCode": "12809845",
+        "saleName": "Kanistha Ruangnarong",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 1,
+            "net": 44400
+          },
+          "iPhone 18 Pro": {
+            "qty": 0,
+            "net": 0
+          }
+        },
         "totalQty": 1,
-        "totalNet": 41200
+        "totalNet": 44400
       }
     ],
     "staffTotals": {
       "iPhone 18 Pro Max": {
-        "qty": 2,
-        "net": 95860
+        "qty": 4,
+        "net": 192860
       },
       "iPhone 18 Pro": {
         "qty": 1,
@@ -48,8 +64,8 @@
     },
     "modelSummary": {
       "iPhone 18 Pro Max": {
-        "sold": 2,
-        "stock": 2
+        "sold": 4,
+        "stock": 0
       },
       "iPhone 18 Pro": {
         "sold": 1,
@@ -57,15 +73,47 @@
       }
     },
     "suplife": {
-      "iphone18Units": 3,
-      "suplifeCount": 4,
-      "attachRate": 133.33333333333331
+      "iphone18Units": 5,
+      "suplifeCount": 8,
+      "attachRate": 160.0
     }
   },
   {
     "shopCode": "80101296",
     "shopName": "True Shop Paradise Park Srinakarin",
     "staff": [
+      {
+        "saleCode": "12807924",
+        "saleName": "คงฤทธิ์ พุ่มแก้ว",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 8,
+            "net": 409400
+          },
+          "iPhone 18 Pro": {
+            "qty": 7,
+            "net": 317720
+          }
+        },
+        "totalQty": 15,
+        "totalNet": 727120
+      },
+      {
+        "saleCode": "010N6112",
+        "saleName": "Mathaporn Thatho",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 6,
+            "net": 316680
+          },
+          "iPhone 18 Pro": {
+            "qty": 8,
+            "net": 376500
+          }
+        },
+        "totalQty": 14,
+        "totalNet": 693180
+      },
       {
         "saleCode": "010J9581",
         "saleName": "จุฬาลักษณ์ ฤมิตร",
@@ -75,92 +123,92 @@
             "net": 258360
           },
           "iPhone 18 Pro": {
-            "qty": 7,
-            "net": 319620
+            "qty": 8,
+            "net": 358320
           }
         },
-        "totalQty": 12,
-        "totalNet": 577980
-      },
-      {
-        "saleCode": "010N6112",
-        "saleName": "Mathaporn Thatho",
-        "byModel": {
-          "iPhone 18 Pro Max": {
-            "qty": 4,
-            "net": 202720
-          },
-          "iPhone 18 Pro": {
-            "qty": 7,
-            "net": 319600
-          }
-        },
-        "totalQty": 11,
-        "totalNet": 522320
-      },
-      {
-        "saleCode": "12807924",
-        "saleName": "คงฤทธิ์ พุ่มแก้ว",
-        "byModel": {
-          "iPhone 18 Pro Max": {
-            "qty": 4,
-            "net": 202600
-          },
-          "iPhone 18 Pro": {
-            "qty": 6,
-            "net": 274060
-          }
-        },
-        "totalQty": 10,
-        "totalNet": 476660
+        "totalQty": 13,
+        "totalNet": 616680
       },
       {
         "saleCode": "1075327",
         "saleName": "Supalak Lawthongsan",
         "byModel": {
           "iPhone 18 Pro Max": {
-            "qty": 5,
-            "net": 265700
+            "qty": 8,
+            "net": 431200
           },
           "iPhone 18 Pro": {
-            "qty": 2,
-            "net": 85220
+            "qty": 3,
+            "net": 126420
           }
         },
-        "totalQty": 7,
-        "totalNet": 350920
+        "totalQty": 11,
+        "totalNet": 557620
       }
     ],
     "staffTotals": {
       "iPhone 18 Pro Max": {
-        "qty": 18,
-        "net": 929380
+        "qty": 27,
+        "net": 1415640
       },
       "iPhone 18 Pro": {
-        "qty": 22,
-        "net": 998500
+        "qty": 26,
+        "net": 1178960
       }
     },
     "modelSummary": {
       "iPhone 18 Pro Max": {
-        "sold": 18,
-        "stock": 6
+        "sold": 27,
+        "stock": 5
       },
       "iPhone 18 Pro": {
-        "sold": 22,
-        "stock": 8
+        "sold": 26,
+        "stock": 7
       }
     },
     "suplife": {
-      "iphone18Units": 40,
-      "suplifeCount": 60,
-      "attachRate": 150.0
+      "iphone18Units": 53,
+      "suplifeCount": 76,
+      "attachRate": 143.39622641509433
     }
   },
   {
     "shopCode": "80101632",
     "shopName": "True Shop Lotus's Bangna-trad",
     "staff": [
+      {
+        "saleCode": "010L6084",
+        "saleName": "Nattaset Tipsiri",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 3,
+            "net": 153260
+          },
+          "iPhone 18 Pro": {
+            "qty": 3,
+            "net": 136200
+          }
+        },
+        "totalQty": 6,
+        "totalNet": 289460
+      },
+      {
+        "saleCode": "39115146",
+        "saleName": "Pasanthas Kankornkrit",
+        "byModel": {
+          "iPhone 18 Pro Max": {
+            "qty": 1,
+            "net": 49860
+          },
+          "iPhone 18 Pro": {
+            "qty": 4,
+            "net": 179300
+          }
+        },
+        "totalQty": 5,
+        "totalNet": 229160
+      },
       {
         "saleCode": "010J4920",
         "saleName": "Junyaporn konchom",
@@ -192,64 +240,32 @@
         },
         "totalQty": 4,
         "totalNet": 188460
-      },
-      {
-        "saleCode": "39115146",
-        "saleName": "Pasanthas Kankornkrit",
-        "byModel": {
-          "iPhone 18 Pro Max": {
-            "qty": 1,
-            "net": 49860
-          },
-          "iPhone 18 Pro": {
-            "qty": 3,
-            "net": 138100
-          }
-        },
-        "totalQty": 4,
-        "totalNet": 187960
-      },
-      {
-        "saleCode": "010L6084",
-        "saleName": "Nattaset Tipsiri",
-        "byModel": {
-          "iPhone 18 Pro Max": {
-            "qty": 0,
-            "net": 0
-          },
-          "iPhone 18 Pro": {
-            "qty": 2,
-            "net": 90900
-          }
-        },
-        "totalQty": 2,
-        "totalNet": 90900
       }
     ],
     "staffTotals": {
       "iPhone 18 Pro Max": {
-        "qty": 6,
-        "net": 292240
+        "qty": 9,
+        "net": 445500
       },
       "iPhone 18 Pro": {
-        "qty": 9,
-        "net": 403620
+        "qty": 11,
+        "net": 490120
       }
     },
     "modelSummary": {
       "iPhone 18 Pro Max": {
-        "sold": 6,
+        "sold": 9,
         "stock": 2
       },
       "iPhone 18 Pro": {
-        "sold": 9,
-        "stock": 1
+        "sold": 11,
+        "stock": 4
       }
     },
     "suplife": {
-      "iphone18Units": 15,
-      "suplifeCount": 18,
-      "attachRate": 120.0
+      "iphone18Units": 20,
+      "suplifeCount": 27,
+      "attachRate": 135.0
     }
   }
 ]
