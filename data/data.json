@@ -8,40 +8,12 @@
     "targetWeek": 9765,
     "days": [
       {
-        "date": "2026-08-31",
-        "value": 1198
-      },
-      {
-        "date": "2026-09-01",
-        "value": 599
-      },
-      {
-        "date": "2026-09-02",
-        "value": 399
-      },
-      {
-        "date": "2026-09-03",
-        "value": 399
-      },
-      {
-        "date": "2026-09-04",
-        "value": 499
-      },
-      {
-        "date": "2026-09-05",
-        "value": 399
-      },
-      {
-        "date": "2026-09-06",
-        "value": 599
-      },
-      {
         "date": "2026-09-07",
-        "value": 1398
+        "value": 0
       },
       {
         "date": "2026-09-08",
-        "value": 998
+        "value": 0
       },
       {
         "date": "2026-09-09",
@@ -49,15 +21,15 @@
       },
       {
         "date": "2026-09-10",
-        "value": 1499
+        "value": 0
       },
       {
         "date": "2026-09-11",
-        "value": 399
+        "value": 0
       },
       {
         "date": "2026-09-12",
-        "value": 1098
+        "value": 0
       },
       {
         "date": "2026-09-13",
@@ -65,11 +37,11 @@
       },
       {
         "date": "2026-09-14",
-        "value": 444
+        "value": 0
       },
       {
         "date": "2026-09-15",
-        "value": 943
+        "value": 0
       },
       {
         "date": "2026-09-16",
@@ -93,11 +65,11 @@
       },
       {
         "date": "2026-09-21",
-        "value": 249
+        "value": 0
       },
       {
         "date": "2026-09-22",
-        "value": 699
+        "value": 0
       },
       {
         "date": "2026-09-23",
@@ -120,12 +92,12 @@
         "value": 0
       }
     ],
-    "sumWk1": 948,
-    "pctAch": 9.7,
-    "gapWeek": 948,
-    "rrWeek": 948,
-    "lWeek": 1387,
-    "wow": -31.65
+    "sumWk1": 0,
+    "pctAch": 0.0,
+    "gapWeek": 0,
+    "rrWeek": 0,
+    "lWeek": 0,
+    "wow": null
   },
   {
     "category": "POSTPAY",
@@ -136,100 +108,72 @@
     "targetWeek": 23982,
     "days": [
       {
-        "date": "2026-08-31",
-        "value": 499
-      },
-      {
-        "date": "2026-09-01",
-        "value": 4492
-      },
-      {
-        "date": "2026-09-02",
-        "value": 2694
-      },
-      {
-        "date": "2026-09-03",
-        "value": 3347
-      },
-      {
-        "date": "2026-09-04",
-        "value": 3595
-      },
-      {
-        "date": "2026-09-05",
-        "value": 3695
-      },
-      {
-        "date": "2026-09-06",
-        "value": 2695
-      },
-      {
         "date": "2026-09-07",
-        "value": 798
+        "value": 0
       },
       {
         "date": "2026-09-08",
-        "value": 2825
+        "value": 0
       },
       {
         "date": "2026-09-09",
-        "value": 2230
+        "value": 0
       },
       {
         "date": "2026-09-10",
-        "value": 4242
+        "value": 0
       },
       {
         "date": "2026-09-11",
-        "value": 2176
+        "value": 0
       },
       {
         "date": "2026-09-12",
-        "value": 3046
+        "value": 0
       },
       {
         "date": "2026-09-13",
-        "value": 3344
+        "value": 0
       },
       {
         "date": "2026-09-14",
-        "value": 4335
+        "value": 0
       },
       {
         "date": "2026-09-15",
-        "value": 1646
+        "value": 0
       },
       {
         "date": "2026-09-16",
-        "value": 899
+        "value": 0
       },
       {
         "date": "2026-09-17",
-        "value": 3547
+        "value": 0
       },
       {
         "date": "2026-09-18",
-        "value": 2734
+        "value": 0
       },
       {
         "date": "2026-09-19",
-        "value": 4134
+        "value": 0
       },
       {
         "date": "2026-09-20",
-        "value": 2636
+        "value": 0
       },
       {
         "date": "2026-09-21",
-        "value": 2087
+        "value": 0
       },
       {
         "date": "2026-09-22",
-        "value": 2097
+        "value": 0
       },
       {
         "date": "2026-09-23",
-        "value": 1636
+        "value": 0
       },
       {
         "date": "2026-09-24",
@@ -245,15 +189,15 @@
       },
       {
         "date": "2026-09-27",
-        "value": 333
+        "value": 0
       }
     ],
-    "sumWk1": 6153,
-    "pctAch": 63.0,
-    "gapWeek": 6153,
-    "rrWeek": 6153,
-    "lWeek": 19931,
-    "wow": -69.13
+    "sumWk1": 0,
+    "pctAch": 0.0,
+    "gapWeek": 0,
+    "rrWeek": 0,
+    "lWeek": 0,
+    "wow": null
   },
   {
     "category": "POSTPAY",
@@ -264,60 +208,32 @@
     "targetWeek": 11697,
     "days": [
       {
-        "date": "2026-08-31",
-        "value": 2417
-      },
-      {
-        "date": "2026-09-01",
-        "value": 2347
-      },
-      {
-        "date": "2026-09-02",
-        "value": 1198
-      },
-      {
-        "date": "2026-09-03",
-        "value": 2675
-      },
-      {
-        "date": "2026-09-04",
-        "value": 1598
-      },
-      {
-        "date": "2026-09-05",
-        "value": 1577
-      },
-      {
-        "date": "2026-09-06",
-        "value": 2994
-      },
-      {
         "date": "2026-09-07",
         "value": 0
       },
       {
         "date": "2026-09-08",
-        "value": 599
+        "value": 0
       },
       {
         "date": "2026-09-09",
-        "value": 1199
+        "value": 0
       },
       {
         "date": "2026-09-10",
-        "value": 1597
+        "value": 0
       },
       {
         "date": "2026-09-11",
-        "value": 1737
+        "value": 0
       },
       {
         "date": "2026-09-12",
-        "value": 339
+        "value": 0
       },
       {
         "date": "2026-09-13",
-        "value": 499
+        "value": 0
       },
       {
         "date": "2026-09-14",
@@ -325,11 +241,11 @@
       },
       {
         "date": "2026-09-15",
-        "value": 399
+        "value": 0
       },
       {
         "date": "2026-09-16",
-        "value": 798
+        "value": 0
       },
       {
         "date": "2026-09-17",
@@ -337,27 +253,27 @@
       },
       {
         "date": "2026-09-18",
-        "value": 1398
+        "value": 0
       },
       {
         "date": "2026-09-19",
-        "value": 2397
+        "value": 0
       },
       {
         "date": "2026-09-20",
-        "value": 998
+        "value": 0
       },
       {
         "date": "2026-09-21",
-        "value": 1199
+        "value": 0
       },
       {
         "date": "2026-09-22",
-        "value": 1198
+        "value": 0
       },
       {
         "date": "2026-09-23",
-        "value": 1998
+        "value": 0
       },
       {
         "date": "2026-09-24",
@@ -376,12 +292,12 @@
         "value": 0
       }
     ],
-    "sumWk1": 4395,
-    "pctAch": 45.0,
-    "gapWeek": 4395,
-    "rrWeek": 4395,
-    "lWeek": 5990,
-    "wow": -26.63
+    "sumWk1": 0,
+    "pctAch": 0.0,
+    "gapWeek": 0,
+    "rrWeek": 0,
+    "lWeek": 0,
+    "wow": null
   },
   {
     "category": "POSTPAY",
@@ -392,34 +308,6 @@
     "targetWeek": 3647,
     "days": [
       {
-        "date": "2026-08-31",
-        "value": 0
-      },
-      {
-        "date": "2026-09-01",
-        "value": 399
-      },
-      {
-        "date": "2026-09-02",
-        "value": 399
-      },
-      {
-        "date": "2026-09-03",
-        "value": 399
-      },
-      {
-        "date": "2026-09-04",
-        "value": 399
-      },
-      {
-        "date": "2026-09-05",
-        "value": 0
-      },
-      {
-        "date": "2026-09-06",
-        "value": 0
-      },
-      {
         "date": "2026-09-07",
         "value": 0
       },
@@ -429,7 +317,7 @@
       },
       {
         "date": "2026-09-09",
-        "value": 399
+        "value": 0
       },
       {
         "date": "2026-09-10",
@@ -437,7 +325,7 @@
       },
       {
         "date": "2026-09-11",
-        "value": 1098
+        "value": 0
       },
       {
         "date": "2026-09-12",
@@ -473,7 +361,7 @@
       },
       {
         "date": "2026-09-20",
-        "value": 699
+        "value": 0
       },
       {
         "date": "2026-09-21",
@@ -481,7 +369,7 @@
       },
       {
         "date": "2026-09-22",
-        "value": 1695
+        "value": 0
       },
       {
         "date": "2026-09-23",
@@ -504,12 +392,12 @@
         "value": 0
       }
     ],
-    "sumWk1": 1695,
-    "pctAch": 17.4,
-    "gapWeek": 1695,
-    "rrWeek": 1695,
-    "lWeek": 699,
-    "wow": 142.49
+    "sumWk1": 0,
+    "pctAch": 0.0,
+    "gapWeek": 0,
+    "rrWeek": 0,
+    "lWeek": 0,
+    "wow": null
   },
   {
     "category": "POSTPAY",
@@ -520,34 +408,6 @@
     "targetWeek": 1981,
     "days": [
       {
-        "date": "2026-08-31",
-        "value": 0
-      },
-      {
-        "date": "2026-09-01",
-        "value": 0
-      },
-      {
-        "date": "2026-09-02",
-        "value": 0
-      },
-      {
-        "date": "2026-09-03",
-        "value": 699
-      },
-      {
-        "date": "2026-09-04",
-        "value": 0
-      },
-      {
-        "date": "2026-09-05",
-        "value": 0
-      },
-      {
-        "date": "2026-09-06",
-        "value": 0
-      },
-      {
         "date": "2026-09-07",
         "value": 0
       },
@@ -557,11 +417,11 @@
       },
       {
         "date": "2026-09-09",
-        "value": 399
+        "value": 0
       },
       {
         "date": "2026-09-10",
-        "value": 399
+        "value": 0
       },
       {
         "date": "2026-09-11",
@@ -577,7 +437,7 @@
       },
       {
         "date": "2026-09-14",
-        "value": 339
+        "value": 0
       },
       {
         "date": "2026-09-15",
@@ -636,8 +496,8 @@
     "pctAch": 0.0,
     "gapWeek": 0,
     "rrWeek": 0,
-    "lWeek": 339,
-    "wow": -100.0
+    "lWeek": 0,
+    "wow": null
   },
   {
     "category": "POSTPAY",
@@ -648,44 +508,16 @@
     "targetWeek": 1981,
     "days": [
       {
-        "date": "2026-08-31",
-        "value": 0
-      },
-      {
-        "date": "2026-09-01",
-        "value": 0
-      },
-      {
-        "date": "2026-09-02",
-        "value": 0
-      },
-      {
-        "date": "2026-09-03",
-        "value": 0
-      },
-      {
-        "date": "2026-09-04",
-        "value": 998
-      },
-      {
-        "date": "2026-09-05",
-        "value": 444
-      },
-      {
-        "date": "2026-09-06",
-        "value": 0
-      },
-      {
         "date": "2026-09-07",
         "value": 0
       },
       {
         "date": "2026-09-08",
-        "value": 549
+        "value": 0
       },
       {
         "date": "2026-09-09",
-        "value": 599
+        "value": 0
       },
       {
         "date": "2026-09-10",
@@ -693,11 +525,11 @@
       },
       {
         "date": "2026-09-11",
-        "value": 732
+        "value": 0
       },
       {
         "date": "2026-09-12",
-        "value": 732
+        "value": 0
       },
       {
         "date": "2026-09-13",
@@ -717,7 +549,7 @@
       },
       {
         "date": "2026-09-17",
-        "value": 899
+        "value": 0
       },
       {
         "date": "2026-09-18",
@@ -725,7 +557,7 @@
       },
       {
         "date": "2026-09-19",
-        "value": 499
+        "value": 0
       },
       {
         "date": "2026-09-20",
@@ -764,20 +596,20 @@
     "pctAch": 0.0,
     "gapWeek": 0,
     "rrWeek": 0,
-    "lWeek": 1398,
-    "wow": -100.0
+    "lWeek": 0,
+    "wow": null
   },
   {
     "category": "TOL",
     "shopCode": "80100805",
     "shopName": "True Shop Lotus's Phatthanakan",
     "typeShop": "Non Matching",
-    "targetDay": 0,
+    "targetDay": 1,
     "targetWeek": 1,
     "days": [
       {
         "date": "2026-08-31",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-01",
@@ -817,7 +649,7 @@
       },
       {
         "date": "2026-09-10",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-11",
@@ -833,7 +665,7 @@
       },
       {
         "date": "2026-09-14",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-15",
@@ -853,7 +685,7 @@
       },
       {
         "date": "2026-09-19",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-20",
@@ -861,11 +693,11 @@
       },
       {
         "date": "2026-09-21",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-22",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-23",
@@ -888,12 +720,12 @@
         "value": 0
       }
     ],
-    "sumWk1": 2,
+    "sumWk1": 0,
     "pctAch": 0.0,
-    "gapWeek": 2,
-    "rrWeek": 2,
-    "lWeek": 2,
-    "wow": 0.0
+    "gapWeek": 0,
+    "rrWeek": 0,
+    "lWeek": 0,
+    "wow": null
   },
   {
     "category": "TOL",
@@ -905,19 +737,19 @@
     "days": [
       {
         "date": "2026-08-31",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-01",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-02",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-03",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-04",
@@ -933,31 +765,31 @@
       },
       {
         "date": "2026-09-07",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-08",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-09",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-10",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-11",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-12",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-13",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-14",
@@ -965,7 +797,7 @@
       },
       {
         "date": "2026-09-15",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-16",
@@ -985,19 +817,19 @@
       },
       {
         "date": "2026-09-20",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-21",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-22",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-23",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-24",
@@ -1016,19 +848,19 @@
         "value": 0
       }
     ],
-    "sumWk1": 3,
+    "sumWk1": 0,
     "pctAch": 0.0,
-    "gapWeek": 3,
-    "rrWeek": 3,
-    "lWeek": 2,
-    "wow": 50.0
+    "gapWeek": 0,
+    "rrWeek": 0,
+    "lWeek": 0,
+    "wow": null
   },
   {
     "category": "TOL",
     "shopCode": "80101632",
     "shopName": "True Shop Lotus's Bangna-trad",
     "typeShop": "Non Matching",
-    "targetDay": 0,
+    "targetDay": 1,
     "targetWeek": 1,
     "days": [
       {
@@ -1045,11 +877,11 @@
       },
       {
         "date": "2026-09-03",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-04",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-05",
@@ -1057,19 +889,19 @@
       },
       {
         "date": "2026-09-06",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-07",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-08",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-09",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-10",
@@ -1085,11 +917,11 @@
       },
       {
         "date": "2026-09-13",
-        "value": 2
+        "value": 0
       },
       {
         "date": "2026-09-14",
-        "value": 2
+        "value": 0
       },
       {
         "date": "2026-09-15",
@@ -1113,11 +945,11 @@
       },
       {
         "date": "2026-09-20",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-21",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-22",
@@ -1125,7 +957,7 @@
       },
       {
         "date": "2026-09-23",
-        "value": 1
+        "value": 0
       },
       {
         "date": "2026-09-24",
@@ -1144,12 +976,12 @@
         "value": 0
       }
     ],
-    "sumWk1": 2,
+    "sumWk1": 0,
     "pctAch": 0.0,
-    "gapWeek": 2,
-    "rrWeek": 2,
-    "lWeek": 3,
-    "wow": -33.33
+    "gapWeek": 0,
+    "rrWeek": 0,
+    "lWeek": 0,
+    "wow": null
   },
   {
     "category": "DEVICE",
@@ -1161,47 +993,47 @@
     "days": [
       {
         "date": "2026-08-31",
-        "value": 34407
+        "value": 0
       },
       {
         "date": "2026-09-01",
-        "value": 2396
+        "value": 0
       },
       {
         "date": "2026-09-02",
-        "value": 2498
+        "value": 0
       },
       {
         "date": "2026-09-03",
-        "value": 4797
+        "value": 0
       },
       {
         "date": "2026-09-04",
-        "value": 1198
+        "value": 0
       },
       {
         "date": "2026-09-05",
-        "value": 35880
+        "value": 0
       },
       {
         "date": "2026-09-06",
-        "value": 6789
+        "value": 0
       },
       {
         "date": "2026-09-07",
-        "value": 3096
+        "value": 0
       },
       {
         "date": "2026-09-08",
-        "value": 4297
+        "value": 0
       },
       {
         "date": "2026-09-09",
-        "value": 2499
+        "value": 0
       },
       {
         "date": "2026-09-10",
-        "value": 112540
+        "value": 0
       },
       {
         "date": "2026-09-11",
@@ -1209,43 +1041,43 @@
       },
       {
         "date": "2026-09-12",
-        "value": 39679
+        "value": 0
       },
       {
         "date": "2026-09-13",
-        "value": 88178
+        "value": 0
       },
       {
         "date": "2026-09-14",
-        "value": 72060
+        "value": 0
       },
       {
         "date": "2026-09-15",
-        "value": 54277
+        "value": 0
       },
       {
         "date": "2026-09-16",
-        "value": 1846
+        "value": 0
       },
       {
         "date": "2026-09-17",
-        "value": 32280
+        "value": 0
       },
       {
         "date": "2026-09-18",
-        "value": 137060
+        "value": 0
       },
       {
         "date": "2026-09-19",
-        "value": 45278
+        "value": 0
       },
       {
         "date": "2026-09-20",
-        "value": 29698
+        "value": 0
       },
       {
         "date": "2026-09-21",
-        "value": 1898
+        "value": 0
       },
       {
         "date": "2026-09-22",
@@ -1253,15 +1085,15 @@
       },
       {
         "date": "2026-09-23",
-        "value": 40079
+        "value": 0
       },
       {
         "date": "2026-09-24",
-        "value": 58599
+        "value": 0
       },
       {
         "date": "2026-09-25",
-        "value": 54399
+        "value": 0
       },
       {
         "date": "2026-09-26",
@@ -1272,12 +1104,12 @@
         "value": 0
       }
     ],
-    "sumWk1": 154975,
-    "pctAch": 1587.0,
-    "gapWeek": 96376,
-    "rrWeek": 154975,
-    "lWeek": 372499,
-    "wow": -58.4
+    "sumWk1": 0,
+    "pctAch": 0.0,
+    "gapWeek": 0,
+    "rrWeek": 0,
+    "lWeek": 0,
+    "wow": null
   },
   {
     "category": "DEVICE",
@@ -1293,67 +1125,67 @@
       },
       {
         "date": "2026-09-01",
-        "value": 32399
+        "value": 0
       },
       {
         "date": "2026-09-02",
-        "value": 59297
+        "value": 0
       },
       {
         "date": "2026-09-03",
-        "value": 39610
+        "value": 0
       },
       {
         "date": "2026-09-04",
-        "value": 39949
+        "value": 0
       },
       {
         "date": "2026-09-05",
-        "value": 168675
+        "value": 0
       },
       {
         "date": "2026-09-06",
-        "value": 163839
+        "value": 0
       },
       {
         "date": "2026-09-07",
-        "value": 50600
+        "value": 0
       },
       {
         "date": "2026-09-08",
-        "value": 64429
+        "value": 0
       },
       {
         "date": "2026-09-09",
-        "value": 299
+        "value": 0
       },
       {
         "date": "2026-09-10",
-        "value": 296899
+        "value": 0
       },
       {
         "date": "2026-09-11",
-        "value": 190639
+        "value": 0
       },
       {
         "date": "2026-09-12",
-        "value": 77779
+        "value": 0
       },
       {
         "date": "2026-09-13",
-        "value": 303180
+        "value": 0
       },
       {
         "date": "2026-09-14",
-        "value": 6698
+        "value": 0
       },
       {
         "date": "2026-09-15",
-        "value": 299
+        "value": 0
       },
       {
         "date": "2026-09-16",
-        "value": 160418
+        "value": 0
       },
       {
         "date": "2026-09-17",
@@ -1361,35 +1193,35 @@
       },
       {
         "date": "2026-09-18",
-        "value": 752180
+        "value": 0
       },
       {
         "date": "2026-09-19",
-        "value": 366275
+        "value": 0
       },
       {
         "date": "2026-09-20",
-        "value": 440476
+        "value": 0
       },
       {
         "date": "2026-09-21",
-        "value": 235069
+        "value": 0
       },
       {
         "date": "2026-09-22",
-        "value": 242319
+        "value": 0
       },
       {
         "date": "2026-09-23",
-        "value": 40200
+        "value": 0
       },
       {
         "date": "2026-09-24",
-        "value": 495479
+        "value": 0
       },
       {
         "date": "2026-09-25",
-        "value": 103908
+        "value": 0
       },
       {
         "date": "2026-09-26",
@@ -1397,15 +1229,15 @@
       },
       {
         "date": "2026-09-27",
-        "value": 58760
+        "value": 0
       }
     ],
-    "sumWk1": 1175735,
-    "pctAch": 12040.3,
-    "gapWeek": 680256,
-    "rrWeek": 1175735,
-    "lWeek": 1726346,
-    "wow": -31.89
+    "sumWk1": 0,
+    "pctAch": 0.0,
+    "gapWeek": 0,
+    "rrWeek": 0,
+    "lWeek": 0,
+    "wow": null
   },
   {
     "category": "DEVICE",
@@ -1417,103 +1249,103 @@
     "days": [
       {
         "date": "2026-08-31",
-        "value": 68106
+        "value": 0
       },
       {
         "date": "2026-09-01",
-        "value": 32397
+        "value": 0
       },
       {
         "date": "2026-09-02",
-        "value": 5597
+        "value": 0
       },
       {
         "date": "2026-09-03",
-        "value": 20248
+        "value": 0
       },
       {
         "date": "2026-09-04",
-        "value": 32299
+        "value": 0
       },
       {
         "date": "2026-09-05",
-        "value": 163839
+        "value": 0
       },
       {
         "date": "2026-09-06",
-        "value": 192124
+        "value": 0
       },
       {
         "date": "2026-09-07",
-        "value": 85059
+        "value": 0
       },
       {
         "date": "2026-09-08",
-        "value": 52248
+        "value": 0
       },
       {
         "date": "2026-09-09",
-        "value": 8548
+        "value": 0
       },
       {
         "date": "2026-09-10",
-        "value": 88947
+        "value": 0
       },
       {
         "date": "2026-09-11",
-        "value": 65627
+        "value": 0
       },
       {
         "date": "2026-09-12",
-        "value": 67278
+        "value": 0
       },
       {
         "date": "2026-09-13",
-        "value": 304886
+        "value": 0
       },
       {
         "date": "2026-09-14",
-        "value": 139739
+        "value": 0
       },
       {
         "date": "2026-09-15",
-        "value": 18489
+        "value": 0
       },
       {
         "date": "2026-09-16",
-        "value": 124438
+        "value": 0
       },
       {
         "date": "2026-09-17",
-        "value": 29399
+        "value": 0
       },
       {
         "date": "2026-09-18",
-        "value": 277760
+        "value": 0
       },
       {
         "date": "2026-09-19",
-        "value": 150457
+        "value": 0
       },
       {
         "date": "2026-09-20",
-        "value": 221593
+        "value": 0
       },
       {
         "date": "2026-09-21",
-        "value": 138024
+        "value": 0
       },
       {
         "date": "2026-09-22",
-        "value": 162816
+        "value": 0
       },
       {
         "date": "2026-09-23",
-        "value": 41200
+        "value": 0
       },
       {
         "date": "2026-09-24",
-        "value": 220596
+        "value": 0
       },
       {
         "date": "2026-09-25",
@@ -1525,14 +1357,14 @@
       },
       {
         "date": "2026-09-27",
-        "value": 83192
+        "value": 0
       }
     ],
-    "sumWk1": 645828,
-    "pctAch": 6613.7,
-    "gapWeek": 425232,
-    "rrWeek": 645828,
-    "lWeek": 961875,
-    "wow": -32.86
+    "sumWk1": 0,
+    "pctAch": 0.0,
+    "gapWeek": 0,
+    "rrWeek": 0,
+    "lWeek": 0,
+    "wow": null
   }
 ]
